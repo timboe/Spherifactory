@@ -111,64 +111,6 @@ assets/button_tabs/button.png
 
 assets/fx/light_blue.png
 
-assets/godot_theme/button/disabled_tab.stylebox
-
-assets/godot_theme/button/disabled.png
-
-assets/godot_theme/button/disabled.stylebox
-
-assets/godot_theme/button/focused.png
-
-assets/godot_theme/button/focused.stylebox
-
-assets/godot_theme/button/hover_v2.png
-
-assets/godot_theme/button/hover_v2.stylebox
-
-assets/godot_theme/button/hover.png
-
-assets/godot_theme/button/hover.stylebox
-
-assets/godot_theme/button/normal_tab.stylebox
-
-assets/godot_theme/button/normal.png
-
-assets/godot_theme/button/normal.stylebox
-
-assets/godot_theme/button/pressed_tab.stylebox
-
-assets/godot_theme/button/pressed.png
-
-assets/godot_theme/button/pressed.stylebox
-
-assets/godot_theme/gui.theme
-
-assets/godot_theme/panel/panel_on.stylebox
-
-assets/godot_theme/panel/panel_v2_off.stylebox
-
-assets/godot_theme/panel/panel_v2_on.stylebox
-
-assets/godot_theme/panel/panel_v2.stylebox
-
-assets/godot_theme/panel/panel.stylebox
-
-assets/godot_theme/slider/grabber_on.png
-
-assets/godot_theme/slider/grabber_on.stylebox
-
-assets/godot_theme/slider/grabber.png
-
-assets/godot_theme/slider/grabber.stylebox
-
-assets/godot_theme/slider/progress.png
-
-assets/godot_theme/slider/progress.stylebox
-
-assets/godot_theme/slider/range.png
-
-assets/godot_theme/slider/slider.stylebox
-
 assets/icons/arrow_down.png
 
 assets/icons/arrow_right.png
@@ -324,8 +266,6 @@ fonts/texte.csv
 fonts/texte.en.translation
 
 fonts/texte.fr.translation
-
-assets/godot_theme/unedited_gui.theme
 
 *.apk
 
