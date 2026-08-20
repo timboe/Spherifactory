@@ -296,19 +296,16 @@ __meta__ = {
 }
 
 [node name="MainMenu" type="CenterContainer" parent="." groups=["PrimaryMenuElement"]]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
-margin_left = 466.0
+margin_left = 426.0
 margin_top = 132.0
-margin_right = 814.0
+margin_right = 854.0
 margin_bottom = 587.0
+size_flags_horizontal = 3
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
@@ -318,14 +315,15 @@ custom_constants/margin_bottom = 32
 modulate = Color( 1, 1, 1, 0.501961 )
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 316.0
+margin_right = 396.0
 margin_bottom = 423.0
+size_flags_horizontal = 3
 custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer"]
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 316.0
+margin_right = 396.0
 margin_bottom = 423.0
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
@@ -335,32 +333,34 @@ custom_constants/margin_bottom = 32
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer/MarginContainer"]
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 252.0
+margin_right = 332.0
 margin_bottom = 359.0
 rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
 custom_constants/separation = 16
 
 [node name="NewCampaign" type="Button" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 32.0
+margin_right = 300.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
 text = "ui_new_campaign"
 icon = ExtResource( 14 )
 expand_icon = true
 
 [node name="LoadButton" type="Button" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 48.0
-margin_right = 200.0
-margin_bottom = 80.0
+margin_top = 49.0
+margin_right = 300.0
+margin_bottom = 82.0
 rect_min_size = Vector2( 0, 32 )
 text = "ui_load_game"
 icon = ExtResource( 22 )
 expand_icon = true
 
 [node name="LanguageButton" type="MenuButton" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 96.0
-margin_right = 200.0
-margin_bottom = 128.0
+margin_top = 98.0
+margin_right = 300.0
+margin_bottom = 131.0
 rect_min_size = Vector2( 0, 32 )
 text = "ui_language"
 icon = ExtResource( 33 )
@@ -372,42 +372,43 @@ __meta__ = {
 }
 
 [node name="SettingsButton" type="Button" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 144.0
-margin_right = 200.0
-margin_bottom = 176.0
-rect_min_size = Vector2( 0, 32 )
+margin_top = 147.0
+margin_right = 300.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 300, 32 )
 text = "ui_settings"
 icon = ExtResource( 20 )
 expand_icon = true
 
 [node name="EditorButton" type="Button" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 192.0
-margin_right = 200.0
-margin_bottom = 224.0
+margin_top = 196.0
+margin_right = 300.0
+margin_bottom = 229.0
 rect_min_size = Vector2( 0, 32 )
 text = "ui_campaign_manager"
 icon = ExtResource( 19 )
 expand_icon = true
 
 [node name="CreditsButton" type="Button" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 240.0
-margin_right = 200.0
-margin_bottom = 272.0
+margin_top = 245.0
+margin_right = 300.0
+margin_bottom = 278.0
 rect_min_size = Vector2( 0, 32 )
 text = "ui_credits"
 icon = ExtResource( 18 )
 expand_icon = true
 
 [node name="ExitButton" type="Button" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 288.0
-margin_right = 200.0
-margin_bottom = 320.0
+margin_top = 294.0
+margin_right = 300.0
+margin_bottom = 327.0
 rect_min_size = Vector2( 0, 32 )
 text = "ui_exit_desktop"
 icon = ExtResource( 21 )
 expand_icon = true
 
 [node name="CampaignManager" type="CenterContainer" parent="." groups=["PrimaryMenuElement"]]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -796,134 +797,113 @@ follow_focus = true
 
 [node name="VB2" type="VBoxContainer" parent="Settings/MC/MC/VB/SC"]
 margin_right = 512.0
-margin_bottom = 359.0
+margin_bottom = 329.0
 size_flags_horizontal = 3
 
 [node name="SG" type="GridContainer" parent="Settings/MC/MC/VB/SC/VB2"]
 margin_right = 512.0
-margin_bottom = 123.0
+margin_bottom = 109.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 10
 custom_constants/hseparation = 8
 columns = 2
 
-[node name="HSeparator5" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2/SG"]
-margin_right = 252.0
-margin_bottom = 4.0
-
-[node name="HSeparator6" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2/SG"]
-margin_left = 260.0
-margin_right = 512.0
-margin_bottom = 4.0
-
 [node name="Label" type="Label" parent="Settings/MC/MC/VB/SC/VB2/SG"]
-margin_top = 14.0
 margin_right = 252.0
-margin_bottom = 39.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 text = "ui_music_volume"
 align = 2
 
 [node name="MusicSlider" type="HSlider" parent="Settings/MC/MC/VB/SC/VB2/SG"]
 margin_left = 260.0
-margin_top = 14.0
 margin_right = 512.0
-margin_bottom = 30.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 tick_count = 10
 
 [node name="Label2" type="Label" parent="Settings/MC/MC/VB/SC/VB2/SG"]
-margin_top = 49.0
+margin_top = 35.0
 margin_right = 252.0
-margin_bottom = 74.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 text = "ui_sfx_volume"
 align = 2
 
 [node name="SFXSlider" type="HSlider" parent="Settings/MC/MC/VB/SC/VB2/SG"]
 margin_left = 260.0
-margin_top = 49.0
+margin_top = 35.0
 margin_right = 512.0
-margin_bottom = 65.0
+margin_bottom = 51.0
 size_flags_horizontal = 3
 tick_count = 10
 
 [node name="Label8" type="Label" parent="Settings/MC/MC/VB/SC/VB2/SG"]
-margin_top = 84.0
+margin_top = 70.0
 margin_right = 252.0
-margin_bottom = 109.0
+margin_bottom = 95.0
 size_flags_horizontal = 3
 text = "ui_beeps_volume"
 align = 2
 
 [node name="BeepsSlider" type="HSlider" parent="Settings/MC/MC/VB/SC/VB2/SG"]
 margin_left = 260.0
-margin_top = 84.0
+margin_top = 70.0
 margin_right = 512.0
-margin_bottom = 100.0
+margin_bottom = 86.0
 size_flags_horizontal = 3
 tick_count = 10
 
 [node name="HSeparator" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2/SG"]
-margin_top = 119.0
+margin_top = 105.0
 margin_right = 252.0
-margin_bottom = 123.0
+margin_bottom = 109.0
 
 [node name="HSeparator2" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2/SG"]
 margin_left = 260.0
-margin_top = 119.0
+margin_top = 105.0
 margin_right = 512.0
-margin_bottom = 123.0
+margin_bottom = 109.0
 
 [node name="TutorialButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/VB2"]
-margin_top = 127.0
+margin_top = 113.0
 margin_right = 512.0
-margin_bottom = 167.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 text = "ui_tutorial_enabled"
 align = 1
 
 [node name="SunButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/VB2"]
-margin_top = 171.0
+margin_top = 157.0
 margin_right = 512.0
-margin_bottom = 211.0
+margin_bottom = 197.0
 size_flags_horizontal = 3
 text = "ui_fancy_sun"
 align = 1
 
 [node name="HideButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/VB2"]
-margin_top = 215.0
+margin_top = 201.0
 margin_right = 512.0
-margin_bottom = 255.0
+margin_bottom = 241.0
 size_flags_horizontal = 3
 text = "ui_auto_hide_ui"
 align = 1
 
 [node name="ShakeButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/VB2"]
-margin_top = 259.0
+margin_top = 245.0
 margin_right = 512.0
-margin_bottom = 299.0
+margin_bottom = 285.0
 size_flags_horizontal = 3
 text = "ui_screen_shake"
 align = 1
 
 [node name="FullscreenButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/VB2"]
-margin_top = 303.0
+margin_top = 289.0
 margin_right = 512.0
-margin_bottom = 343.0
+margin_bottom = 329.0
 size_flags_horizontal = 3
 text = "ui_fullscreen"
 align = 1
-
-[node name="HSeparator3" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2"]
-margin_top = 347.0
-margin_right = 512.0
-margin_bottom = 351.0
-
-[node name="HSeparator4" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2"]
-margin_top = 355.0
-margin_right = 512.0
-margin_bottom = 359.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Settings/MC/MC/VB"]
 margin_top = 354.0
@@ -945,6 +925,7 @@ icon = ExtResource( 16 )
 expand_icon = true
 
 [node name="Credits" type="CenterContainer" parent="." groups=["PrimaryMenuElement"]]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -993,7 +974,7 @@ rect_min_size = Vector2( 512, 350 )
 follow_focus = true
 
 [node name="VB" type="VBoxContainer" parent="Credits/MC/MC/VB/SC"]
-margin_right = 504.0
+margin_right = 512.0
 margin_bottom = 21697.0
 size_flags_horizontal = 3
 
@@ -1310,32 +1291,32 @@ margin_bottom = 571.0
 custom_constants/separation = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer"]
-margin_right = 870.0
-margin_bottom = 72.0
+margin_right = 975.0
+margin_bottom = 74.0
 custom_constants/separation = 32
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 406.0
-margin_bottom = 72.0
+margin_right = 511.0
+margin_bottom = 74.0
 size_flags_horizontal = 3
 
 [node name="GridContainer" type="GridContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 406.0
-margin_bottom = 54.0
+margin_right = 511.0
+margin_bottom = 64.0
 custom_constants/vseparation = 8
 custom_constants/hseparation = 8
 columns = 2
 
 [node name="Label" type="Label" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
-margin_top = 5.0
-margin_right = 119.0
-margin_bottom = 23.0
+margin_top = 3.0
+margin_right = 167.0
+margin_bottom = 28.0
 text = "ui_campaign_name"
 
 [node name="CampaignName" type="LineEdit" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
-margin_left = 127.0
-margin_right = 406.0
-margin_bottom = 28.0
+margin_left = 175.0
+margin_right = 454.0
+margin_bottom = 31.0
 rect_min_size = Vector2( 256, 0 )
 max_length = 20
 __meta__ = {
@@ -1343,26 +1324,26 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
-margin_top = 36.0
-margin_right = 119.0
-margin_bottom = 54.0
+margin_top = 39.0
+margin_right = 167.0
+margin_bottom = 64.0
 text = "ui_missions"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
-margin_left = 127.0
-margin_top = 36.0
-margin_right = 406.0
-margin_bottom = 54.0
+margin_left = 175.0
+margin_top = 39.0
+margin_right = 454.0
+margin_bottom = 64.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="N" type="Label" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/HBoxContainer"]
 margin_right = 19.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 rect_min_size = Vector2( 19, 0 )
 text = "1"
 __meta__ = {
@@ -1386,16 +1367,16 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 438.0
-margin_right = 870.0
-margin_bottom = 72.0
+margin_left = 543.0
+margin_right = 975.0
+margin_bottom = 74.0
 custom_constants/vseparation = 8
 custom_constants/hseparation = 32
 columns = 2
 
 [node name="CustomResource" type="MenuButton" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" groups=["ResRecUpdateGroup"]]
 margin_right = 200.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 200, 32 )
 text = "ui_resources_editor"
 icon = ExtResource( 17 )
@@ -1406,7 +1387,7 @@ script = SubResource( 12 )
 [node name="Save" type="Button" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
 margin_left = 232.0
 margin_right = 432.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 0, 32 )
 text = "ui_save"
 icon = ExtResource( 11 )
@@ -1414,9 +1395,9 @@ expand_icon = true
 script = ExtResource( 3 )
 
 [node name="CustomRecipy" type="MenuButton" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" groups=["ResRecUpdateGroup"]]
-margin_top = 40.0
+margin_top = 41.0
 margin_right = 200.0
-margin_bottom = 72.0
+margin_bottom = 74.0
 text = "ui_recipe_editor"
 icon = ExtResource( 18 )
 flat = false
@@ -1425,9 +1406,9 @@ script = SubResource( 13 )
 
 [node name="Discard" type="Button" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
 margin_left = 232.0
-margin_top = 40.0
+margin_top = 41.0
 margin_right = 432.0
-margin_bottom = 72.0
+margin_bottom = 74.0
 rect_min_size = Vector2( 200, 32 )
 text = "ui_discard_changes"
 icon = ExtResource( 8 )
@@ -1435,9 +1416,9 @@ expand_icon = true
 script = ExtResource( 3 )
 
 [node name="TabContainer" type="TabContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 76.0
-margin_right = 870.0
-margin_bottom = 604.0
+margin_top = 78.0
+margin_right = 975.0
+margin_bottom = 686.0
 rect_min_size = Vector2( 720, 485 )
 custom_colors/font_color_bg = Color( 0.701961, 0.701961, 0.701961, 1 )
 tab_align = 0
@@ -1453,421 +1434,439 @@ margin_right = 955.0
 margin_bottom = 553.0
 
 [node name="Section1" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer" index="0"]
-margin_right = 839.0
-margin_bottom = 26.0
+margin_right = 947.0
+margin_bottom = 33.0
 
 [node name="Section1a" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/Section1" index="0"]
 margin_top = 4.0
-margin_right = 156.0
-margin_bottom = 22.0
+margin_right = 222.0
+margin_bottom = 29.0
 
 [node name="MarginContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/Section1" index="1"]
-margin_left = 164.0
-margin_right = 578.0
-margin_bottom = 26.0
+margin_left = 230.0
+margin_right = 649.0
+margin_bottom = 33.0
 
 [node name="Label2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/Section1" index="2"]
-margin_left = 586.0
+margin_left = 657.0
 margin_top = 4.0
-margin_right = 672.0
-margin_bottom = 22.0
+margin_right = 780.0
+margin_bottom = 29.0
 
 [node name="SetHints" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/Section1" index="3"]
-margin_left = 680.0
-margin_right = 839.0
-margin_bottom = 26.0
+margin_left = 788.0
+margin_right = 947.0
+margin_bottom = 33.0
 
 [node name="GridContainer2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer" index="1"]
-margin_top = 34.0
-margin_right = 839.0
-margin_bottom = 86.0
+margin_top = 41.0
+margin_right = 947.0
+margin_bottom = 107.0
 
 [node name="HBoxContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2" index="0"]
-margin_right = 403.0
-margin_bottom = 26.0
+margin_right = 425.0
+margin_bottom = 33.0
 
 [node name="Label" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer" index="0"]
 margin_top = 4.0
-margin_right = 86.0
-margin_bottom = 22.0
+margin_right = 122.0
+margin_bottom = 29.0
 
 [node name="GoalButton" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer" index="1"]
-margin_left = 90.0
-margin_right = 154.0
-margin_bottom = 26.0
+margin_left = 126.0
+margin_right = 190.0
+margin_bottom = 33.0
 
 [node name="WarningPlaceholder" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer" index="3"]
-margin_left = 158.0
-margin_right = 190.0
-margin_bottom = 26.0
+margin_left = 194.0
+margin_right = 226.0
+margin_bottom = 33.0
 
 [node name="Amount" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer" index="4"]
-margin_left = 194.0
+margin_left = 230.0
 margin_top = 4.0
-margin_right = 302.0
-margin_bottom = 22.0
+margin_right = 381.0
+margin_bottom = 29.0
 
 [node name="N" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer" index="5"]
-margin_left = 306.0
+margin_left = 385.0
 margin_top = 4.0
-margin_right = 338.0
-margin_bottom = 22.0
+margin_right = 417.0
+margin_bottom = 29.0
 
 [node name="GoalAmountSlider" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer" index="6"]
-margin_left = 342.0
-margin_right = 403.0
+margin_left = 421.0
+margin_right = 425.0
 
 [node name="VSeparator4" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2" index="1"]
-margin_left = 411.0
-margin_right = 427.0
-margin_bottom = 26.0
+margin_left = 433.0
+margin_right = 449.0
+margin_bottom = 33.0
 
 [node name="HBoxContainer2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2" index="2"]
-margin_left = 435.0
-margin_right = 838.0
-margin_bottom = 26.0
+margin_left = 457.0
+margin_right = 947.0
+margin_bottom = 33.0
 
 [node name="Section1b" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer2" index="0"]
 margin_top = 4.0
-margin_right = 131.0
-margin_bottom = 22.0
+margin_right = 173.0
+margin_bottom = 29.0
 
 [node name="Above" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer2" index="1"]
-margin_left = 135.0
-margin_right = 267.0
-margin_bottom = 26.0
+margin_left = 177.0
+margin_right = 331.0
+margin_bottom = 33.0
 group = SubResource( 14 )
 
 [node name="Below" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer2" index="2"]
-margin_left = 271.0
-margin_right = 403.0
-margin_bottom = 26.0
+margin_left = 335.0
+margin_right = 490.0
+margin_bottom = 33.0
 group = SubResource( 14 )
 
 [node name="HBoxContainer3" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2" index="3"]
-margin_top = 34.0
-margin_right = 403.0
-margin_bottom = 52.0
+margin_top = 41.0
+margin_right = 425.0
+margin_bottom = 66.0
 
 [node name="Label" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer3" index="0"]
 margin_top = 0.0
-margin_bottom = 18.0
+margin_right = 160.0
+margin_bottom = 25.0
 
 [node name="N" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer3" index="1"]
+margin_left = 164.0
 margin_top = 0.0
-margin_bottom = 18.0
+margin_right = 183.0
+margin_bottom = 25.0
 
 [node name="RingsSlider" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer3" index="2"]
-margin_right = 403.0
+margin_left = 187.0
+margin_right = 425.0
 
 [node name="VSeparator5" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2" index="4"]
-margin_left = 411.0
-margin_top = 34.0
-margin_right = 427.0
-margin_bottom = 52.0
+margin_left = 433.0
+margin_top = 41.0
+margin_right = 449.0
+margin_bottom = 66.0
 
 [node name="HBoxContainer4" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2" index="5"]
-margin_left = 435.0
-margin_top = 34.0
-margin_right = 838.0
-margin_bottom = 52.0
+margin_left = 457.0
+margin_top = 41.0
+margin_right = 947.0
+margin_bottom = 66.0
 
 [node name="Label" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer4" index="0"]
 margin_top = 0.0
-margin_right = 113.0
-margin_bottom = 18.0
+margin_right = 161.0
+margin_bottom = 25.0
 
 [node name="N" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer4" index="1"]
-margin_left = 117.0
+margin_left = 165.0
 margin_top = 0.0
-margin_right = 136.0
-margin_bottom = 18.0
+margin_right = 184.0
+margin_bottom = 25.0
 
 [node name="LanesSlider" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/GridContainer2/HBoxContainer4" index="2"]
-margin_left = 140.0
-margin_right = 403.0
+margin_left = 188.0
+margin_right = 490.0
 
 [node name="HSectionSeparator" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer" index="2"]
-margin_top = 94.0
-margin_right = 839.0
-margin_bottom = 112.0
+margin_top = 115.0
+margin_right = 947.0
+margin_bottom = 140.0
 
 [node name="Section" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/HSectionSeparator" index="0"]
-margin_right = 117.0
-margin_bottom = 18.0
+margin_right = 168.0
+margin_bottom = 25.0
 
 [node name="HSeparator" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/HSectionSeparator" index="1"]
-margin_left = 133.0
-margin_right = 839.0
-margin_bottom = 18.0
+margin_left = 184.0
+margin_right = 947.0
+margin_bottom = 25.0
 
 [node name="InputGridContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer" index="3"]
-margin_top = 120.0
-margin_right = 839.0
-margin_bottom = 214.0
+margin_top = 148.0
+margin_right = 947.0
+margin_bottom = 263.0
 
 [node name="Input0" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer" index="0"]
-margin_right = 403.0
-margin_bottom = 26.0
+margin_right = 458.0
+margin_bottom = 33.0
 
 [node name="Input" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="0"]
 margin_top = 4.0
-margin_right = 52.0
-margin_bottom = 22.0
+margin_right = 73.0
+margin_bottom = 29.0
 
 [node name="Input2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="1"]
-margin_left = 56.0
+margin_left = 77.0
 margin_top = 4.0
-margin_bottom = 22.0
+margin_right = 92.0
+margin_bottom = 29.0
 
 [node name="OptionButton" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="2"]
-margin_bottom = 26.0
+margin_left = 96.0
+margin_right = 160.0
+margin_bottom = 33.0
 
 [node name="Margin" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="3"]
-margin_bottom = 26.0
+margin_left = 164.0
+margin_right = 180.0
+margin_bottom = 33.0
 
 [node name="Rate" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="4"]
+margin_left = 184.0
 margin_top = 4.0
-margin_bottom = 22.0
+margin_right = 246.0
+margin_bottom = 29.0
 
 [node name="N" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="5"]
+margin_left = 250.0
 margin_top = 4.0
-margin_bottom = 22.0
+margin_right = 282.0
+margin_bottom = 29.0
 
 [node name="s" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="6"]
+margin_left = 286.0
 margin_top = 4.0
-margin_bottom = 22.0
+margin_right = 292.0
+margin_bottom = 29.0
 
 [node name="s2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="7"]
+margin_left = 296.0
 margin_top = 4.0
-margin_bottom = 22.0
+margin_right = 331.0
+margin_bottom = 29.0
 
 [node name="RateSlider" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="8"]
-margin_right = 403.0
+margin_left = 335.0
+margin_right = 458.0
 
 [node name="VSeparator" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer" index="1"]
-margin_left = 411.0
-margin_right = 427.0
-margin_bottom = 26.0
+margin_left = 466.0
+margin_right = 482.0
+margin_bottom = 33.0
 
 [node name="Input1" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer" index="2"]
-margin_left = 435.0
-margin_right = 838.0
-margin_bottom = 26.0
+margin_left = 490.0
+margin_right = 947.0
+margin_bottom = 33.0
 
 [node name="Input2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer" index="3"]
-margin_top = 34.0
-margin_right = 403.0
-margin_bottom = 60.0
+margin_top = 41.0
+margin_right = 458.0
+margin_bottom = 74.0
 
 [node name="VSeparator2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer" index="4"]
-margin_left = 411.0
-margin_top = 34.0
-margin_right = 427.0
-margin_bottom = 60.0
+margin_left = 466.0
+margin_top = 41.0
+margin_right = 482.0
+margin_bottom = 74.0
 
 [node name="Input3" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer" index="5"]
-margin_left = 435.0
-margin_top = 34.0
-margin_right = 838.0
-margin_bottom = 60.0
+margin_left = 490.0
+margin_top = 41.0
+margin_right = 947.0
+margin_bottom = 74.0
 
 [node name="Input4" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer" index="6"]
-margin_top = 68.0
-margin_right = 403.0
-margin_bottom = 94.0
+margin_top = 82.0
+margin_right = 458.0
+margin_bottom = 115.0
 
 [node name="VSeparator3" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer" index="7"]
-margin_left = 411.0
-margin_top = 68.0
-margin_right = 427.0
-margin_bottom = 94.0
+margin_left = 466.0
+margin_top = 82.0
+margin_right = 482.0
+margin_bottom = 115.0
 
 [node name="Input5" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer" index="8"]
-margin_left = 435.0
-margin_top = 68.0
-margin_right = 838.0
-margin_bottom = 94.0
+margin_left = 490.0
+margin_top = 82.0
+margin_right = 947.0
+margin_bottom = 115.0
 
 [node name="HSectionSeparator2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer" index="4"]
-margin_top = 222.0
-margin_right = 839.0
-margin_bottom = 240.0
+margin_top = 271.0
+margin_right = 947.0
+margin_bottom = 296.0
 
 [node name="Section" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/HSectionSeparator2" index="0"]
-margin_right = 124.0
-margin_bottom = 18.0
+margin_right = 178.0
+margin_bottom = 25.0
 
 [node name="HSeparator" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/HSectionSeparator2" index="1"]
-margin_left = 140.0
-margin_right = 839.0
-margin_bottom = 18.0
+margin_left = 194.0
+margin_right = 947.0
+margin_bottom = 25.0
 
 [node name="ScrollContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer" index="5"]
-margin_top = 248.0
-margin_right = 839.0
-margin_bottom = 348.0
+margin_top = 304.0
+margin_right = 947.0
+margin_bottom = 404.0
 
 [node name="MarginContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer" index="0"]
-margin_right = 839.0
+margin_right = 947.0
 margin_bottom = 100.0
 
 [node name="RecipiesGridContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer" index="0"]
-margin_right = 823.0
+margin_right = 931.0
 
 [node name="KeepEnabled" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="0"]
-margin_right = 68.0
-margin_bottom = 18.0
+margin_right = 95.0
+margin_bottom = 25.0
 
 [node name="KeepTime" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="1"]
-margin_left = 84.0
-margin_right = 131.0
-margin_bottom = 18.0
+margin_left = 111.0
+margin_right = 177.0
+margin_bottom = 25.0
 
 [node name="KeepOutput" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="2"]
-margin_left = 147.0
-margin_right = 208.0
-margin_bottom = 18.0
+margin_left = 193.0
+margin_right = 279.0
+margin_bottom = 25.0
 
 [node name="KeepEquals" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="3"]
-margin_left = 224.0
-margin_right = 224.0
-margin_bottom = 18.0
+margin_left = 295.0
+margin_right = 295.0
+margin_bottom = 25.0
 
 [node name="KeepInput0" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="4"]
-margin_left = 240.0
-margin_right = 299.0
-margin_bottom = 18.0
+margin_left = 311.0
+margin_right = 394.0
+margin_bottom = 25.0
 
 [node name="KeepInput1" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="5"]
-margin_left = 315.0
-margin_right = 374.0
-margin_bottom = 18.0
+margin_left = 410.0
+margin_right = 493.0
+margin_bottom = 25.0
 
 [node name="KeepInput2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="6"]
-margin_left = 390.0
-margin_right = 449.0
-margin_bottom = 18.0
+margin_left = 509.0
+margin_right = 592.0
+margin_bottom = 25.0
 
 [node name="KeepInput3" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="7"]
-margin_left = 465.0
-margin_right = 524.0
-margin_bottom = 18.0
+margin_left = 608.0
+margin_right = 691.0
+margin_bottom = 25.0
 
 [node name="KeepNotes" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="8"]
-margin_left = 540.0
-margin_right = 593.0
-margin_bottom = 18.0
+margin_left = 707.0
+margin_right = 782.0
+margin_bottom = 25.0
 
 [node name="KeepHSeparator" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="9"]
-margin_top = 22.0
-margin_right = 68.0
-margin_bottom = 26.0
+margin_top = 29.0
+margin_right = 95.0
+margin_bottom = 33.0
 
 [node name="KeepHSeparator2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="10"]
-margin_left = 84.0
-margin_top = 22.0
-margin_right = 131.0
-margin_bottom = 26.0
+margin_left = 111.0
+margin_top = 29.0
+margin_right = 177.0
+margin_bottom = 33.0
 
 [node name="KeepHSeparator3" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="11"]
-margin_left = 147.0
-margin_top = 22.0
-margin_right = 208.0
-margin_bottom = 26.0
+margin_left = 193.0
+margin_top = 29.0
+margin_right = 279.0
+margin_bottom = 33.0
 
 [node name="KeepEquals2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="12"]
-margin_left = 224.0
-margin_top = 22.0
-margin_right = 224.0
-margin_bottom = 26.0
+margin_left = 295.0
+margin_top = 29.0
+margin_right = 295.0
+margin_bottom = 33.0
 
 [node name="KeepHSeparator5" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="13"]
-margin_left = 240.0
-margin_top = 22.0
-margin_right = 299.0
-margin_bottom = 26.0
+margin_left = 311.0
+margin_top = 29.0
+margin_right = 394.0
+margin_bottom = 33.0
 
 [node name="KeepHSeparator6" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="14"]
-margin_left = 315.0
-margin_top = 22.0
-margin_right = 374.0
-margin_bottom = 26.0
+margin_left = 410.0
+margin_top = 29.0
+margin_right = 493.0
+margin_bottom = 33.0
 
 [node name="KeepHSeparator7" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="15"]
-margin_left = 390.0
-margin_top = 22.0
-margin_right = 449.0
-margin_bottom = 26.0
+margin_left = 509.0
+margin_top = 29.0
+margin_right = 592.0
+margin_bottom = 33.0
 
 [node name="KeepHSeparator8" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="16"]
-margin_left = 465.0
-margin_top = 22.0
-margin_right = 524.0
-margin_bottom = 26.0
+margin_left = 608.0
+margin_top = 29.0
+margin_right = 691.0
+margin_bottom = 33.0
 
 [node name="KeepHSeparator9" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer/MarginContainer/RecipiesGridContainer" index="17"]
-margin_left = 540.0
-margin_top = 22.0
-margin_right = 593.0
-margin_bottom = 26.0
+margin_left = 707.0
+margin_top = 29.0
+margin_right = 782.0
+margin_bottom = 33.0
 
 [node name="HSectionSeparator3" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer" index="6"]
-margin_top = 356.0
-margin_right = 839.0
-margin_bottom = 374.0
+margin_top = 412.0
+margin_right = 947.0
+margin_bottom = 437.0
 
 [node name="Section" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/HSectionSeparator3" index="0"]
-margin_right = 124.0
-margin_bottom = 18.0
+margin_right = 178.0
+margin_bottom = 25.0
 
 [node name="HSeparator" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/HSectionSeparator3" index="1"]
-margin_left = 140.0
-margin_right = 839.0
-margin_bottom = 18.0
+margin_left = 194.0
+margin_right = 947.0
+margin_bottom = 25.0
 
 [node name="ScrollContainer2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer" index="7"]
-margin_top = 382.0
-margin_right = 839.0
-margin_bottom = 482.0
+margin_top = 445.0
+margin_right = 947.0
+margin_bottom = 545.0
 
 [node name="MarginContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer2" index="0"]
-margin_right = 839.0
+margin_right = 947.0
 margin_bottom = 100.0
 
 [node name="ResourceGridContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer2/MarginContainer" index="0"]
-margin_right = 823.0
+margin_right = 931.0
 
 [node name="KeepEnabled" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer2/MarginContainer/ResourceGridContainer" index="0"]
-margin_right = 68.0
-margin_bottom = 18.0
+margin_right = 95.0
+margin_bottom = 25.0
 
 [node name="KeepProduct" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer2/MarginContainer/ResourceGridContainer" index="1"]
-margin_left = 84.0
-margin_right = 151.0
-margin_bottom = 18.0
+margin_left = 111.0
+margin_right = 206.0
+margin_bottom = 25.0
 
 [node name="KeepNotes" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer2/MarginContainer/ResourceGridContainer" index="2"]
-margin_left = 167.0
-margin_right = 220.0
-margin_bottom = 18.0
+margin_left = 222.0
+margin_right = 297.0
+margin_bottom = 25.0
 
 [node name="KeepHSeparator" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer2/MarginContainer/ResourceGridContainer" index="3"]
-margin_top = 22.0
-margin_right = 68.0
-margin_bottom = 26.0
+margin_top = 29.0
+margin_right = 95.0
+margin_bottom = 33.0
 
 [node name="KeepHSeparator2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer2/MarginContainer/ResourceGridContainer" index="4"]
-margin_left = 84.0
-margin_top = 22.0
-margin_right = 151.0
-margin_bottom = 26.0
+margin_left = 111.0
+margin_top = 29.0
+margin_right = 206.0
+margin_bottom = 33.0
 
 [node name="KeepHSeparator3" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/ScrollContainer2/MarginContainer/ResourceGridContainer" index="5"]
-margin_left = 167.0
-margin_top = 22.0
-margin_right = 220.0
-margin_bottom = 26.0
+margin_left = 222.0
+margin_top = 29.0
+margin_right = 297.0
+margin_bottom = 33.0
 
 [node name="CenterContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp" index="1"]
 margin_right = 955.0
@@ -1917,46 +1916,46 @@ __meta__ = {
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer"]
 margin_right = 671.0
-margin_bottom = 456.0
+margin_bottom = 471.0
 custom_constants/separation = 8
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2"]
-margin_right = 198.0
-margin_bottom = 456.0
+margin_right = 235.0
+margin_bottom = 471.0
 custom_constants/separation = 8
 
 [node name="GridContainer" type="GridContainer" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-margin_right = 198.0
-margin_bottom = 134.0
+margin_right = 235.0
+margin_bottom = 144.0
 size_flags_vertical = 3
 custom_constants/vseparation = 8
 custom_constants/hseparation = 8
 columns = 2
 
 [node name="Name" type="Label" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/GridContainer"]
-margin_top = 5.0
-margin_right = 94.0
-margin_bottom = 23.0
+margin_top = 3.0
+margin_right = 131.0
+margin_bottom = 28.0
 text = "ui_name_colon"
 
 [node name="LineEdit" type="LineEdit" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/GridContainer"]
-margin_left = 102.0
-margin_right = 148.0
-margin_bottom = 28.0
+margin_left = 139.0
+margin_right = 211.0
+margin_bottom = 31.0
 size_flags_horizontal = 0
 max_length = 2
 
 [node name="Symbol" type="Label" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/GridContainer"]
-margin_top = 59.0
-margin_right = 94.0
-margin_bottom = 77.0
+margin_top = 58.0
+margin_right = 131.0
+margin_bottom = 83.0
 text = "ui_symbol"
 
 [node name="SymbolButton" type="OptionButton" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/GridContainer"]
-margin_left = 102.0
-margin_top = 36.0
-margin_right = 198.0
-margin_bottom = 100.0
+margin_left = 139.0
+margin_top = 39.0
+margin_right = 235.0
+margin_bottom = 103.0
 rect_min_size = Vector2( 96, 64 )
 icon = SubResource( 15 )
 expand_icon = true
@@ -1966,37 +1965,37 @@ __meta__ = {
 }
 
 [node name="Sign" type="Label" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/GridContainer"]
-margin_top = 112.0
-margin_right = 94.0
-margin_bottom = 130.0
+margin_top = 115.0
+margin_right = 131.0
+margin_bottom = 140.0
 text = "ui_sign"
 
 [node name="ModeButton" type="OptionButton" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/GridContainer"]
-margin_left = 102.0
-margin_top = 108.0
-margin_right = 198.0
-margin_bottom = 134.0
+margin_left = 139.0
+margin_top = 111.0
+margin_right = 235.0
+margin_bottom = 144.0
 script = SubResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-margin_top = 142.0
-margin_right = 198.0
-margin_bottom = 296.0
+margin_top = 152.0
+margin_right = 235.0
+margin_bottom = 313.0
 size_flags_vertical = 3
 custom_constants/separation = 8
 
 [node name="Preview" type="Label" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
-margin_right = 198.0
-margin_bottom = 18.0
+margin_right = 235.0
+margin_bottom = 25.0
 text = "ui_preview"
 
 [node name="TextureRect" type="TextureRect" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
-margin_top = 26.0
-margin_right = 198.0
-margin_bottom = 154.0
+margin_top = 33.0
+margin_right = 235.0
+margin_bottom = 161.0
 rect_min_size = Vector2( 128, 128 )
 texture = SubResource( 18 )
 expand = true
@@ -2006,47 +2005,46 @@ __meta__ = {
 }
 
 [node name="Save" type="Button" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-margin_top = 304.0
-margin_right = 198.0
-margin_bottom = 349.0
+margin_top = 321.0
+margin_right = 235.0
+margin_bottom = 365.0
 size_flags_vertical = 3
 text = "ui_save"
 icon = ExtResource( 11 )
 expand_icon = true
 
 [node name="Discard" type="Button" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-margin_top = 357.0
-margin_right = 198.0
-margin_bottom = 402.0
+margin_top = 373.0
+margin_right = 235.0
+margin_bottom = 418.0
 size_flags_vertical = 3
 text = "ui_discard"
 icon = ExtResource( 8 )
 expand_icon = true
 
 [node name="Delete" type="Button" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-margin_top = 410.0
-margin_right = 198.0
-margin_bottom = 456.0
+margin_top = 426.0
+margin_right = 235.0
+margin_bottom = 471.0
 size_flags_vertical = 3
 text = "ui_delete"
 icon = ExtResource( 12 )
 expand_icon = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2"]
-margin_left = 206.0
-margin_right = 496.0
-margin_bottom = 456.0
+margin_left = 243.0
+margin_right = 623.0
+margin_bottom = 471.0
 
 [node name="Sign2" type="Label" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_right = 290.0
-margin_bottom = 18.0
+margin_right = 380.0
+margin_bottom = 25.0
 text = "ui_colour"
 
 [node name="ColorPicker" type="ColorPicker" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_left = 40.0
-margin_top = 62.0
-margin_right = 330.0
-margin_bottom = 496.0
+margin_top = 29.0
+margin_right = 380.0
+margin_bottom = 471.0
 edit_alpha = false
 presets_enabled = false
 presets_visible = false
@@ -2590,9 +2588,6 @@ custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
 custom_constants/margin_bottom = 32
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FootLabel" type="Label" parent="MarginContainer"]
 margin_left = 32.0
