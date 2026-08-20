@@ -27,7 +27,7 @@ Sfx="*res://scenes/Sfx.tscn"
 
 window/size/width=1280
 window/size/height=720
-window/stretch/mode="2d"
+window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 
 [editor_plugins]

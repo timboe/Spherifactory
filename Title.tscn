@@ -8,12 +8,12 @@
 [ext_resource path="res://scenes/CampaignSelector.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Shield.tscn" type="PackedScene" id=7]
 [ext_resource path="res://images/icons/refreshing.png" type="Texture" id=8]
-[ext_resource path="res://titlescripts/ShieldPreview.gd" type="Script" id=9]
 [ext_resource path="res://titlescripts/CustomResource.gd" type="Script" id=10]
 [ext_resource path="res://images/icons/save.png" type="Texture" id=11]
 [ext_resource path="res://images/icons/trash.png" type="Texture" id=12]
 [ext_resource path="res://images/icons/paste.png" type="Texture" id=13]
 [ext_resource path="res://images/icons/new.png" type="Texture" id=14]
+[ext_resource path="res://images/space-2.png" type="Texture" id=15]
 [ext_resource path="res://images/icons/back.png" type="Texture" id=16]
 [ext_resource path="res://images/icons/elements.png" type="Texture" id=17]
 [ext_resource path="res://images/icons/recipe.png" type="Texture" id=18]
@@ -27,6 +27,7 @@
 [ext_resource path="res://scenes/NewCampaignSelector.tscn" type="PackedScene" id=26]
 [ext_resource path="res://images/sp.png" type="Texture" id=27]
 [ext_resource path="res://images/space-1.png" type="Texture" id=28]
+[ext_resource path="res://images/circle_01.png" type="Texture" id=29]
 [ext_resource path="res://titlescripts/Settings.gd" type="Script" id=30]
 [ext_resource path="res://assets/godot_theme/minimal.tres" type="Theme" id=31]
 [ext_resource path="res://titlescripts/Hints.gd" type="Script" id=32]
@@ -71,13 +72,10 @@ gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.5
 tangential_accel = 100.0
-scale = 0.05
+scale = 0.03
 scale_random = 0.02
 scale_curve = SubResource( 5 )
 color = Color( 1, 1, 1, 0.501961 )
-
-[sub_resource type="StreamTexture" id=7]
-flags = 23
 
 [sub_resource type="GDScript" id=8]
 script/source = "extends TextureRect
@@ -248,6 +246,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 31 )
 
+[node name="spacefield" type="TextureRect" parent="."]
+light_mask = 0
+margin_left = -1024.0
+margin_top = -1024.0
+margin_right = 2048.0
+margin_bottom = 2048.0
+rect_min_size = Vector2( 3072, 3072 )
+mouse_filter = 2
+texture = ExtResource( 15 )
+stretch_mode = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
 [node name="bg" type="TextureRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -266,7 +279,7 @@ position = Vector2( -700, -700 )
 amount = 1000
 visibility_rect = Rect2( 44, -4.58288, 1356.66, 1362.58 )
 process_material = SubResource( 6 )
-texture = SubResource( 7 )
+texture = ExtResource( 29 )
 
 [node name="sp" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
@@ -292,10 +305,10 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
-margin_left = 476.0
-margin_top = 136.0
-margin_right = 804.0
-margin_bottom = 584.0
+margin_left = 466.0
+margin_top = 132.0
+margin_right = 814.0
+margin_bottom = 587.0
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
@@ -305,15 +318,15 @@ custom_constants/margin_bottom = 32
 modulate = Color( 1, 1, 1, 0.501961 )
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 296.0
-margin_bottom = 416.0
+margin_right = 316.0
+margin_bottom = 423.0
 custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer"]
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 296.0
-margin_bottom = 416.0
+margin_right = 316.0
+margin_bottom = 423.0
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
@@ -322,8 +335,8 @@ custom_constants/margin_bottom = 32
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer/MarginContainer"]
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 232.0
-margin_bottom = 352.0
+margin_right = 252.0
+margin_bottom = 359.0
 rect_min_size = Vector2( 200, 0 )
 custom_constants/separation = 16
 
@@ -402,9 +415,9 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="CampaignManager"]
-margin_left = 318.0
-margin_top = 103.0
-margin_right = 962.0
+margin_left = 288.0
+margin_top = 102.0
+margin_right = 992.0
 margin_bottom = 617.0
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
@@ -415,15 +428,15 @@ custom_constants/margin_bottom = 32
 modulate = Color( 1, 1, 1, 0.501961 )
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 612.0
-margin_bottom = 482.0
+margin_right = 672.0
+margin_bottom = 483.0
 custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CampaignManager/MarginContainer"]
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 612.0
-margin_bottom = 482.0
+margin_right = 672.0
+margin_bottom = 483.0
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
@@ -432,39 +445,39 @@ custom_constants/margin_bottom = 32
 [node name="VBoxContainer" type="VBoxContainer" parent="CampaignManager/MarginContainer/MarginContainer"]
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 548.0
-margin_bottom = 418.0
+margin_right = 608.0
+margin_bottom = 419.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CampaignManager/MarginContainer/MarginContainer/VBoxContainer"]
-margin_right = 516.0
+margin_right = 576.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 512, 350 )
 follow_focus = true
 
 [node name="Campaigns" type="VBoxContainer" parent="CampaignManager/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer"]
-margin_right = 516.0
-margin_bottom = 86.0
+margin_right = 576.0
+margin_bottom = 90.0
 size_flags_horizontal = 3
 custom_constants/separation = 8
 alignment = 1
 
 [node name="Container" type="VBoxContainer" parent="CampaignManager/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/Campaigns"]
-margin_right = 516.0
-margin_bottom = 74.0
+margin_right = 576.0
+margin_bottom = 78.0
 
 [node name="Campaign" parent="CampaignManager/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/Campaigns/Container" instance=ExtResource( 6 )]
-margin_right = 516.0
-margin_bottom = 74.0
+margin_right = 576.0
+margin_bottom = 78.0
 
 [node name="HSeparator" type="HSeparator" parent="CampaignManager/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/Campaigns"]
-margin_top = 82.0
-margin_right = 516.0
-margin_bottom = 86.0
+margin_top = 86.0
+margin_right = 576.0
+margin_bottom = 90.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CampaignManager/MarginContainer/MarginContainer/VBoxContainer"]
 margin_top = 354.0
-margin_right = 516.0
-margin_bottom = 386.0
+margin_right = 576.0
+margin_bottom = 387.0
 custom_constants/separation = 8
 alignment = 2
 __meta__ = {
@@ -472,8 +485,8 @@ __meta__ = {
 }
 
 [node name="Import" type="Button" parent="CampaignManager/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 225.0
-margin_bottom = 32.0
+margin_right = 255.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 225, 32 )
 text = "ui_import_from_clipboard"
 icon = ExtResource( 13 )
@@ -481,9 +494,9 @@ expand_icon = true
 script = SubResource( 9 )
 
 [node name="New" type="Button" parent="CampaignManager/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 233.0
-margin_right = 383.0
-margin_bottom = 32.0
+margin_left = 263.0
+margin_right = 443.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 150, 32 )
 text = "ui_new_campaign"
 icon = ExtResource( 14 )
@@ -491,9 +504,9 @@ expand_icon = true
 script = SubResource( 10 )
 
 [node name="Back" type="Button" parent="CampaignManager/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 391.0
-margin_right = 516.0
-margin_bottom = 32.0
+margin_left = 451.0
+margin_right = 576.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 125, 32 )
 text = "ui_back"
 icon = ExtResource( 16 )
@@ -509,10 +522,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="InfoDialog" type="AcceptDialog" parent="CampaignManager/CenterContainer"]
-margin_left = -66.0
-margin_top = -38.0
-margin_right = 66.0
-margin_bottom = 38.0
+margin_left = -76.0
+margin_top = -41.0
+margin_right = 76.0
+margin_bottom = 41.0
 popup_exclusive = true
 window_title = "Information"
 resizable = true
@@ -536,7 +549,7 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="NewCampaign"]
 margin_left = 320.0
-margin_top = 133.0
+margin_top = 132.0
 margin_right = 960.0
 margin_bottom = 587.0
 custom_constants/margin_right = 32
@@ -549,14 +562,14 @@ modulate = Color( 1, 1, 1, 0.501961 )
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
-margin_bottom = 452.0
+margin_bottom = 453.0
 custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="NewCampaign/MarginContainer"]
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
-margin_bottom = 452.0
+margin_bottom = 453.0
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
@@ -566,7 +579,7 @@ custom_constants/margin_bottom = 2
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 544.0
-margin_bottom = 418.0
+margin_bottom = 419.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="NewCampaign/MarginContainer/MarginContainer/VBoxContainer"]
 margin_right = 512.0
@@ -576,7 +589,7 @@ follow_focus = true
 
 [node name="NewCampaignVBox" type="VBoxContainer" parent="NewCampaign/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 margin_right = 512.0
-margin_bottom = 164.0
+margin_bottom = 172.0
 size_flags_horizontal = 3
 custom_constants/separation = 8
 alignment = 1
@@ -641,10 +654,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="InfoDialog" type="AcceptDialog" parent="NewCampaign/CenterContainer"]
-margin_left = -66.0
-margin_top = -38.0
-margin_right = 66.0
-margin_bottom = 38.0
+margin_left = -76.0
+margin_top = -41.0
+margin_right = 76.0
+margin_bottom = 41.0
 popup_exclusive = true
 window_title = "Information"
 resizable = true
@@ -668,7 +681,7 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="LoadGame"]
 margin_left = 320.0
-margin_top = 103.0
+margin_top = 102.0
 margin_right = 960.0
 margin_bottom = 617.0
 custom_constants/margin_right = 32
@@ -681,14 +694,14 @@ modulate = Color( 1, 1, 1, 0.501961 )
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
-margin_bottom = 482.0
+margin_bottom = 483.0
 custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="LoadGame/MarginContainer"]
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
-margin_bottom = 482.0
+margin_bottom = 483.0
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
@@ -698,7 +711,7 @@ custom_constants/margin_bottom = 32
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 544.0
-margin_bottom = 418.0
+margin_bottom = 419.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="LoadGame/MarginContainer/MarginContainer/VBoxContainer"]
 margin_right = 512.0
@@ -743,7 +756,7 @@ __meta__ = {
 
 [node name="MC" type="MarginContainer" parent="Settings"]
 margin_left = 320.0
-margin_top = 103.0
+margin_top = 102.0
 margin_right = 960.0
 margin_bottom = 617.0
 custom_constants/margin_right = 32
@@ -756,14 +769,14 @@ modulate = Color( 1, 1, 1, 0.501961 )
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
-margin_bottom = 482.0
+margin_bottom = 483.0
 custom_styles/panel = ExtResource( 35 )
 
 [node name="MC" type="MarginContainer" parent="Settings/MC"]
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
-margin_bottom = 482.0
+margin_bottom = 483.0
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
@@ -773,7 +786,7 @@ custom_constants/margin_bottom = 32
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 544.0
-margin_bottom = 418.0
+margin_bottom = 419.0
 
 [node name="SC" type="ScrollContainer" parent="Settings/MC/MC/VB"]
 margin_right = 512.0
@@ -781,32 +794,37 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 512, 350 )
 follow_focus = true
 
-[node name="SG" type="GridContainer" parent="Settings/MC/MC/VB/SC"]
+[node name="VB2" type="VBoxContainer" parent="Settings/MC/MC/VB/SC"]
 margin_right = 512.0
-margin_bottom = 378.0
+margin_bottom = 359.0
+size_flags_horizontal = 3
+
+[node name="SG" type="GridContainer" parent="Settings/MC/MC/VB/SC/VB2"]
+margin_right = 512.0
+margin_bottom = 123.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 10
 custom_constants/hseparation = 8
 columns = 2
 
-[node name="HSeparator5" type="HSeparator" parent="Settings/MC/MC/VB/SC/SG"]
+[node name="HSeparator5" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2/SG"]
 margin_right = 252.0
 margin_bottom = 4.0
 
-[node name="HSeparator6" type="HSeparator" parent="Settings/MC/MC/VB/SC/SG"]
+[node name="HSeparator6" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2/SG"]
 margin_left = 260.0
 margin_right = 512.0
 margin_bottom = 4.0
 
-[node name="Label" type="Label" parent="Settings/MC/MC/VB/SC/SG"]
-margin_top = 15.0
+[node name="Label" type="Label" parent="Settings/MC/MC/VB/SC/VB2/SG"]
+margin_top = 14.0
 margin_right = 252.0
-margin_bottom = 29.0
+margin_bottom = 39.0
 size_flags_horizontal = 3
 text = "ui_music_volume"
 align = 2
 
-[node name="MusicSlider" type="HSlider" parent="Settings/MC/MC/VB/SC/SG"]
+[node name="MusicSlider" type="HSlider" parent="Settings/MC/MC/VB/SC/VB2/SG"]
 margin_left = 260.0
 margin_top = 14.0
 margin_right = 512.0
@@ -814,139 +832,103 @@ margin_bottom = 30.0
 size_flags_horizontal = 3
 tick_count = 10
 
-[node name="Label2" type="Label" parent="Settings/MC/MC/VB/SC/SG"]
-margin_top = 41.0
+[node name="Label2" type="Label" parent="Settings/MC/MC/VB/SC/VB2/SG"]
+margin_top = 49.0
 margin_right = 252.0
-margin_bottom = 55.0
+margin_bottom = 74.0
 size_flags_horizontal = 3
 text = "ui_sfx_volume"
 align = 2
 
-[node name="SFXSlider" type="HSlider" parent="Settings/MC/MC/VB/SC/SG"]
+[node name="SFXSlider" type="HSlider" parent="Settings/MC/MC/VB/SC/VB2/SG"]
 margin_left = 260.0
-margin_top = 40.0
+margin_top = 49.0
 margin_right = 512.0
-margin_bottom = 56.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 tick_count = 10
 
-[node name="Label8" type="Label" parent="Settings/MC/MC/VB/SC/SG"]
-margin_top = 67.0
+[node name="Label8" type="Label" parent="Settings/MC/MC/VB/SC/VB2/SG"]
+margin_top = 84.0
 margin_right = 252.0
-margin_bottom = 81.0
+margin_bottom = 109.0
 size_flags_horizontal = 3
 text = "ui_beeps_volume"
 align = 2
 
-[node name="BeepsSlider" type="HSlider" parent="Settings/MC/MC/VB/SC/SG"]
+[node name="BeepsSlider" type="HSlider" parent="Settings/MC/MC/VB/SC/VB2/SG"]
 margin_left = 260.0
-margin_top = 66.0
+margin_top = 84.0
 margin_right = 512.0
-margin_bottom = 82.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
 tick_count = 10
 
-[node name="HSeparator" type="HSeparator" parent="Settings/MC/MC/VB/SC/SG"]
-margin_top = 92.0
+[node name="HSeparator" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2/SG"]
+margin_top = 119.0
 margin_right = 252.0
-margin_bottom = 96.0
+margin_bottom = 123.0
 
-[node name="HSeparator2" type="HSeparator" parent="Settings/MC/MC/VB/SC/SG"]
+[node name="HSeparator2" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2/SG"]
 margin_left = 260.0
-margin_top = 92.0
+margin_top = 119.0
 margin_right = 512.0
-margin_bottom = 96.0
+margin_bottom = 123.0
 
-[node name="Label3" type="Label" parent="Settings/MC/MC/VB/SC/SG"]
-margin_top = 115.0
-margin_right = 252.0
-margin_bottom = 129.0
+[node name="TutorialButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/VB2"]
+margin_top = 127.0
+margin_right = 512.0
+margin_bottom = 167.0
 size_flags_horizontal = 3
 text = "ui_tutorial_enabled"
-align = 2
+align = 1
 
-[node name="TutorialButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/SG"]
-margin_left = 260.0
-margin_top = 106.0
-margin_right = 324.0
-margin_bottom = 138.0
-size_flags_horizontal = 0
-
-[node name="Label5" type="Label" parent="Settings/MC/MC/VB/SC/SG"]
-margin_top = 157.0
-margin_right = 252.0
-margin_bottom = 171.0
+[node name="SunButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/VB2"]
+margin_top = 171.0
+margin_right = 512.0
+margin_bottom = 211.0
 size_flags_horizontal = 3
 text = "ui_fancy_sun"
-align = 2
+align = 1
 
-[node name="SunButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/SG"]
-margin_left = 260.0
-margin_top = 148.0
-margin_right = 324.0
-margin_bottom = 180.0
-size_flags_horizontal = 0
-
-[node name="Label7" type="Label" parent="Settings/MC/MC/VB/SC/SG"]
-margin_top = 199.0
-margin_right = 252.0
-margin_bottom = 213.0
-size_flags_horizontal = 3
-text = "ui_auto_hide_ui"
-align = 2
-
-[node name="HideButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/SG"]
-margin_left = 260.0
-margin_top = 190.0
-margin_right = 324.0
-margin_bottom = 222.0
-size_flags_horizontal = 0
-
-[node name="Label6" type="Label" parent="Settings/MC/MC/VB/SC/SG"]
-margin_top = 241.0
-margin_right = 252.0
+[node name="HideButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/VB2"]
+margin_top = 215.0
+margin_right = 512.0
 margin_bottom = 255.0
 size_flags_horizontal = 3
+text = "ui_auto_hide_ui"
+align = 1
+
+[node name="ShakeButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/VB2"]
+margin_top = 259.0
+margin_right = 512.0
+margin_bottom = 299.0
+size_flags_horizontal = 3
 text = "ui_screen_shake"
-align = 2
+align = 1
 
-[node name="ShakeButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/SG"]
-margin_left = 260.0
-margin_top = 232.0
-margin_right = 324.0
-margin_bottom = 264.0
-size_flags_horizontal = 0
-
-[node name="Label4" type="Label" parent="Settings/MC/MC/VB/SC/SG"]
-margin_top = 283.0
-margin_right = 252.0
-margin_bottom = 297.0
+[node name="FullscreenButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/VB2"]
+margin_top = 303.0
+margin_right = 512.0
+margin_bottom = 343.0
 size_flags_horizontal = 3
 text = "ui_fullscreen"
-align = 2
+align = 1
 
-[node name="FullscreenButton" type="CheckButton" parent="Settings/MC/MC/VB/SC/SG"]
-margin_left = 260.0
-margin_top = 274.0
-margin_right = 324.0
-margin_bottom = 306.0
-size_flags_horizontal = 0
-
-[node name="HSeparator3" type="HSeparator" parent="Settings/MC/MC/VB/SC/SG"]
-margin_top = 316.0
-margin_right = 252.0
-margin_bottom = 320.0
-
-[node name="HSeparator4" type="HSeparator" parent="Settings/MC/MC/VB/SC/SG"]
-margin_left = 260.0
-margin_top = 316.0
+[node name="HSeparator3" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2"]
+margin_top = 347.0
 margin_right = 512.0
-margin_bottom = 320.0
+margin_bottom = 351.0
+
+[node name="HSeparator4" type="HSeparator" parent="Settings/MC/MC/VB/SC/VB2"]
+margin_top = 355.0
+margin_right = 512.0
+margin_bottom = 359.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Settings/MC/MC/VB"]
 margin_top = 354.0
 margin_right = 512.0
-margin_bottom = 386.0
+margin_bottom = 387.0
 custom_constants/separation = 8
 alignment = 2
 __meta__ = {
@@ -956,14 +938,13 @@ __meta__ = {
 [node name="Back" type="Button" parent="Settings/MC/MC/VB/HBoxContainer"]
 margin_left = 412.0
 margin_right = 512.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 100, 32 )
 text = "ui_back"
 icon = ExtResource( 16 )
 expand_icon = true
 
 [node name="Credits" type="CenterContainer" parent="." groups=["PrimaryMenuElement"]]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -973,7 +954,7 @@ __meta__ = {
 
 [node name="MC" type="MarginContainer" parent="Credits"]
 margin_left = 320.0
-margin_top = 103.0
+margin_top = 102.0
 margin_right = 960.0
 margin_bottom = 617.0
 custom_constants/margin_right = 32
@@ -986,14 +967,14 @@ modulate = Color( 1, 1, 1, 0.501961 )
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
-margin_bottom = 482.0
+margin_bottom = 483.0
 custom_styles/panel = ExtResource( 35 )
 
 [node name="MC" type="MarginContainer" parent="Credits/MC"]
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
-margin_bottom = 482.0
+margin_bottom = 483.0
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
@@ -1003,7 +984,7 @@ custom_constants/margin_bottom = 32
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 544.0
-margin_bottom = 418.0
+margin_bottom = 419.0
 
 [node name="SC" type="ScrollContainer" parent="Credits/MC/MC/VB"]
 margin_right = 512.0
@@ -1012,19 +993,19 @@ rect_min_size = Vector2( 512, 350 )
 follow_focus = true
 
 [node name="VB" type="VBoxContainer" parent="Credits/MC/MC/VB/SC"]
-margin_right = 512.0
-margin_bottom = 15122.0
+margin_right = 504.0
+margin_bottom = 21697.0
 size_flags_horizontal = 3
 
 [node name="Credits" type="Label" parent="Credits/MC/MC/VB/SC/VB"]
 margin_right = 504.0
-margin_bottom = 11589.0
+margin_bottom = 21697.0
 text = "Spherifactory by Tim Martin, 2021
 MIT licensed source code available at github.com/timboe
 
 Made with the Godot game engine [godotengine.org]
 
-Music by Adérito Silva: Rareness of Existence, Naval Proeminence, Phyllodia [pixabay.com, Pixabay License]
+Music by AdÃ©rito Silva: Rareness of Existence, Naval Proeminence, Phyllodia [pixabay.com, Pixabay License]
 
 Space backgrounds by fraang [opengameart.org, CC-BY-SA 3.0]
 
@@ -1050,7 +1031,7 @@ Icons from the noun project [thenounproject.com]
  * back by The Icon Z from the Noun Project
  * Save by HASTA ICON from the Noun Project
  * paste by kreationspace from the Noun Project
- * copy by Rafael Farias Leão from the Noun Project
+ * copy by Rafael Farias LeÃ£o from the Noun Project
  * editing by Syawaluddin from the Noun Project
  * new by Alice Design from the Noun Project
  * recipe by Heztasia from the Noun Project
@@ -1274,7 +1255,7 @@ autowrap = true
 [node name="HBoxContainer" type="HBoxContainer" parent="Credits/MC/MC/VB"]
 margin_top = 354.0
 margin_right = 512.0
-margin_bottom = 386.0
+margin_bottom = 387.0
 custom_constants/separation = 8
 alignment = 2
 __meta__ = {
@@ -1284,7 +1265,7 @@ __meta__ = {
 [node name="Back" type="Button" parent="Credits/MC/MC/VB/HBoxContainer"]
 margin_left = 412.0
 margin_right = 512.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 100, 32 )
 text = "ui_back"
 icon = ExtResource( 16 )
@@ -1302,20 +1283,20 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="CampaignEditor"]
-margin_left = 187.0
-margin_top = 71.0
-margin_right = 1089.0
-margin_bottom = 648.0
+margin_left = 171.0
+margin_top = 70.0
+margin_right = 1105.0
+margin_bottom = 649.0
 
 [node name="Panel" type="Panel" parent="CampaignEditor/MarginContainer"]
 modulate = Color( 1, 1, 1, 0.501961 )
-margin_right = 902.0
-margin_bottom = 577.0
+margin_right = 934.0
+margin_bottom = 579.0
 custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CampaignEditor/MarginContainer"]
-margin_right = 902.0
-margin_bottom = 577.0
+margin_right = 934.0
+margin_bottom = 579.0
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
@@ -1324,8 +1305,8 @@ custom_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="CampaignEditor/MarginContainer/MarginContainer"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 894.0
-margin_bottom = 569.0
+margin_right = 926.0
+margin_bottom = 571.0
 custom_constants/separation = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer"]
@@ -1463,13 +1444,13 @@ tab_align = 0
 
 [node name="tmp" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource( 1 )]
 margin_left = 6.0
-margin_top = 41.0
+margin_top = 44.0
 margin_right = -6.0
 margin_bottom = -3.0
 
 [node name="MissionContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp" index="0"]
-margin_right = 850.0
-margin_bottom = 526.0
+margin_right = 955.0
+margin_bottom = 553.0
 
 [node name="Section1" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer" index="0"]
 margin_right = 839.0
@@ -1889,14 +1870,14 @@ margin_right = 220.0
 margin_bottom = 26.0
 
 [node name="CenterContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp" index="1"]
-margin_right = 850.0
-margin_bottom = 526.0
+margin_right = 955.0
+margin_bottom = 553.0
 
 [node name="PopupDialog" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/CenterContainer" index="0"]
-margin_left = 178.0
-margin_top = 196.0
-margin_right = 663.0
-margin_bottom = 322.0
+margin_left = 161.0
+margin_top = 203.0
+margin_right = 785.0
+margin_bottom = 341.0
 
 [node name="CustomResourceDialog" type="WindowDialog" parent="CampaignEditor"]
 visible = true
@@ -2020,7 +2001,6 @@ rect_min_size = Vector2( 128, 128 )
 texture = SubResource( 18 )
 expand = true
 stretch_mode = 6
-script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2063,10 +2043,10 @@ margin_bottom = 18.0
 text = "ui_colour"
 
 [node name="ColorPicker" type="ColorPicker" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_left = 36.0
-margin_top = 58.0
-margin_right = 326.0
-margin_bottom = 492.0
+margin_left = 40.0
+margin_top = 62.0
+margin_right = 330.0
+margin_bottom = 496.0
 edit_alpha = false
 presets_enabled = false
 presets_visible = false
@@ -2103,7 +2083,7 @@ __meta__ = {
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 476.0
-margin_bottom = 472.0
+margin_bottom = 484.0
 size_flags_horizontal = 3
 custom_constants/separation = 12
 __meta__ = {
@@ -2244,7 +2224,7 @@ __meta__ = {
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 536.0
-margin_bottom = 378.0
+margin_bottom = 382.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2281,7 +2261,7 @@ tab_align = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 6.0
-margin_top = 41.0
+margin_top = 44.0
 margin_right = -6.0
 margin_bottom = -3.0
 custom_constants/margin_right = 16
@@ -2293,7 +2273,7 @@ custom_constants/margin_bottom = 16
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 492.0
-margin_bottom = 210.0
+margin_bottom = 207.0
 
 [node name="Label" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_no_recipe/VBoxContainer"]
 margin_right = 473.0
@@ -2317,7 +2297,7 @@ custom_constants/margin_bottom = 16
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 489.0
-margin_bottom = 280.0
+margin_bottom = 304.0
 custom_constants/separation = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer"]
@@ -2561,10 +2541,10 @@ icon = ExtResource( 8 )
 expand_icon = true
 
 [node name="WarningDialog" type="AcceptDialog" parent="CampaignEditor"]
-margin_left = 575.0
-margin_top = 322.0
-margin_right = 700.0
-margin_bottom = 398.0
+margin_left = 565.0
+margin_top = 319.0
+margin_right = 711.0
+margin_bottom = 401.0
 popup_exclusive = true
 window_title = "ui_warning"
 resizable = true
@@ -2621,7 +2601,7 @@ margin_right = 1248.0
 margin_bottom = 688.0
 size_flags_vertical = 5
 text = "Spherifactory by Tim Martin, 2021
-Music by Adérito Silva: Rareness of Existence, Naval Proeminence, Phyllodia"
+Music by AdÃ©rito Silva: Rareness of Existence, Naval Proeminence, Phyllodia"
 align = 2
 valign = 2
 
@@ -2639,10 +2619,10 @@ valign = 2
 [connection signal="pressed" from="NewCampaign/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Back" to="MainMenu" method="_on_Back_pressed"]
 [connection signal="confirmed" from="NewCampaign/CenterContainer/ConfirmDeleteDialog" to="NewCampaign/CenterContainer/ConfirmDeleteDialog" method="_on_ConfirmDeleteDialog_confirmed"]
 [connection signal="pressed" from="LoadGame/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Back" to="MainMenu" method="_on_Back_pressed"]
-[connection signal="value_changed" from="Settings/MC/MC/VB/SC/SG/MusicSlider" to="Settings" method="_on_MusicSlider_value_changed"]
-[connection signal="changed" from="Settings/MC/MC/VB/SC/SG/SFXSlider" to="Settings" method="_on_SFXSlider_changed"]
-[connection signal="changed" from="Settings/MC/MC/VB/SC/SG/BeepsSlider" to="Settings" method="_on_BeepsSlider_changed"]
-[connection signal="toggled" from="Settings/MC/MC/VB/SC/SG/FullscreenButton" to="Settings" method="_on_FullscreenButton_toggled"]
+[connection signal="value_changed" from="Settings/MC/MC/VB/SC/VB2/SG/MusicSlider" to="Settings" method="_on_MusicSlider_value_changed"]
+[connection signal="changed" from="Settings/MC/MC/VB/SC/VB2/SG/SFXSlider" to="Settings" method="_on_SFXSlider_changed"]
+[connection signal="changed" from="Settings/MC/MC/VB/SC/VB2/SG/BeepsSlider" to="Settings" method="_on_BeepsSlider_changed"]
+[connection signal="toggled" from="Settings/MC/MC/VB/SC/VB2/FullscreenButton" to="Settings" method="_on_FullscreenButton_toggled"]
 [connection signal="pressed" from="Settings/MC/MC/VB/HBoxContainer/Back" to="Settings" method="_on_Back_pressed"]
 [connection signal="pressed" from="Credits/MC/MC/VB/HBoxContainer/Back" to="MainMenu" method="_on_Back_pressed"]
 [connection signal="value_changed" from="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/HBoxContainer/Missions" to="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/HBoxContainer/Missions" method="_on_HSlider_value_changed"]

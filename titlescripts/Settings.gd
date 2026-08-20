@@ -3,14 +3,14 @@ extends CenterContainer
 onready var lang_menu : MenuButton = get_tree().get_root().find_node("LanguageButton", true, false)
 
 func show_settings():
-	$MC/MC/VB/SC/SG/FullscreenButton.pressed = OS.window_fullscreen
-	$MC/MC/VB/SC/SG/SunButton.pressed = Global.settings["fancy_sun"]
-	$MC/MC/VB/SC/SG/ShakeButton.pressed = Global.settings["shake"]
-	$MC/MC/VB/SC/SG/HideButton.pressed = Global.settings["hide"]
-	$MC/MC/VB/SC/SG/TutorialButton.pressed = Global.settings["tutorial"]
-	$MC/MC/VB/SC/SG/MusicSlider.value = Global.settings["music"]
-	$MC/MC/VB/SC/SG/SFXSlider.value = Global.settings["sfx"]
-	$MC/MC/VB/SC/SG/BeepsSlider.value = Global.settings["beeps"]
+	$MC/MC/VB/SC/VB2/FullscreenButton.pressed = OS.window_fullscreen
+	$MC/MC/VB/SC/VB2/SunButton.pressed = Global.settings["fancy_sun"]
+	$MC/MC/VB/SC/VB2/ShakeButton.pressed = Global.settings["shake"]
+	$MC/MC/VB/SC/VB2/HideButton.pressed = Global.settings["hide"]
+	$MC/MC/VB/SC/VB2/TutorialButton.pressed = Global.settings["tutorial"]
+	$MC/MC/VB/SC/VB2/SG/MusicSlider.value = Global.settings["music"]
+	$MC/MC/VB/SC/VB2/SG/SFXSlider.value = Global.settings["sfx"]
+	$MC/MC/VB/SC/VB2/SG/BeepsSlider.value = Global.settings["beeps"]
 
 func set_default():
 	Global.settings["music"] = 100
@@ -28,13 +28,13 @@ func _on_FullscreenButton_toggled(button_pressed):
 	Global.settings["fullscreen"] = button_pressed
 
 func _on_Back_pressed():
-	Global.settings["music"] = $MC/MC/VB/SC/SG/MusicSlider.value
-	Global.settings["sfx"] = $MC/MC/VB/SC/SG/SFXSlider.value
-	Global.settings["beeps"] = $MC/MC/VB/SC/SG/BeepsSlider.value
-	Global.settings["fancy_sun"] = $MC/MC/VB/SC/SG/SunButton.pressed
-	Global.settings["shake"] = $MC/MC/VB/SC/SG/ShakeButton.pressed
-	Global.settings["hide"] = $MC/MC/VB/SC/SG/HideButton.pressed
-	Global.settings["tutorial"] = $MC/MC/VB/SC/SG/TutorialButton.pressed
+	Global.settings["music"] = $MC/MC/VB/SC/VB2/SG/MusicSlider.value
+	Global.settings["sfx"] = $MC/MC/VB/SC/VB2/SG/SFXSlider.value
+	Global.settings["beeps"] = $MC/MC/VB/SC/VB2/SG/BeepsSlider.value
+	Global.settings["fancy_sun"] = $MC/MC/VB/SC/VB2/SunButton.pressed
+	Global.settings["shake"] = $MC/MC/VB/SC/VB2/ShakeButton.pressed
+	Global.settings["hide"] = $MC/MC/VB/SC/VB2/HideButton.pressed
+	Global.settings["tutorial"] = $MC/MC/VB/SC/VB2/TutorialButton.pressed
 	Global.settings["lang"] = lang_menu.lang
 	
 	var file = File.new()
