@@ -5,7 +5,7 @@ onready var tab_container : TabContainer = get_tree().get_root().find_node("TabC
 var hints_array : Array
 
 func _ready():
-	for i in range(20):
+	for _i in range(20):
 		hints_array.append([])
 		hints_array.back().append("Hint #1")
 		hints_array.back().append("Hint #2")

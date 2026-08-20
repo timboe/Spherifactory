@@ -29,7 +29,7 @@ func _draw():
 	var p : Node2D = get_parent()
 	var ring_n = int(p.name)
 	var to_draw : int = 0 if ring_n == 0 else Global.lanes 
-	var inner : float = p.radius_array[ 0 ] - p.LANE_OFFSET/2.0
+	var _inner : float = p.radius_array[ 0 ] - p.LANE_OFFSET/2.0
 	var outer : float = p.radius_array[ to_draw-1] + p.LANE_OFFSET/2.0
 #	var width = (outer - inner) / 2.0
 	var c = Color(0.36, 0.6, 0.6)

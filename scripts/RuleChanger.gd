@@ -165,14 +165,14 @@ func set_lanes(var l : int):
 		o.update()
 	
 func set_rings(var r : int):
-	var rs = get_tree().get_root().find_node("RingSystem", true, false)
+	var ringsys = get_tree().get_root().find_node("RingSystem", true, false)
 	r += 1
 	Global.rings = r
 	# Note iterating backwards to remove ring above before running check_add_remove_ship on ring below
 	for i in range(rs.get_child_count() -1, -1, -1):
 		if i == 0:
 			continue
-		var ring = rs.get_node("Ring"+String(i))
+		var ring = ringsys.get_node("Ring"+String(i))
 		if i >= r: # Disable
 			ring.reset()
 			ring.visible = false

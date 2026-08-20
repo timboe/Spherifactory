@@ -42,7 +42,7 @@ func _on_LineEdit_text_changed(_new_text):
 func _on_SymbolButton_item_selected(_index):
 	 update_prieview()
 
-func _on_ModeButton_item_selected(index):
+func _on_ModeButton_item_selected(_index):
 	 update_prieview()
 
 func _on_CustomResourceDialog_about_to_show():

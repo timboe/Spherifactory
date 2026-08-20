@@ -38,6 +38,7 @@ enabled=PoolStringArray( "res://addons/NormalMap/plugin.cfg" )
 
 export=false
 addons=true
+fxaa=true
 
 [input]
 

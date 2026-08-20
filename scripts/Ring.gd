@@ -88,8 +88,8 @@ func lane_system_changed():
 		for node_string in lane.lane_provinance:
 			if not has_node(node_string):
 				continue
-			var n = get_node(node_string)
-			if n != null and is_instance_valid(n) and "Injector" in n.name:
+			var nd = get_node(node_string)
+			if nd != null and is_instance_valid(nd) and "Injector" in nd.name:
 				active_injectors = true
 				break
 	portal.visible = active_injectors
@@ -109,10 +109,10 @@ func set_factory_template_visible(var v : bool):
 	factory_template.set_process(v)
 
 func new_factory() -> bool:
-	var factory_template = $Rotation/FactoryTemplate
-	if factory_template == null or not is_instance_valid(factory_template) or factory_template.colliding:
+	var factory_template_node = $Rotation/FactoryTemplate
+	if factory_template_node == null or not is_instance_valid(factory_template_node) or factory_template_node.colliding:
 		return false
-	var new_factory = factory_template.duplicate(DUPLICATE_SCRIPTS|DUPLICATE_SIGNALS|DUPLICATE_GROUPS)
+	var new_factory = factory_template_node.duplicate(DUPLICATE_SCRIPTS|DUPLICATE_SIGNALS|DUPLICATE_GROUPS)
 	new_factory.name = "FactoryInstance1"
 	get_node("Rotation/Factories").add_child(new_factory, true)
 	new_factory.set_owner(get_tree().get_root())

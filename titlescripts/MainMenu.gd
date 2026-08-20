@@ -85,7 +85,10 @@ func NewCampaign(var _extra):
 		for i in range(2,missions_in_campaign+1):
 			var new_l = l1.duplicate(DUPLICATE_SCRIPTS|DUPLICATE_SIGNALS)
 			new_l.text = String(i)
-			levels.add_child(new_l) if i <= 10 else levels2.add_child(new_l)
+			if i <= 10:
+				levels.add_child(new_l)
+			else:
+				levels2.add_child(new_l)
 
 func CampaignEditor(var extra):
 	foot_label.visible = false

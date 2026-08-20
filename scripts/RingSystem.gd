@@ -39,7 +39,7 @@ func update_transmute():
 			
 	transmutes.clear()
 	transmute_lane.clear()
-	for i in range(Global.MAX_TRANSMUTE):
+	for _i in range(Global.MAX_TRANSMUTE):
 		transmutes.append("None")
 		transmute_lane.append(null)
 			

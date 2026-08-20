@@ -35,7 +35,7 @@ func _ready():
 	sb_red.bg_color = Color.red
 	set_process(false)
 	
-func _process(delta):
+func _process(_delta):
 	if page == "Exported":
 		return export_process()
 	###
@@ -179,7 +179,7 @@ func update_Tutorial_diag():
 		window_title = tr("ui_tutorial_message") + " " + String(tut_current + 1)
 	$TutorialContainer/VBox/HBox/ShowTutorialCheckbox.pressed = Global.settings["tutorial"]
 	for t in get_tree().get_nodes_in_group("TutorialGroup"):
-		var cur : bool  = (t.name == String(tut_current))
+		var _cur : bool  = (t.name == String(tut_current))
 		t.visible = (t.name == String(tut_current))
 	$TutorialContainer/VBox/HBox2/Prev.disabled = (tut_current == 0)
 	$TutorialContainer/VBox/HBox2/Next.disabled = (tut_current == (tut_max - 1))
@@ -387,7 +387,7 @@ func update_Hints_diag():
 	var scram = scram_options[ randi() % scram_options.size() ]
 	var scrambied : Array
 	for i in range(3):
-		var processed : String
+		var processed : String = ""
 		for c in Global.mission["hints"][i]:
 			if c == " ":
 				scram = scram_options[ randi() % scram_options.size() ]

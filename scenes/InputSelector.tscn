@@ -44,7 +44,7 @@ func _ready():
 	clear()
 	update_resource_recipy()
 		
-func _on_OptionButton_item_selected(index):
+func _on_OptionButton_item_selected(_index):
 	# For use on the title screen
 	if mission_container != null:
 		mission_container.update_configuration()

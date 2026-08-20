@@ -135,7 +135,10 @@ func _physics_process(delta):
 	if follow_target == null or not is_instance_valid(follow_target):
 		stop_follow()
 		return
-	advanced_follow(delta) if ADVANCED_FOLLOW else follow()
+	if ADVANCED_FOLLOW:
+		advanced_follow(delta)
+	else:
+		follow()
 	global_position = global_position + (global_position_target - global_position) * delta * 5.0
 
 func follow():
