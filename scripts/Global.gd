@@ -69,48 +69,6 @@ var current_scene = null
 func _ready():
 	# Seed the global RNG so randi() (hint scramble, etc.) differs per run
 	randomize()
-	# Use flat, streak-free backgrounds for all UI panels/windows/popups
-	_flatten_theme()
-
-# Replaces every texture-based UI background stylebox with a flat colour, so the
-# small 16x16 theme textures are no longer stretched/tiled across windows and
-# popups (which caused narrow dark horizontal streaks in their backgrounds).
-func _flatten_theme():
-	var theme = load("res://assets/godot_theme/gui.theme")
-	var flat = load("res://resources/WindowPanelStyle.tres")
-	if theme == null or flat == null:
-		print("FLATTEN: theme or flat null (theme=", theme, " flat=", flat, ")")
-		return
-	var backgrounds := [
-		["panel", "Panel"], ["panel", "PanelContainer"], ["panel", "WindowDialog"],
-		["panel", "PopupDialog"], ["panel", "PopupMenu"], ["panel", "PopupPanel"], ["panel", "TooltipPanel"],
-		["panel", "TabContainer"], ["panel", "ProjectSettingsEditor"], ["panel", "EditorSettingsDialog"],
-		["panel", "EditorAbout"], ["bg", "GraphEdit"], ["bg", "Tree"]
-	]
-	var controls := [
-		["normal", "Button"], ["hover", "Button"], ["pressed", "Button"], ["focus", "Button"], ["disabled", "Button"],
-		["normal", "ToolButton"], ["hover", "ToolButton"], ["pressed", "ToolButton"], ["focus", "ToolButton"], ["disabled", "ToolButton"],
-		["normal", "MenuButton"], ["hover", "MenuButton"], ["pressed", "MenuButton"], ["focus", "MenuButton"], ["disabled", "MenuButton"],
-		["normal", "OptionButton"], ["hover", "OptionButton"], ["pressed", "OptionButton"], ["focus", "OptionButton"], ["disabled", "OptionButton"],
-		["normal", "CheckButton"], ["hover", "CheckButton"], ["pressed", "CheckButton"], ["disabled", "CheckButton"],
-		["normal", "CheckBox"], ["hover", "CheckBox"], ["pressed", "CheckBox"], ["disabled", "CheckBox"],
-		["slider", "HSlider"], ["grabber_area", "HSlider"], ["grabber_area_highlight", "HSlider"],
-		["slider", "VSlider"], ["grabber_area", "VSlider"], ["grabber_area_highlight", "VSlider"],
-		["scroll", "HScrollBar"], ["scroll_focus", "HScrollBar"], ["grabber", "HScrollBar"], ["grabber_highlight", "HScrollBar"], ["grabber_pressed", "HScrollBar"],
-		["scroll", "VScrollBar"], ["scroll_focus", "VScrollBar"], ["grabber", "VScrollBar"], ["grabber_highlight", "VScrollBar"], ["grabber_pressed", "VScrollBar"],
-		["bg", "ProgressBar"], ["fg", "ProgressBar"],
-		["tab_bg", "TabContainer"], ["tab_disabled", "TabContainer"], ["tab_fg", "TabContainer"],
-		["tab_bg", "Tabs"], ["tab_disabled", "Tabs"], ["tab_fg", "Tabs"], ["button", "Tabs"], ["button_pressed", "Tabs"]
-	]
-	for pair in backgrounds:
-		_replace_texture_stylebox(theme, flat, pair[0], pair[1])
-	for pair in controls:
-		_replace_texture_stylebox(theme, flat, pair[0], pair[1])
-
-func _replace_texture_stylebox(var theme, var flat, var style_name : String, var control : String):
-	var sb = theme.get_stylebox(style_name, control)
-	if sb != null and sb.get_class() == "StyleBoxTexture":
-		theme.set_stylebox(style_name, control, flat)
 
 func populate_data():
 	recipies = campaign["recipies"]

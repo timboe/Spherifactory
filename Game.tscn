@@ -44,7 +44,7 @@
 [ext_resource path="res://images/icons/prev.png" type="Texture" id=45]
 [ext_resource path="res://scripts/MainUI.gd" type="Script" id=46]
 [ext_resource path="res://images/icons/right-chevron.png" type="Texture" id=47]
-[ext_resource path="res://assets/godot_theme/gui.theme" type="Theme" id=48]
+[ext_resource path="res://assets/godot_theme/minimal.tres" type="Theme" id=48]
 [ext_resource path="res://images/icons/congratulations.png" type="Texture" id=49]
 [ext_resource path="res://images/icons/rocket.png" type="Texture" id=50]
 [ext_resource path="res://scenes/Confetti.tscn" type="PackedScene" id=52]
@@ -704,7 +704,7 @@ __meta__ = {
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 447.0
-margin_bottom = 412.0
+margin_bottom = 416.0
 size_flags_horizontal = 3
 custom_constants/separation = 6
 __meta__ = {
@@ -931,7 +931,7 @@ visible = false
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 447.0
-margin_bottom = 427.0
+margin_bottom = 436.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 6
@@ -1071,7 +1071,7 @@ script = ExtResource( 23 )
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 447.0
-margin_bottom = 427.0
+margin_bottom = 436.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 4
@@ -1623,7 +1623,7 @@ __meta__ = {
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 447.0
-margin_bottom = 444.0
+margin_bottom = 492.0
 rect_min_size = Vector2( 355, 0 )
 custom_constants/separation = 6
 
@@ -2258,7 +2258,7 @@ __meta__ = {
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 447.0
-margin_bottom = 412.0
+margin_bottom = 418.0
 size_flags_horizontal = 3
 custom_constants/separation = 12
 __meta__ = {
@@ -2553,7 +2553,7 @@ size_flags_horizontal = 3
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/ExportedContainer/VBox/ExportedResourceGridSC/ExportedResourcesGrid/Container"]
 margin_right = 219.0
-margin_bottom = 18.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_styles/fg = SubResource( 23 )
@@ -2563,7 +2563,7 @@ percent_visible = false
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/ExportedContainer/VBox/ExportedResourceGridSC/ExportedResourcesGrid/Container"]
 margin_right = 219.0
-margin_bottom = 18.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "1000"
@@ -2726,7 +2726,7 @@ __meta__ = {
 
 [node name="TutorialVBox" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/TutorialContainer/VBox/TutorialContainerSC"]
 margin_right = 439.0
-margin_bottom = 154.0
+margin_bottom = 158.0
 size_flags_horizontal = 3
 custom_constants/separation = 8
 
@@ -3185,8 +3185,8 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/MainUI/MarginContainerTop/CenterContainer"]
-margin_left = 338.0
-margin_right = 942.0
+margin_left = 334.0
+margin_right = 945.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 custom_constants/separation = 32
@@ -3219,7 +3219,7 @@ expand_icon = true
 
 [node name="MissionGUIContainer" type="HBoxContainer" parent="CanvasLayer/UI/MainUI/MarginContainerTop/CenterContainer/HBoxContainer"]
 margin_left = 288.0
-margin_right = 412.0
+margin_right = 419.0
 margin_bottom = 64.0
 
 [node name="MissionTex" type="TextureRect" parent="CanvasLayer/UI/MainUI/MarginContainerTop/CenterContainer/HBoxContainer/MissionGUIContainer"]
@@ -3230,18 +3230,18 @@ expand = true
 
 [node name="MissionInnerContainer" type="VBoxContainer" parent="CanvasLayer/UI/MainUI/MarginContainerTop/CenterContainer/HBoxContainer/MissionGUIContainer"]
 margin_left = 68.0
-margin_right = 124.0
+margin_right = 131.0
 margin_bottom = 64.0
 
 [node name="MissionLabel" type="Label" parent="CanvasLayer/UI/MainUI/MarginContainerTop/CenterContainer/HBoxContainer/MissionGUIContainer/MissionInnerContainer"]
-margin_right = 56.0
-margin_bottom = 18.0
+margin_right = 63.0
+margin_bottom = 22.0
 text = "Mission 1"
 align = 1
 
 [node name="MissionRemaining" type="Label" parent="CanvasLayer/UI/MainUI/MarginContainerTop/CenterContainer/HBoxContainer/MissionGUIContainer/MissionInnerContainer"]
-margin_top = 22.0
-margin_right = 56.0
+margin_top = 26.0
+margin_right = 63.0
 margin_bottom = 64.0
 size_flags_vertical = 3
 text = "x100"
@@ -3249,8 +3249,8 @@ align = 1
 valign = 1
 
 [node name="Outlines" type="Button" parent="CanvasLayer/UI/MainUI/MarginContainerTop/CenterContainer/HBoxContainer"]
-margin_left = 444.0
-margin_right = 508.0
+margin_left = 451.0
+margin_right = 515.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 toggle_mode = true
@@ -3259,8 +3259,8 @@ icon = ExtResource( 24 )
 expand_icon = true
 
 [node name="Menu" type="Button" parent="CanvasLayer/UI/MainUI/MarginContainerTop/CenterContainer/HBoxContainer"]
-margin_left = 540.0
-margin_right = 604.0
+margin_left = 547.0
+margin_right = 611.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 icon = ExtResource( 31 )
