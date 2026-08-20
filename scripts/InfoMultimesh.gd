@@ -33,7 +33,7 @@ func update_visible():
 	if not is_instance_valid(factory_process):
 		reset()
 		return
-	if "delted" in factory_process.name:
+	if "deleted" in factory_process.name:
 		reset()
 		return
 	if factory_process.name != "Ship" and factory_process.mode == Global.BUILDING_UNSET:

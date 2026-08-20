@@ -42,9 +42,6 @@ margin_left = 0.280609
 margin_top = 0.280609
 margin_right = 0.28064
 margin_bottom = 0.28064
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Back2" type="Panel" parent="."]
 margin_right = 256.0

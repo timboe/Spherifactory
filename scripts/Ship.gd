@@ -18,6 +18,7 @@ export(bool) var launch = false
 
 export(int) var output_storage = 0
 export(String) var recipe = ""
+export(bool) var deposited = false
 
 export(PoolColorArray) var ship_color
 export(Color) var outline_color
@@ -47,6 +48,7 @@ func serialise() -> Dictionary:
 	d["launch"] = launch
 	d["output_storage"] = output_storage
 	d["recipe"] = recipe
+	d["deposited"] = deposited
 	d["ship_color"] = ship_color[0].to_html()
 	d["outline_color"] = outline_color.to_html()
 	d["factory"] = factory
@@ -60,6 +62,7 @@ func deserialise(var d : Dictionary):
 	launch = d["launch"]
 	output_storage = d["output_storage"]
 	recipe = d["recipe"]
+	deposited = d.get("deposited", false)
 	ship_color[0] = Color(d["ship_color"])
 	outline_color = Color(d["outline_color"])
 	factory = d["factory"]
@@ -82,6 +85,7 @@ func _ready():
 	ship_color = PoolColorArray([Color(0.6, 0.6, 0.6, 1.0)])
 	built = false
 	launch = false
+	deposited = false
 	rocket.volume_db = linear2db(Global.settings["sfx"] * 0.01)
 	set_physics_process(false)
 
@@ -110,6 +114,7 @@ func setup_resource(var _radius : float, var i_radius : float, var o_radius : fl
 	
 func configure_ship(var _recipe : String, var _factory : Node2D):
 	recipe = _recipe
+	deposited = false
 	outline_color = Global.data[recipe]["color"]
 	factory = _factory.get_path()
 	ship_color[0] = Global.lighten(outline_color)
@@ -129,7 +134,9 @@ func appear_complete():
 
 func depart():
 	#print("Ship departing")
-	get_node(factory).get_node("NewShip").start()
+	var fac = get_node(factory) if has_node(factory) else null
+	if fac != null and is_instance_valid(fac):
+		fac.get_node("NewShip").start()
 	$Particles2D.emitting = true
 	deregister_provider(null)
 	id.update_diag()
@@ -148,16 +155,21 @@ func set_radius_mod(var r):
 	
 func deregister_provider(var _provider):
 	if factory != "":
-		get_node(factory).lane_cleared(self) 
+		var fac = get_node(factory) if has_node(factory) else null
+		if fac != null and is_instance_valid(fac):
+			fac.lane_cleared(self)
 		factory = ""
 	
 func deposit():
+	if deposited:
+		return
+	deposited = true
+	rule_changer.deposit(recipe, output_storage)
 	$Tween.interpolate_property(get_parent(), "modulate", Color(1,1,1,1), Color(1,1,1,0),
 		SHIP_APPEAR_TIME)
 	$Tween.interpolate_callback(self, SHIP_APPEAR_TIME, "remove")
 	$Tween.start()
-	rule_changer.deposit(recipe, output_storage)
-	remove()
+	set_physics_process(false)
 	
 func remove(): # Note: May remove through means other than depart()
 	deregister_provider(null)

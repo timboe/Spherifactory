@@ -17,7 +17,9 @@ func update_content():
 	for c in get_children():
 		c.visible = false
 	for i in range(to_draw):
-		if lanes[i].lane_content != null and ring.ring_number > 0:
+		if i >= lanes.size():
+			continue
+		if lanes[i] != null and is_instance_valid(lanes[i]) and lanes[i].lane_content != null and ring.ring_number > 0:
 			get_child(i).texture = Global.data[lanes[i].lane_content]["texture"]
 			get_child(i).visible = true
 			

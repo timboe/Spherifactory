@@ -74,9 +74,7 @@ margin_bottom = 17.0
 text = "0:"
 script = SubResource( 1 )
 
-[node name="OptionButton" type="OptionButton" parent="." groups=[
-"ResRecUpdateGroup",
-]]
+[node name="OptionButton" type="OptionButton" parent="." groups=["ResRecUpdateGroup"]]
 margin_left = 71.0
 margin_right = 135.0
 margin_bottom = 20.0

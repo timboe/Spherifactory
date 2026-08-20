@@ -43,9 +43,11 @@ func _process(delta):
 		return
 	if not is_instance_valid(current_building):
 		return
-	if "delted" in current_building.name:
+	if "deleted" in current_building.name:
 		return
 	var timer : Timer = current_building.get_node("FactoryProcess").get_node("Timer")
+	if timer.wait_time <= 0.0:
+		return
 	var percentage = 1.0 - (timer.time_left / timer.wait_time)
 	progress_bar.value = percentage
 
@@ -112,9 +114,13 @@ func get_title_tr(var w : String):
 		
 func toggle_menu_diag():
 	var show : bool = (page != "menu")
+	if show:
+		# Take the screenshot while the dialog is hidden so the thumbnail is clean
+		show_mission_after_tut = false
+		hide()
+		save_load.snap()
 	show_shared_internal()
 	if show:
-		save_load.snap()
 		$MenuContainer.visible = true
 		page = "menu"
 		window_title = get_title_tr("Menu")
@@ -217,7 +223,7 @@ func export_process():
 		var add = max(1, round((n - current) * 0.005))
 		if first:
 			current = n
-		elif current != n:
+		elif not is_equal_approx(current, n):
 			current += add
 		g.get_child(i + 1).get_child(0).max_value = leet_n(current)
 		g.get_child(i + 1).get_child(0).value = current
@@ -345,6 +351,8 @@ func update_ring_diag():
 	window_title = tr("ui_ring") + String(current_ring.ring_number)
 	current_lanes.clear()
 	for l in current_ring.get_lanes():
+		if not is_instance_valid(l):
+			continue
 		# current_lanes is used by the bin script
 		current_lanes.append(l)
 		var tex : ImageTexture = null
@@ -353,9 +361,11 @@ func update_ring_diag():
 		else:
 			tex = Global.data["None"]["texture"]
 		var icon : Node = find_node("LIcon"+String(count))
-		icon.texture = tex
+		if icon != null:
+			icon.texture = tex
 		var bin : Button = find_node("LBin"+String(count))
-		bin.disabled = (l.lane_content == null)
+		if bin != null:
+			bin.disabled = (l.lane_content == null)
 		#
 		var list : ItemList = $RingContainer/VBoxContainer/ScrollContainer/FactoriesList
 		list.clear()
@@ -395,7 +405,8 @@ func update_Hints_diag():
 func _on_UpdateTimer_timeout():
 	if current_building != null or page == "Sol":
 		for mm in get_tree().get_nodes_in_group("InfoMultimeshGroup"):
-			mm.update_visible()
+			if is_instance_valid(mm):
+				mm.update_visible()
 
 func _on_Sandbox_pressed():
 	show_named_diag("Sandbox")
@@ -443,7 +454,7 @@ func _on_AllRecipes_pressed():
 func _on_ClearAll_pressed():
 	hide_diag()
 	for r in get_tree().get_nodes_in_group("RingGroup"):
-		if r.name == "Ring0":
+		if r == null or not is_instance_valid(r) or r.name == "Ring0":
 			continue
 		r.reset()
 	$"/root/Game/SomethingChanged".something_changed()

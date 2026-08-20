@@ -19,4 +19,5 @@ func common():
 	id.hide_diag()
 	sc.something_changed()
 	for c in get_tree().get_nodes_in_group("RingContentGroup"):
-		c.update_content()
+		if is_instance_valid(c):
+			c.update_content()

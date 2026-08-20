@@ -147,5 +147,7 @@ func _physics_process(delta):
 	transform.origin.x += delta * linear_velocity
 	if transform.origin.x > 0:
 		transform.origin.x -= linear_velocity * set_period
-		if get_node(ring).add_to_ring(1.5 * PI, lane): # Always add new elements at the top
-			blip_a.play()
+		var r = get_node(ring) if has_node(ring) else null
+		if r != null and is_instance_valid(r):
+			if r.add_to_ring(1.5 * PI, lane): # Always add new elements at the top
+				blip_a.play()

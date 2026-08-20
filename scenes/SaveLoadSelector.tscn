@@ -100,12 +100,14 @@ expand = true
 margin_left = 391.0
 margin_right = 591.0
 margin_bottom = 100.0
+rect_min_size = Vector2( 300, 105 )
 script = ExtResource( 3 )
 
 [node name="OverwriteConfirmationDialog" type="ConfirmationDialog" parent="."]
 margin_left = 391.0
 margin_right = 591.0
 margin_bottom = 100.0
+rect_min_size = Vector2( 300, 105 )
 script = ExtResource( 3 )
 
 [connection signal="pressed" from="VBox/HBox/Overwrite" to="." method="_on_Overwrite_pressed"]

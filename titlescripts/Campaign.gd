@@ -22,10 +22,13 @@ func update_resource_recipy():
 	for n in get_tree().get_nodes_in_group("ResRecUpdateGroup"):
 		n.update_resource_recipy()
 	# Note: Can not cache
-	var tab_container = get_tree().get_root().find_node("TabContainer", true, false)
-	for m in tab_container.get_children():
-		var m_c = tab_container.find_node("MissionContainer", true, false)
-		m_c.update_configuration()
+	var tab_container_nocache = get_tree().get_root().find_node("TabContainer", true, false)
+	for m in tab_container_nocache.get_children():
+		if not is_instance_valid(m):
+			continue
+		var m_c = m.find_node("MissionContainer", true, false)
+		if m_c != null:
+			m_c.update_configuration()
 
 func set_new():
 	reset()

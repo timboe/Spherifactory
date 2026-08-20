@@ -10,7 +10,7 @@ func save(var slot, var autosave = false):
 	save_dict["level"] = Global.level
 	save_dict["time_played"] = Global.time_played
 	# This bundles all recipy, mission, resource data. In case it were to change...
-	save_dict["campaign"] = Global.campaigns[ Global.campaign["name"] ]
+	save_dict["campaign"] = Global.campaigns[ Global.campaign["name"] ].duplicate(true)
 	save_dict["campaign_name"] = Global.campaign["name"]
 	save_dict["version"] = Global.SAVE_FORMAT_VERSION
 	
@@ -34,7 +34,7 @@ func save(var slot, var autosave = false):
 	# Save injectors
 	var injector_dict = {}
 	for i in get_tree().get_nodes_in_group("InjectorLinesGroup"):
-		injector_dict[i.name] = i.serialise()
+		injector_dict[i.get_parent().name] = i.serialise()
 	save_dict["saved_injectors"] = injector_dict
 	
 	# Save Rigs
@@ -46,7 +46,7 @@ func save(var slot, var autosave = false):
 	# Save satelites
 	var satelite_dict = {}
 	for i in get_tree().get_nodes_in_group("FactoryGroup"):
-		if i.name == "FactoryTemplate":
+		if i.name == "FactoryTemplate" or "deleted" in i.name:
 			continue
 		satelite_dict[i.get_path()] = i.serialise()
 	save_dict["saved_satelites"] = satelite_dict
@@ -68,7 +68,8 @@ func save(var slot, var autosave = false):
 	
 	var img_path : String = "user://save_%04d.png" % int(slot)
 	print("save to ",img_path)
-	Global.snap.save_png(img_path)
+	if Global.snap != null:
+		Global.snap.save_png(img_path)
 	
 	var file = File.new()
 	file.open(Global.GAME_SAVE_FILE, File.WRITE)
@@ -97,6 +98,10 @@ func snap():
 func do_load():
 	# See SaveLoadSelector for initial loading of basics
 	#
+	var save_version : int = Global.request_load.get("version", -1)
+	if save_version != Global.SAVE_FORMAT_VERSION:
+		print("ERROR: unsupported save version ", save_version, " (expected ", Global.SAVE_FORMAT_VERSION, ")")
+		return
 	# Button state
 	get_tree().get_root().find_node("Pause",true,false).pressed = Global.request_load["paused"] 
 	get_tree().get_root().find_node("FF",true,false).pressed = Global.request_load["ff"]
@@ -106,8 +111,8 @@ func do_load():
 	for i in get_tree().get_nodes_in_group("RingGroup"):
 		i.deserialise( Global.request_load["saved_rings"][i.name] )
 	# Second injectors
-	for i in get_tree().get_nodes_in_group("InjectorParentGroup"):
-		i.deserialise( Global.request_load["saved_injectors"][i.name] )
+	for i in get_tree().get_nodes_in_group("InjectorLinesGroup"):
+		i.deserialise( Global.request_load["saved_injectors"][i.get_parent().name] )
 	# Third satelites
 	var all_satelite_data = Global.request_load["saved_satelites"]
 	for s in all_satelite_data:
@@ -134,7 +139,8 @@ func do_load():
 		var ship_data : Dictionary = all_ships_data[s]
 		var parent_ring = get_node(ship_data["parent_ring"])
 		if ship_data["launch"]: # Launched. Don't re-animate. Just make sure a new ship was spawned
-			rule_changer.deposit(ship_data["recipe"], ship_data["output_storage"])
+			if not ship_data.get("deposited", false):
+				rule_changer.deposit(ship_data["recipe"], ship_data["output_storage"])
 		else: # Not launched. Add me
 			var sr = parent_ring.get_node("ShipRotationTemplate").duplicate(DUPLICATE_SCRIPTS|DUPLICATE_GROUPS|DUPLICATE_SIGNALS)
 			sr.name = ship_data["shiprotator_name"]
@@ -145,7 +151,7 @@ func do_load():
 		id.update_diag()
 	# Fifth check if any satelites need new ships
 	for f in get_tree().get_nodes_in_group("FactoryGroup"):
-		if f.name == "FactoryTemplate":
+		if f.name == "FactoryTemplate" or "deleted" in f.name:
 			continue
 		f.check_add_remove_ship()
 	#

@@ -7,7 +7,7 @@ const MAX_STORAGE := 49
 const MAX_INPUT_LANES := 6
 const MAX_RINGS := 11
 const MAX_LANES := 4
-const SAVE_FORMAT_VERSION = 1
+const SAVE_FORMAT_VERSION = 2
 const CAMPAIGN_FORMAT_VERSION = 1
 const MAX_TRANSMUTE = 3
 const GEM_SIZE = 4
@@ -67,8 +67,8 @@ func lighten(var c : Color) -> Color:
 var current_scene = null
 
 func _ready():
-	var root = get_tree().get_root()
-	current_scene = root.get_child(root.get_child_count() - 1)
+	# Seed the global RNG so randi() (hint scramble, etc.) differs per run
+	randomize()
 
 func populate_data():
 	recipies = campaign["recipies"]
@@ -104,7 +104,14 @@ func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)
 
 func _deferred_goto_scene(path):
-	current_scene.free()
+	# This runs deferred (idle time, not inside a signal callback), so an
+	# immediate free() is safe here. Using free() rather than queue_free()
+	# avoids a one-frame overlap where both scenes exist in the tree, which
+	# would make root-wide find_node() calls in the new scene resolve to
+	# nodes of the old (dying) scene.
+	var old_scene = get_tree().get_current_scene()
+	if old_scene != null:
+		old_scene.free()
 	print("change to ", path)
 	var s = ResourceLoader.load(path)
 	current_scene = s.instance()

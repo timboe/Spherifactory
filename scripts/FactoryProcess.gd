@@ -37,7 +37,9 @@ func serialise() -> Dictionary:
 	for i in range(input_lanes.size()):
 		var inner = []
 		for j in range(input_lanes[i].size()):
-			inner.append(input_lanes[i][j].get_path())
+			var lane = input_lanes[i][j]
+			if is_instance_valid(lane):
+				inner.append(lane.get_path())
 		input_lanes_save.append(inner)
 	d["input_lanes"] = input_lanes_save
 	d["input_lanes_distance"] = input_lanes_distance
@@ -63,7 +65,9 @@ func deserialise(var d : Dictionary):
 	for i in range(input_lanes_save.size()):
 		var inner = []
 		for j in range(input_lanes_save[i].size()):
-			inner.append(get_node(input_lanes_save[i][j]))
+			var n = get_node(input_lanes_save[i][j])
+			if n != null and is_instance_valid(n):
+				inner.append(n)
 		input_lanes.append(inner)
 	input_lanes_distance = d["input_lanes_distance"]
 	# spies - not saved
@@ -74,7 +78,8 @@ func deserialise(var d : Dictionary):
 	output_storage = d["output_storage"]
 	output_content = d["output_content"]
 	output_direction = d["output_direction"]
-	output_lane = null if d["output_lane"] == null else get_node( d["output_lane"] )
+	var out_node = get_node(d["output_lane"]) if d["output_lane"] != null else null
+	output_lane = out_node if out_node != null and is_instance_valid(out_node) else null
 	mode = d["mode"]
 	check_process()
 
@@ -171,17 +176,21 @@ func lane_cleared(var lane_or_ship : Node2D):
 func lane_system_changed():
 	if mode == Global.BUILDING_UNSET: # Called on all buildings by SomethingChanged
 		return
+	if "deleted" in name or ring == null or not is_instance_valid(ring):
+		return
 	var something_changed = false
 	# Remove invalid inputs
 	for input_idx in range(input_lanes.size()):
 		var required_content = input_content[input_idx]
 		for l in input_lanes[input_idx]:
+			if not is_instance_valid(l):
+				continue
 			var lane_is_valid = (l.lane_content == required_content)
 			if not lane_is_valid:
 				input_lanes[input_idx].erase(l)
 				something_changed = true
 	# Remove invalid outputs
-	if output_lane != null and not "Ship" in output_lane.name and output_lane.lane_content != output_content:
+	if output_lane != null and is_instance_valid(output_lane) and not "Ship" in output_lane.name and output_lane.lane_content != output_content:
 		output_lane = null
 		something_changed = true
 				
@@ -198,7 +207,12 @@ func lane_system_changed():
 			if ring_idx >= Global.rings or ring_idx <= 0: # Avoid sun. avoid overflow
 				break
 			distance += 1
-			for l in ring.get_parent().get_child(ring_idx).get_lanes():
+			var provider_ring = ring.get_parent().get_child(ring_idx)
+			if provider_ring == null or not is_instance_valid(provider_ring):
+				continue
+			for l in provider_ring.get_lanes():
+				if not is_instance_valid(l):
+					continue
 				if l.lane_content == null:
 					continue
 				for input_idx in range(input_content.size()):
@@ -213,12 +227,14 @@ func lane_system_changed():
 		# input-resources propagate inwards
 		var in_ring_n = ring.ring_number + 1 if Global.data[input_content[0]]["mode"] == "-" else ring.ring_number - 1
 		if in_ring_n != Global.rings: # If not trying to insert from outside the outermost ring
-			for l in ring.get_parent().get_child(in_ring_n).get_lanes():
-				if l.lane_content != null and l.lane_content == input_content[0]:
-					if not input_lanes[0].has(l):
-						input_lanes[0].append(l)
-						#print("The ",name," will now import ",input_content[0]," from ",l," (total of ",input_lanes[0].size()," sources)")
-						something_changed = true
+			var in_ring = ring.get_parent().get_child(in_ring_n)
+			if in_ring != null and is_instance_valid(in_ring):
+				for l in in_ring.get_lanes():
+					if is_instance_valid(l) and l.lane_content != null and l.lane_content == input_content[0]:
+						if not input_lanes[0].has(l):
+							input_lanes[0].append(l)
+							#print("The ",name," will now import ",input_content[0]," from ",l," (total of ",input_lanes[0].size()," sources)")
+							something_changed = true
 	# Output
 	var out_ring_n = ring.ring_number - 1 if Global.data[output_content]["mode"] == "-" else ring.ring_number + 1
 	if out_ring_n == Global.rings :
@@ -228,14 +244,15 @@ func lane_system_changed():
 			# Note: this is a self-contained operation, so something_changed = false
 	elif output_storage > 0: 	# Only link the output if we have something to output...
 		var out_ring = ring.get_parent().get_child(out_ring_n)
-		var out_lane_id = out_ring.get_free_or_existing_lane(output_content)
-		if out_lane_id != -1:
-			var the_out_lane = out_ring.get_lane(out_lane_id)
-			if output_lane != the_out_lane:
-				output_lane = the_out_lane
-				the_out_lane.register_resource(output_content, self)
-				#print("The ",name," will now export ",output_content," to ",the_out_lane)
-				something_changed = true
+		if out_ring != null and is_instance_valid(out_ring):
+			var out_lane_id = out_ring.get_free_or_existing_lane(output_content)
+			if out_lane_id != -1:
+				var the_out_lane = out_ring.get_lane(out_lane_id)
+				if output_lane != the_out_lane:
+					output_lane = the_out_lane
+					the_out_lane.register_resource(output_content, self)
+					#print("The ",name," will now export ",output_content," to ",the_out_lane)
+					something_changed = true
 	check_process()
 	if something_changed:
 		something_changed_node.something_changed()
@@ -287,7 +304,8 @@ func _physics_process(_delta):
 		# Inputs
 		if output_storage < Global.MAX_STORAGE:
 			for l in input_lanes[0]:
-				l.try_capture(angle_back + global_rotation, self, Global.OUTWARDS)
+				if is_instance_valid(l):
+					l.try_capture(angle_back + global_rotation, self, Global.OUTWARDS)
 		# Output
 		if output_storage > 0 and output_lane != null and is_instance_valid(output_lane):
 			var accepted = output_lane.try_send(global_rotation, Global.OUTWARDS)
@@ -300,9 +318,10 @@ func _physics_process(_delta):
 		# Inputs
 		if output_storage < Global.MAX_STORAGE:
 			for l in input_lanes[0]:
-				l.try_capture(angle_front + global_rotation, self, Global.INWARDS)
+				if is_instance_valid(l):
+					l.try_capture(angle_front + global_rotation, self, Global.INWARDS)
 		# Output
-		if output_storage > 0 and output_lane != null:
+		if output_storage > 0 and output_lane != null and is_instance_valid(output_lane):
 			var accepted = output_lane.try_send(global_rotation, Global.INWARDS)
 			if accepted:
 				output_storage -= 1
@@ -316,6 +335,8 @@ func _physics_process(_delta):
 				for j in range(input_lanes[i].size()):
 					# Factories capture from ABOVE, 1 or two rings
 					var lane = input_lanes[i][j]
+					if not is_instance_valid(lane):
+						continue
 					var d : int = Global.INWARDS 
 					var a : float = angle_front
 					if not Global.factories_pull_from_above:
@@ -323,7 +344,7 @@ func _physics_process(_delta):
 						a = angle_back
 					lane.try_capture(a + global_rotation, self, d, input_lanes_distance[i][j])
 		# Outputs
-		if output_storage > 0 and output_lane != null:
+		if output_storage > 0 and output_lane != null and is_instance_valid(output_lane):
 			var direction : int = Global.INWARDS if Global.data[output_content]["mode"] == "-" else Global.OUTWARDS
 			var accepted : bool = output_lane.try_send(global_rotation, direction)
 			if accepted:

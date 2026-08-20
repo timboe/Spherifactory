@@ -2,6 +2,7 @@ extends MultiMeshInstance2D
 
 const DISABLE := 100.0
 const INJECT_VELOCITY := 128.0
+const RING_RADIUS := 40 # Matches RingSystem.RING_RADIUS
 
 export(float) var radians_per_slot
 export(float) var radius
@@ -13,7 +14,6 @@ var lane_provinance : Array = [] # Note: NOT exported, becomes shared!
 var laneswap_target : Array = [null] 
 var items_in_lane := 0
 
-var ring_radius = load("res://scripts/RingSystem.gd").new().RING_RADIUS
 var in_flight = []
 
 func serialise() -> Dictionary:
@@ -61,6 +61,8 @@ func deserialise(var d : Dictionary):
 	#
 	var content : Array = d["multimesh_custom_data"]
 	for i in range(multimesh.instance_count):
+		if i >= content.size():
+			break
 		var flags : int = content[i]
 		var c = Color(0,0,0,0)
 		c.r = flags & 1 
@@ -178,13 +180,17 @@ func deregister_resource():
 	laneswap_target[0] = null
 	in_flight.clear()
 	for p in lane_provinance:
-		get_node(p).lane_cleared(self)
+		if has_node(p):
+			var n = get_node(p)
+			if n != null and is_instance_valid(n):
+				n.lane_cleared(self)
 	lane_provinance.clear()
 	for i in multimesh.instance_count:
 		set_slot_filled(i, false, true)
 	# These calls handle things also which take from the lane
 	for f in get_tree().get_nodes_in_group("FactoryGroup"):
-		f.lane_cleared(self)
+		if is_instance_valid(f):
+			f.lane_cleared(self)
 
 func get_slot_filled(var i : int) -> bool:
 	return bool(multimesh.get_instance_custom_data(i).r)
@@ -216,7 +222,7 @@ func try_capture(var glob_angle : float, var caller : Node, var direction : int,
 	moving["dir"] = direction
 	moving["offset"] = get_angle(i)
 	moving["radius"] = radius
-	moving["target"] = radius + (ring_radius * distance) if direction == Global.OUTWARDS else radius - (ring_radius * distance)
+	moving["target"] = radius + (RING_RADIUS * distance) if direction == Global.OUTWARDS else radius - (RING_RADIUS * distance)
 	in_flight.append(moving)
 	
 func try_send(var glob_angle : float, var direction : int) -> bool:
@@ -226,7 +232,7 @@ func try_send(var glob_angle : float, var direction : int) -> bool:
 		return false
 	c.r = 1 # Now filled
 	c.b = 0 # Hence not fillable
-	var new_radius = radius - ring_radius if direction == Global.OUTWARDS else radius + ring_radius
+	var new_radius = radius - RING_RADIUS if direction == Global.OUTWARDS else radius + RING_RADIUS
 	var offset = (2.0 * PI) * 1.0/float(multimesh.instance_count) * float(i)
 	multimesh.set_instance_custom_data(i, c)
 	var t : Transform2D = multimesh.get_instance_transform_2d(i)

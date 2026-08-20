@@ -29,20 +29,20 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.49013, 0.0, 0, 0 
 curve = SubResource( 3 )
 
 [sub_resource type="ParticlesMaterial" id=5]
-lifetime_randomness = 0.2
+lifetime_randomness = 0.1
 flag_disable_z = true
 direction = Vector3( -1, 0, 0 )
-spread = 60.0
+spread = 15.0
 flatness = 1.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 50.0
-angular_velocity = 100.0
+initial_velocity = 100.0
+angular_velocity = 20.0
 angular_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-damping = 0.2
-damping_random = 0.4
-angle = 360.0
+orbit_velocity = 0.1
+orbit_velocity_random = 0.25
+damping = 0.05
+damping_random = 0.2
+angle = 20.0
 angle_random = 1.0
 scale = 0.01
 scale_random = 0.01
@@ -122,31 +122,21 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 6 )
 
-[node name="Ring" type="Node2D" groups=[
-"RingGroup",
-]]
+[node name="Ring" type="Node2D" groups=["RingGroup"]]
 script = ExtResource( 2 )
 set_lanes = 4
 radius_array = [ 320.0, 325.0, 330.0, 335.0 ]
 
-[node name="Outline" type="Node2D" parent="." groups=[
-"RingOutlineGroup",
-]]
+[node name="Outline" type="Node2D" parent="." groups=["RingOutlineGroup"]]
 script = ExtResource( 5 )
 
-[node name="OutlineHighlight" type="Node2D" parent="." groups=[
-"RingOutlineHLGroup",
-]]
+[node name="OutlineHighlight" type="Node2D" parent="." groups=["RingOutlineHLGroup"]]
 script = ExtResource( 5 )
 
-[node name="OutlineInjectorTarget" type="Node2D" parent="." groups=[
-"RingOutlineITGroup",
-]]
+[node name="OutlineInjectorTarget" type="Node2D" parent="." groups=["RingOutlineITGroup"]]
 script = ExtResource( 13 )
 
-[node name="ShipRotationTemplate" type="Node2D" parent="." groups=[
-"ShipRotationGroup",
-]]
+[node name="ShipRotationTemplate" type="Node2D" parent="." groups=["ShipRotationGroup"]]
 visible = false
 
 [node name="Ship" type="Node2D" parent="ShipRotationTemplate"]
@@ -174,9 +164,7 @@ bus = "Sfx"
 
 [node name="Lanes" type="Node2D" parent="Rotation"]
 
-[node name="Lane0" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=[
-"LaneGroup",
-]]
+[node name="Lane0" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=["LaneGroup"]]
 material = SubResource( 6 )
 multimesh = SubResource( 8 )
 texture = ExtResource( 8 )
@@ -184,9 +172,7 @@ normal_map = ExtResource( 10 )
 script = ExtResource( 1 )
 radians_per_slot = 0.0156298
 
-[node name="Lane1" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=[
-"LaneGroup",
-]]
+[node name="Lane1" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=["LaneGroup"]]
 material = SubResource( 6 )
 multimesh = SubResource( 10 )
 texture = ExtResource( 8 )
@@ -194,9 +180,7 @@ normal_map = ExtResource( 10 )
 script = ExtResource( 1 )
 radians_per_slot = 0.0156298
 
-[node name="Lane2" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=[
-"LaneGroup",
-]]
+[node name="Lane2" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=["LaneGroup"]]
 material = SubResource( 6 )
 multimesh = SubResource( 12 )
 texture = ExtResource( 8 )
@@ -204,45 +188,35 @@ normal_map = ExtResource( 10 )
 script = ExtResource( 1 )
 radians_per_slot = 0.0156298
 
-[node name="Lane3" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=[
-"LaneGroup",
-]]
+[node name="Lane3" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=["LaneGroup"]]
 multimesh = SubResource( 14 )
 texture = ExtResource( 8 )
 normal_map = ExtResource( 10 )
 script = ExtResource( 1 )
 radians_per_slot = 0.0156298
 
-[node name="Lane4" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=[
-"LaneGroup",
-]]
+[node name="Lane4" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=["LaneGroup"]]
 multimesh = SubResource( 16 )
 texture = ExtResource( 8 )
 normal_map = ExtResource( 10 )
 script = ExtResource( 1 )
 radians_per_slot = 0.0156298
 
-[node name="Lane5" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=[
-"LaneGroup",
-]]
+[node name="Lane5" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=["LaneGroup"]]
 multimesh = SubResource( 18 )
 texture = ExtResource( 8 )
 normal_map = ExtResource( 10 )
 script = ExtResource( 1 )
 radians_per_slot = 0.0156298
 
-[node name="Lane6" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=[
-"LaneGroup",
-]]
+[node name="Lane6" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=["LaneGroup"]]
 multimesh = SubResource( 20 )
 texture = ExtResource( 8 )
 normal_map = ExtResource( 10 )
 script = ExtResource( 1 )
 radians_per_slot = 0.0156298
 
-[node name="Lane7" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=[
-"LaneGroup",
-]]
+[node name="Lane7" type="MultiMeshInstance2D" parent="Rotation/Lanes" groups=["LaneGroup"]]
 multimesh = SubResource( 22 )
 texture = ExtResource( 8 )
 normal_map = ExtResource( 10 )
@@ -252,9 +226,7 @@ radians_per_slot = 0.0156298
 [node name="Factories" type="Node2D" parent="Rotation"]
 pause_mode = 2
 
-[node name="FactoryTemplate" type="Node2D" parent="Rotation" groups=[
-"FactoryGroup",
-]]
+[node name="FactoryTemplate" type="Node2D" parent="Rotation" groups=["FactoryGroup"]]
 pause_mode = 2
 light_mask = 0
 script = ExtResource( 3 )
@@ -268,9 +240,7 @@ process_mode = 0
 wait_time = 2.5
 one_shot = true
 
-[node name="TextureButton" type="TextureButton" parent="Rotation/FactoryTemplate" groups=[
-"FactoryButtonGroup",
-]]
+[node name="TextureButton" type="TextureButton" parent="Rotation/FactoryTemplate" groups=["FactoryButtonGroup"]]
 visible = false
 margin_left = 157.5
 margin_top = -20.0
@@ -296,9 +266,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FactoryProcess" type="Node2D" parent="Rotation/FactoryTemplate" groups=[
-"FactoryProcessGroup",
-]]
+[node name="FactoryProcess" type="Node2D" parent="Rotation/FactoryTemplate" groups=["FactoryProcessGroup"]]
 script = ExtResource( 7 )
 
 [node name="Timer" type="Timer" parent="Rotation/FactoryTemplate/FactoryProcess"]
@@ -311,9 +279,7 @@ visible = false
 points = PoolVector2Array( 0, 0, 400, 0 )
 default_color = Color( 0.24, 0.0768, 0.14208, 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." groups=[
-"RingContentGroup",
-]]
+[node name="HBoxContainer" type="HBoxContainer" parent="." groups=["RingContentGroup"]]
 light_mask = 0
 margin_left = -337.5
 margin_top = -337.5

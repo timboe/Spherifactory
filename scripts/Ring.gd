@@ -73,21 +73,32 @@ func _ready():
 	
 func reset():
 	for l in get_lanes():
-		if l.lane_content != null:
+		if is_instance_valid(l) and l.lane_content != null:
 			l.deregister_resource()
 	for f in get_factories():
-		f.remove()
+		if is_instance_valid(f):
+			f.remove()
 	$"/root/Game/SomethingChanged".something_changed()
 	
 func lane_system_changed():
 	var active_injectors = false
 	for lane in get_lanes():
+		if not is_instance_valid(lane):
+			continue
 		for node_string in lane.lane_provinance:
+			if not has_node(node_string):
+				continue
 			var n = get_node(node_string)
-			if "Injector" in n.name:
+			if n != null and is_instance_valid(n) and "Injector" in n.name:
 				active_injectors = true
 				break
 	portal.visible = active_injectors
+
+func set_processing_active(var active : bool):
+	set_physics_process(active)
+	for l in get_lanes():
+		if is_instance_valid(l):
+			l.set_physics_process(active)
 	
 func add_to_ring(var angle : float, var lane : int) -> bool:
 	var angle_mod = angle - $Rotation.rotation
@@ -99,7 +110,7 @@ func set_factory_template_visible(var v : bool):
 
 func new_factory() -> bool:
 	var factory_template = $Rotation/FactoryTemplate
-	if factory_template.colliding:
+	if factory_template == null or not is_instance_valid(factory_template) or factory_template.colliding:
 		return false
 	var new_factory = factory_template.duplicate(DUPLICATE_SCRIPTS|DUPLICATE_SIGNALS|DUPLICATE_GROUPS)
 	new_factory.name = "FactoryInstance1"

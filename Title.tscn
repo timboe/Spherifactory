@@ -246,9 +246,6 @@ func _ready():
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 31 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="bg" type="TextureRect" parent="."]
 margin_right = 40.0
@@ -518,10 +515,11 @@ window_title = "Information"
 resizable = true
 
 [node name="ConfirmDeleteDialog" type="ConfirmationDialog" parent="CampaignManager/CenterContainer"]
-margin_left = -100.0
-margin_top = -35.0
-margin_right = 100.0
-margin_bottom = 35.0
+margin_left = -200.0
+margin_top = -70.0
+margin_right = 200.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 400, 140 )
 dialog_text = "ui_delete_campaign"
 script = SubResource( 11 )
 
@@ -648,10 +646,11 @@ window_title = "Information"
 resizable = true
 
 [node name="ConfirmDeleteDialog" type="ConfirmationDialog" parent="NewCampaign/CenterContainer"]
-margin_left = -100.0
-margin_top = -35.0
-margin_right = 100.0
-margin_bottom = 35.0
+margin_left = -200.0
+margin_top = -70.0
+margin_right = 200.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 400, 140 )
 dialog_text = "Delete campaign:"
 script = SubResource( 11 )
 
@@ -2053,10 +2052,10 @@ margin_bottom = 18.0
 text = "ui_colour"
 
 [node name="ColorPicker" type="ColorPicker" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_left = 20.0
-margin_top = 42.0
-margin_right = 310.0
-margin_bottom = 476.0
+margin_left = 28.0
+margin_top = 50.0
+margin_right = 318.0
+margin_bottom = 484.0
 edit_alpha = false
 presets_enabled = false
 presets_visible = false
@@ -2558,10 +2557,11 @@ window_title = "ui_warning"
 resizable = true
 
 [node name="DiscardConfirmationDialog" type="ConfirmationDialog" parent="CampaignEditor"]
-margin_left = 538.0
-margin_top = 325.0
-margin_right = 738.0
-margin_bottom = 395.0
+margin_left = 438.0
+margin_top = 290.0
+margin_right = 838.0
+margin_bottom = 430.0
+rect_min_size = Vector2( 400, 140 )
 popup_exclusive = true
 window_title = "ui_confirmation"
 dialog_text = "ui_all_will_be_discarded"
@@ -2569,10 +2569,11 @@ script = ExtResource( 23 )
 
 [node name="OverwriteConfirmationDialog" type="ConfirmationDialog" parent="CampaignEditor"]
 visible = true
-margin_left = 538.0
-margin_top = 325.0
-margin_right = 738.0
-margin_bottom = 395.0
+margin_left = 438.0
+margin_top = 290.0
+margin_right = 838.0
+margin_bottom = 430.0
+rect_min_size = Vector2( 400, 140 )
 popup_exclusive = true
 window_title = "ui_confirmation"
 dialog_text = "ui_overwrite_campaign"

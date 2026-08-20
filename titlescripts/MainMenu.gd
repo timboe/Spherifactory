@@ -17,9 +17,11 @@ func _ready():
 		dir.copy(Global.CAMPAIGN_INITIAL_FILE, Global.CAMPAIGN_SAVE_FILE)
 		Global.campaigns = load_from_disk(Global.CAMPAIGN_SAVE_FILE)
 	#
-	Global.settings = load_from_disk(Global.SETTINGS_SAVE_FILE)
-	if Global.settings.size() == 0:
-		setings.set_default()
+	Global.settings = {}
+	setings.set_default() # Ensure every key exists, then overlay saved values
+	var saved_settings = load_from_disk(Global.SETTINGS_SAVE_FILE)
+	for key in saved_settings:
+		Global.settings[key] = saved_settings[key]
 	if Global.settings["fullscreen"] != OS.window_fullscreen:
 		OS.window_fullscreen = Global.settings["fullscreen"]
 	print("Set fullscreen to ",Global.settings["fullscreen"])

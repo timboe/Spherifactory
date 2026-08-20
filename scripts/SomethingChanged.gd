@@ -11,7 +11,9 @@ func something_changed():
 func _on_SomethingChanged_timeout():
 	#print("Something changed!")
 	for f in get_tree().get_nodes_in_group("FactoryProcessGroup"):
-		f.lane_system_changed()
+		if is_instance_valid(f) and not "deleted" in f.name:
+			f.lane_system_changed()
 	for r in get_tree().get_nodes_in_group("RingGroup"):
-		r.lane_system_changed()
+		if is_instance_valid(r):
+			r.lane_system_changed()
 	id.update_diag()

@@ -118,7 +118,10 @@ func _process(delta):
 		if follow_target:
 			return stop_follow()
 		follow_dict.clear()
-		follow_target = get_tree().get_root().find_node("Injector0",true,false).get_node("InjectorMm")
+		var inj0 = get_tree().get_root().find_node("Injector0",true,false)
+		if inj0 == null or inj0.get_node("InjectorMm") == null:
+			return
+		follow_target = inj0.get_node("InjectorMm")
 		follow_dict["inj_x"] = -770
 		ADVANCED_FOLLOW = true
 		set_physics_process(true)
@@ -129,12 +132,22 @@ func _process(delta):
 ### Follow cam
 
 func _physics_process(delta):
+	if follow_target == null or not is_instance_valid(follow_target):
+		stop_follow()
+		return
 	advanced_follow(delta) if ADVANCED_FOLLOW else follow()
 	global_position = global_position + (global_position_target - global_position) * delta * 5.0
 
 func follow():
-	rotation = follow_target.get_global_transform().get_rotation() + PI/2.0
-	global_position_target = follow_target.global_position - Vector2(640,360) - Vector2(0, follow_target.ring.radius_array[0] ).rotated(rotation)
+	var trg = follow_target
+	if trg == null or not is_instance_valid(trg):
+		stop_follow()
+		return
+	rotation = trg.get_global_transform().get_rotation() + PI/2.0
+	var the_ring : Node2D = trg.get_ring() if trg.has_method("get_ring") else trg.ring
+	if the_ring == null or not (the_ring is Node2D) or not is_instance_valid(the_ring):
+		return
+	global_position_target = trg.global_position - Vector2(640,360) - Vector2(0, the_ring.radius_array[0] ).rotated(rotation)
 	rotating = true
 	
 func stop_follow():
@@ -155,6 +168,9 @@ func advanced_follow(var delta):
 			# Goto LANE
 			follow_dict.clear()
 			var ring = get_node(follow_target.ring)
+			if ring == null or not is_instance_valid(ring):
+				stop_follow()
+				return
 			# Get the angle at the "top" where we want to add an item
 			var angle_mod = (1.5 * PI) - ring.get_node("Rotation").rotation
 			var lane = ring.get_lane(follow_target.lane)
@@ -207,6 +223,8 @@ func advanced_follow(var delta):
 	
 
 func follow_to_lane(var output_lane, var glob_angle):
+	if output_lane == null or not is_instance_valid(output_lane):
+		return
 	if "Ship" in output_lane.name:
 		follow_target = output_lane
 		follow_target.depart()

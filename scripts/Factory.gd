@@ -68,6 +68,8 @@ func _ready():
 
 # Process handles factory collision when placing
 func _process(var _delta):
+	if ring == null or not is_instance_valid(ring):
+		return
 	factory_angle_start = (global_rotation - span_radians/2.0) - rotation_node.rotation
 	factory_angle_end = (global_rotation + span_radians/2.0) - rotation_node.rotation
 	# Jus checking the innermost lane is fine
@@ -166,10 +168,10 @@ func reset():
 
 func remove():
 	$FactoryProcess.reset()
-	$FactoryProcess.name == "deletd"
+	$FactoryProcess.name = "deleted"
 	for l in ring.get_lanes():
 		l.set_range_fillable(factory_angle_start, factory_angle_end, true)
-	name == "deleted"
+	name = "deleted"
 	queue_free()
 	if camera_2d.follow_target == self:
 		camera_2d.stop_follow()
@@ -200,6 +202,8 @@ func setup_resource(var i_radius : float, var o_radius : float, var _span : floa
 	update()
 	
 func check_add_remove_ship():
+	if ring == null or not is_instance_valid(ring):
+		return
 	if $FactoryProcess.ship == null and mode == Global.BUILDING_EXTRACTOR and ring.ring_number + 1 == Global.rings:
 		_on_NewShip_timeout()
 	elif ring.ring_number + 1 != Global.rings:

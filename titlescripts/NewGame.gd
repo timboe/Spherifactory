@@ -10,6 +10,13 @@ func new_game_common():
 	Global.sandbox_injectors = []
 	Global.request_load = null
 	Global.tutorial_message = 0
+	# Reset persistent state from any previous session
+	Global.exported = {}
+	Global.game_finished = false
+	Global.remaining = 0
+	Global.to_subtract = 0
+	Global.time_played = 0
+	Global.sandbox = false
 
 func _on_Play_pressed():
 	new_game_common()

@@ -122,7 +122,7 @@ func set_injectors(var inj_data):
 		if i < inj_data.size():
 			# Change or update
 			var res : String = inj_data[i]["resource"]
-			var rate : float = inj_data[i]["rate"]
+			var rate : float = max(inj_data[i]["rate"], 0.01)
 			injector.update_resource(res, 1.0/rate)
 		else:
 			injector.update_resource("None", 1.0)
@@ -148,6 +148,8 @@ func set_lanes(var l : int):
 		var lanes = ring.get_node("Rotation/Lanes")
 		for lane_i in lanes.get_child_count():
 			var lane = lanes.get_child(lane_i)
+			if lane == null or not is_instance_valid(lane):
+				continue
 			if "deleted" in lane.name:
 				continue
 			if lane_i >= Global.lanes: # Remove
@@ -174,8 +176,10 @@ func set_rings(var r : int):
 		if i >= r: # Disable
 			ring.reset()
 			ring.visible = false
+			ring.set_processing_active(false)
 		else:
 			ring.visible = true
+			ring.set_processing_active(true)
 			for f in ring.get_factories():
 				f.check_add_remove_ship()
 
