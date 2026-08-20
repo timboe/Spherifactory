@@ -11,7 +11,7 @@ func _on_Pause_toggled(button_pressed):
 	print("Pause ", button_pressed)
 	get_tree().paused = button_pressed
 	if sol != null and is_instance_valid(sol):
-		sol.get_material().set_shader_param("pause", button_pressed)
+		sol.get_material().set_shader_param("paused", button_pressed)
 
 func _on_FF_toggled(button_pressed):
 	Engine.time_scale = 2.0 if button_pressed else 1.0

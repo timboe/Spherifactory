@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://scenes/MissionConfiguration.tscn" type="PackedScene" id=1]
 [ext_resource path="res://titlescripts/SliderToText.gd" type="Script" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://titlescripts/Hints.gd" type="Script" id=32]
 [ext_resource path="res://images/icons/language.png" type="Texture" id=33]
 [ext_resource path="res://titlescripts/LanguageButton.gd" type="Script" id=34]
+[ext_resource path="res://resources/WindowPanelStyle.tres" type="StyleBox" id=35]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -306,6 +307,7 @@ margin_left = 32.0
 margin_top = 32.0
 margin_right = 296.0
 margin_bottom = 416.0
+custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer"]
 margin_left = 32.0
@@ -415,6 +417,7 @@ margin_left = 32.0
 margin_top = 32.0
 margin_right = 612.0
 margin_bottom = 482.0
+custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CampaignManager/MarginContainer"]
 margin_left = 32.0
@@ -547,6 +550,7 @@ margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
 margin_bottom = 452.0
+custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="NewCampaign/MarginContainer"]
 margin_left = 32.0
@@ -678,6 +682,7 @@ margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
 margin_bottom = 482.0
+custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="LoadGame/MarginContainer"]
 margin_left = 32.0
@@ -752,6 +757,7 @@ margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
 margin_bottom = 482.0
+custom_styles/panel = ExtResource( 35 )
 
 [node name="MC" type="MarginContainer" parent="Settings/MC"]
 margin_left = 32.0
@@ -981,6 +987,7 @@ margin_left = 32.0
 margin_top = 32.0
 margin_right = 608.0
 margin_bottom = 482.0
+custom_styles/panel = ExtResource( 35 )
 
 [node name="MC" type="MarginContainer" parent="Credits/MC"]
 margin_left = 32.0
@@ -1304,6 +1311,7 @@ margin_bottom = 648.0
 modulate = Color( 1, 1, 1, 0.501961 )
 margin_right = 886.0
 margin_bottom = 577.0
+custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CampaignEditor/MarginContainer"]
 margin_right = 886.0
@@ -1895,6 +1903,7 @@ margin_top = 130.0
 margin_right = 888.0
 margin_bottom = 590.0
 rect_min_size = Vector2( 500, 460 )
+custom_styles/panel = ExtResource( 35 )
 popup_exclusive = true
 window_title = "ui_resource_editor"
 script = ExtResource( 10 )
@@ -2052,10 +2061,10 @@ margin_bottom = 18.0
 text = "ui_colour"
 
 [node name="ColorPicker" type="ColorPicker" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_left = 28.0
-margin_top = 50.0
-margin_right = 318.0
-margin_bottom = 484.0
+margin_left = 32.0
+margin_top = 54.0
+margin_right = 322.0
+margin_bottom = 488.0
 edit_alpha = false
 presets_enabled = false
 presets_visible = false
@@ -2069,6 +2078,7 @@ margin_top = 130.0
 margin_right = 888.0
 margin_bottom = 590.0
 rect_min_size = Vector2( 500, 460 )
+custom_styles/panel = ExtResource( 35 )
 popup_exclusive = true
 window_title = "ui_hints_editor"
 script = ExtResource( 32 )
@@ -2208,6 +2218,7 @@ margin_top = 162.0
 margin_right = 913.0
 margin_bottom = 557.0
 rect_min_size = Vector2( 550, 395 )
+custom_styles/panel = ExtResource( 35 )
 popup_exclusive = true
 window_title = "ui_recipe_editor"
 script = ExtResource( 24 )
