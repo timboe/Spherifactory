@@ -52,7 +52,8 @@ func _process(_delta):
 	progress_bar.value = percentage
 
 func hide_diag():
-	print("hide")
+	if Global.DEBUG:
+		print("hide")
 	current_ring = null
 	current_building = null
 	page = ""
@@ -128,12 +129,14 @@ func toggle_menu_diag():
 		$MenuContainer/Container/GridContainer/Mission.visible = !show_export
 		$MenuContainer/Container/GridContainer/Exported.visible = show_export
 	else:
-		print("toggle menu off")
+		if Global.DEBUG:
+			print("toggle menu off")
 		hide_diag()
 
 func show_named_diag(var n : String):
 	if page == n: # Also acts as a toggle
-		print("show named toggle off")
+		if Global.DEBUG:
+			print("show named toggle off")
 		hide_diag()
 		return
 	show_shared_internal()
@@ -290,7 +293,8 @@ func update_Mission_diag():
 	$MissionContainer/VBox/InfoGrid/FromAbove.text = from_above_str
 	var goal_res = Global.mission["goal"]
 	var goal_amount = Global.mission["goal_amount"]
-	print("goal res ", goal_res)
+	if Global.DEBUG:
+		print("goal res ", goal_res)
 	$MissionContainer/VBox/HBottomBox/GoalTextureRect.texture = Global.data[ goal_res ]["texture"]
 	$MissionContainer/VBox/HBottomBox/GoalNumber.text = "x" + String(goal_amount)
 
@@ -332,14 +336,16 @@ func update_building_diag():
 		var ship_cont = get_node("FactoryContainer/Set/Output/OutAndShip/Ship")
 		var ship = current_building.get_node("FactoryProcess").ship
 		if ship != null and is_instance_valid(ship):
-			print("Showing ship detail")
+			if Global.DEBUG:
+				print("Showing ship detail")
 			ship_cont.visible = true
 			var mm = ship_cont.get_node("Count/Mm")
 			var ship_ico = ship_cont.get_node("Ship/Ship")
 			ship_ico.set_resource(output)
 			mm.set_resource(output, ship)
 		else:
-			print("Not showing ship detaild due to ship ", ship)
+			if Global.DEBUG:
+				print("Not showing ship detaild due to ship ", ship)
 			ship_cont.visible = false
 		# Follow 
 		camera_2d.ignore = true
@@ -366,21 +372,20 @@ func update_ring_diag():
 		var bin : Button = find_node("LBin"+String(count))
 		if bin != null:
 			bin.disabled = (l.lane_content == null)
-		#
-		var list : ItemList = $RingContainer/VBoxContainer/ScrollContainer/FactoriesList
-		list.clear()
-		var s_count := 0
-		for s in current_ring.get_factories():
-			list.add_item(s.descriptive_name)
-			list.set_item_metadata(s_count, s)
-			s_count += 1
-		#
 		count += 1
+	# Rebuild the factories list ONCE (was previously rebuilt per lane)
+	var list : ItemList = $RingContainer/VBoxContainer/ScrollContainer/FactoriesList
+	list.clear()
+	var s_count := 0
+	for s in current_ring.get_factories():
+		list.add_item(s.descriptive_name)
+		list.set_item_metadata(s_count, s)
+		s_count += 1
 		
 func update_Sandbox_diag():
 	$SandboxContainer/VBoxContainer/FactoryBehaviour/Above.pressed = Global.factories_pull_from_above
-	$SandboxContainer/VBoxContainer/Lane/LanesSlider.value = Global.lanes
-	$SandboxContainer/VBoxContainer/Ring/RingsSlider.value = Global.rings - 1
+	$SandboxContainer/VBoxContainer/RingsH/Lane/LanesSlider.value = Global.lanes
+	$SandboxContainer/VBoxContainer/RingsH/Ring/RingsSlider.value = Global.rings - 1
 	
 func update_Hints_diag():
 	var scram_options = ["*", "!", "?", "#"] 

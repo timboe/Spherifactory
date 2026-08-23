@@ -15,7 +15,7 @@ export(int) var n
 
 var portal = null
 
-onready var thud : AudioStreamPlayer = get_tree().get_root().find_node("Thud",true,false)
+onready var thud : AudioStreamPlayer = Sfx.get_node("Thud")
 onready var factory_template = $Rotation/FactoryTemplate
 
 
@@ -29,7 +29,6 @@ func serialise() -> Dictionary:
 	d["radius_array"] = radius_array
 	d["angular_velocity"] = angular_velocity
 	d["n"] = n
-	d["lanes"] = set_lanes
 	d["portal"] = portal.visible
 	#
 	for lane in get_lanes():
@@ -49,7 +48,6 @@ func deserialise(var d : Dictionary):
 	radius_array = d["radius_array"]
 	angular_velocity = d["angular_velocity"]
 	n = d["n"]
-	set_lanes = d["lanes"]
 	portal.visible = d["portal"]
 	#
 	for lane in get_lanes():
@@ -123,7 +121,8 @@ func new_factory() -> bool:
 	new_factory.factory_angle_end = new_factory_angle_end
 	for l in get_lanes():
 		l.set_range_fillable(new_factory_angle_start, new_factory_angle_end, false)
-	print("Factory ",new_factory.name," placed")
+	if Global.DEBUG:
+		print("Factory ",new_factory.name," placed")
 	thud.play()
 	return true
 

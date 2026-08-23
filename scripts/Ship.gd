@@ -27,12 +27,29 @@ export(NodePath) var factory = ""
 
 var points_vec = PoolVector2Array()
 
-onready var id : WindowDialog = get_tree().get_root().find_node("InfoDialog", true, false) 
-onready var rule_changer : Node2D = get_tree().get_root().find_node("RuleChanger", true, false) 
+var _id : Node = null
+var _rule_changer : Node = null
+var _camera_2d : Node = null
+
+# Lazily resolved - avoids whole-tree find_node() scans every time a ship spawns
+func get_id() -> Node:
+	if _id == null or not is_instance_valid(_id):
+		_id = get_tree().get_root().find_node("InfoDialog", true, false)
+	return _id
+
+func get_rule_changer() -> Node:
+	if _rule_changer == null or not is_instance_valid(_rule_changer):
+		_rule_changer = get_tree().get_root().find_node("RuleChanger", true, false)
+	return _rule_changer
+
+func get_camera_2d() -> Node:
+	if _camera_2d == null or not is_instance_valid(_camera_2d):
+		_camera_2d = get_tree().get_root().find_node("Camera2D", true, false)
+	return _camera_2d
+
 onready var rocket : AudioStreamPlayer = get_node("Rocket")
 onready var ring = find_parent("Ring*")
 onready var something_changed_node = $"/root/Game/SomethingChanged"
-onready var camera_2d := get_tree().get_root().find_node("Camera2D", true, false)
 
 func serialise() -> Dictionary:
 	var d := {}
@@ -139,7 +156,7 @@ func depart():
 		fac.get_node("NewShip").start()
 	$Particles2D.emitting = true
 	deregister_provider(null)
-	id.update_diag()
+	get_id().update_diag()
 	launch = true
 	rocket.play()
 	# TODO improve flyaway...
@@ -164,7 +181,7 @@ func deposit():
 	if deposited:
 		return
 	deposited = true
-	rule_changer.deposit(recipe, output_storage)
+	get_rule_changer().deposit(recipe, output_storage)
 	$Tween.interpolate_property(get_parent(), "modulate", Color(1,1,1,1), Color(1,1,1,0),
 		SHIP_APPEAR_TIME)
 	$Tween.interpolate_callback(self, SHIP_APPEAR_TIME, "remove")
@@ -174,8 +191,8 @@ func deposit():
 func remove(): # Note: May remove through means other than depart()
 	deregister_provider(null)
 	get_parent().queue_free()
-	if camera_2d.follow_target == self:
-		camera_2d.stop_follow()
+	if get_camera_2d().follow_target == self:
+		get_camera_2d().stop_follow()
 
 func try_send(var _angle : float, var _direction : int) -> bool:
 	if not built or output_storage >= Global.MAX_STORAGE:

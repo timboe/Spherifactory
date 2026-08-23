@@ -35,7 +35,8 @@ func include_recipe(var r : String ):
 		if all_recipes_level > 0:
 			for l in range(0, all_recipes_level):
 				if r in Global.campaign["missions"][l]["recipies"]:
-					print("exclude 2 ",r," for level ",all_recipes_level)
+					if Global.DEBUG:
+						print("exclude 2 ",r," for level ",all_recipes_level)
 					return false
 	return true
 

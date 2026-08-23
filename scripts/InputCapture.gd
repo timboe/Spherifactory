@@ -1,7 +1,6 @@
 extends Node
 
 onready var centre_node : Node2D = get_tree().get_root().find_node("CentreNode", true, false) 
-onready var camera_node : Camera2D = get_tree().get_root().find_node("Camera2D", true, false) 
 onready var rs : Node2D = get_tree().get_root().find_node("RingSystem", true, false)
 onready var button_group : ButtonGroup = get_tree().get_root().find_node("BuildMode", true, false).group
 onready var id = get_tree().get_root().find_node("InfoDialog", true, false) 
@@ -81,18 +80,22 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and ring != null and not event.pressed and event.button_index == 1 and not is_pan:
 		if button == null: # Select ring (but not the Sol ring)
 			if ring.ring_number == 0:
-				print("Show sol diag")
+				if Global.DEBUG:
+					print("Show sol diag")
 				id.show_named_diag("Sol")
 			else:
-				print("Show ring diag ",ring)
+				if Global.DEBUG:
+					print("Show ring diag ",ring)
 				id.show_ring_diag(ring)
 		elif mode_build and ring.ring_number != 0:
 			if ring.new_factory():
 				cam.add_trauma(0.2)
-				print("New factory")
+				if Global.DEBUG:
+					print("New factory")
 		elif mode_inject and ring.ring_number != 0:
 			injection.setup_resource_at_hint()
-			print("Set injection")
+			if Global.DEBUG:
+				print("Set injection")
 			
 	# Right click
 	if event is InputEventMouseButton and not event.pressed and event.button_index == 2 and not is_pan:

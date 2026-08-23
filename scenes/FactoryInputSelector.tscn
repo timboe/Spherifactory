@@ -14,9 +14,6 @@ margin_top = 22.0
 margin_right = 480.0
 margin_bottom = 42.0
 custom_constants/separation = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Input" type="Label" parent="."]
 margin_top = 3.0
@@ -40,9 +37,9 @@ __meta__ = {
 
 [node name="OptionButton" type="OptionButton" parent="."]
 margin_left = 83.0
-margin_right = 147.0
+margin_right = 158.0
 margin_bottom = 20.0
-rect_min_size = Vector2( 64, 16 )
+rect_min_size = Vector2( 75, 16 )
 text = "None"
 items = [ "None", null, false, 0, "None", "H+", null, false, 1, "H", "Ir-", null, false, 2, "Ir", "Cu-", null, false, 3, "Cu", "St-", null, false, 4, "St", "Si-", null, false, 5, "Si", "G+", null, false, 6, "G", "Hi+", null, false, 7, "Hi", "Cf-", null, false, 8, "Cf", "T+", null, false, 9, "T", "Bg+", null, false, 10, "Bg", "Mt+", null, false, 11, "Mt", "XA-", null, false, 12, "XA", "XB+", null, false, 13, "XB", "XC+", null, false, 14, "XC", "CG+", null, false, 15, "CG", "SW+", null, false, 16, "SW" ]
 selected = 0
@@ -51,8 +48,8 @@ __meta__ = {
 }
 
 [node name="Margin" type="MarginContainer" parent="."]
-margin_left = 155.0
-margin_right = 171.0
+margin_left = 166.0
+margin_right = 182.0
 margin_bottom = 20.0
 custom_constants/margin_left = 16
 __meta__ = {
@@ -60,19 +57,20 @@ __meta__ = {
 }
 
 [node name="Number" type="Label" parent="."]
-margin_left = 179.0
+margin_left = 190.0
 margin_top = 3.0
-margin_right = 288.0
+margin_right = 299.0
 margin_bottom = 17.0
 text = "ui_number_colon"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="N" type="Label" parent="."]
-margin_left = 296.0
+margin_left = 307.0
 margin_top = 3.0
-margin_right = 328.0
+margin_right = 339.0
 margin_bottom = 17.0
 rect_min_size = Vector2( 32, 0 )
 text = "1"
@@ -82,7 +80,7 @@ __meta__ = {
 }
 
 [node name="NumberSlider" type="HSlider" parent="."]
-margin_left = 336.0
+margin_left = 347.0
 margin_right = 480.0
 margin_bottom = 16.0
 size_flags_horizontal = 3

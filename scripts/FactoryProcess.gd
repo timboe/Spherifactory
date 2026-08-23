@@ -1,11 +1,19 @@
 extends Node2D
 
 onready var ring := find_parent("Ring*") as Node2D
-onready var blip_b := get_tree().get_root().find_node("BlipB", true, false) as AudioStreamPlayer
-onready var blip_c := get_tree().get_root().find_node("BlipC", true, false) as AudioStreamPlayer
-onready var blip_d := get_tree().get_root().find_node("BlipD", true, false) as AudioStreamPlayer
-onready var camera_2d := get_tree().get_root().find_node("Camera2D", true, false)
+onready var blip_b := Sfx.get_node("BlipB") as AudioStreamPlayer
+onready var blip_c := Sfx.get_node("BlipC") as AudioStreamPlayer
+onready var blip_d := Sfx.get_node("BlipD") as AudioStreamPlayer
 onready var something_changed_node = $"/root/Game/SomethingChanged"
+
+var _camera_2d : Node = null
+
+# Lazily resolved - avoids a whole-tree find_node() scan every time a
+# building is placed or loaded
+func get_camera_2d() -> Node:
+	if _camera_2d == null or not is_instance_valid(_camera_2d):
+		_camera_2d = get_tree().get_root().find_node("Camera2D", true, false)
+	return _camera_2d
 
 var input_factory_required = [] # Number of items required per input for factory mode
 var input_storage = [] # Number of stored items per input
@@ -107,7 +115,8 @@ func reset():
 	
 func remove_any_ship():
 	if ship != null and is_instance_valid(ship):
-		print("Ship removed by ring")
+		if Global.DEBUG:
+			print("Ship removed by ring")
 		ship.remove()
 	ship = null
 	
@@ -300,7 +309,8 @@ func check_process():
 		set_physics_process(true)
 		return
 	# Deactivate until there is a change in the lane situation
-	print("check process concluded false")
+	if Global.DEBUG:
+		print("check process concluded false")
 	set_physics_process(false)
 	
 func _physics_process(_delta):
@@ -316,8 +326,8 @@ func _physics_process(_delta):
 			if accepted:
 				output_storage -= 1
 				blip_b.play()
-				if camera_2d.follow_target == self:
-					camera_2d.follow_to_lane(output_lane, global_rotation)
+				if get_camera_2d().follow_target == self:
+					get_camera_2d().follow_to_lane(output_lane, global_rotation)
 	elif mode == Global.BUILDING_INSERTER:
 		# Inputs
 		if output_storage < Global.MAX_STORAGE:
@@ -330,8 +340,8 @@ func _physics_process(_delta):
 			if accepted:
 				output_storage -= 1
 				blip_c.play()
-				if camera_2d.follow_target == self:
-					camera_2d.follow_to_lane(output_lane, global_rotation)
+				if get_camera_2d().follow_target == self:
+					get_camera_2d().follow_to_lane(output_lane, global_rotation)
 	elif mode == Global.BUILDING_FACTORY:
 		# Inputs
 		for i in range(input_lanes.size()):
@@ -355,8 +365,8 @@ func _physics_process(_delta):
 				output_storage -= 1
 				check_factory_production()
 				blip_d.play()
-				if camera_2d.follow_target == self:
-					camera_2d.follow_to_lane(output_lane, global_rotation)
+				if get_camera_2d().follow_target == self:
+					get_camera_2d().follow_to_lane(output_lane, global_rotation)
 
 # Called asynchronously when try_capture succedes 
 func add_item(var lane : MultiMeshInstance2D):

@@ -67,7 +67,8 @@ func save(var slot, var autosave = false):
 	Global.saves[String(slot)] = save_dict
 	
 	var img_path : String = "user://save_%04d.png" % int(slot)
-	print("save to ",img_path)
+	if Global.DEBUG:
+		print("save to ",img_path)
 	if Global.snap != null:
 		Global.snap.save_png(img_path)
 	
@@ -159,7 +160,8 @@ func do_load():
 
 func _on_NewSave_pressed():
 	save(-1)
-	print("new save")
+	if Global.DEBUG:
+		print("new save")
 	id.hide_diag()
 
 func _on_Autosave_timeout():

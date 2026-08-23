@@ -127,7 +127,8 @@ func _process(delta):
 		set_physics_process(true)
 		#
 		#follow_target = get_tree().get_root().find_node("Ring11",true,false).get_node("Rotation/Lanes/Lane0")
-		print("Follow is ",follow_target," ", follow_target.name)
+		if Global.DEBUG:
+			print("Follow is ",follow_target," ", follow_target.name)
 
 ### Follow cam
 
@@ -186,7 +187,8 @@ func advanced_follow(var delta):
 			follow_dict["mid_flight"] = false
 			follow_target = lane
 			lane.highlight(slot)
-			print("Move to lane ", lane, " with slot ", slot," at angle ",rad2deg(angle_mod))
+			if Global.DEBUG:
+				print("Move to lane ", lane, " with slot ", slot," at angle ",rad2deg(angle_mod))
 	elif "Lane" in follow_target.name:
 		if get_tree().paused == false:
 			follow_dict["offset"] = fmod(follow_dict["offset"] + (delta * follow_dict["ring"].angular_velocity), PI*2)
@@ -211,7 +213,8 @@ func advanced_follow(var delta):
 				# Reached end of OUTGOING fligt, goto FACTORY
 				follow_target = follow_dict["call"]
 				follow_dict.clear()
-				print("Move to factory ",follow_target)
+				if Global.DEBUG:
+					print("Move to factory ",follow_target)
 			else:
 				# Reached ring
 				follow_dict["mid_flight"] = false
@@ -230,7 +233,8 @@ func follow_to_lane(var output_lane, var glob_angle):
 		return
 	if "Ship" in output_lane.name:
 		follow_target = output_lane
-		print("Moving to ship ", output_lane)
+		if Global.DEBUG:
+			print("Moving to ship ", output_lane)
 		return
 	var slot = output_lane.get_slot_from_global_angle(glob_angle)
 	var ring = output_lane.get_ring()
@@ -242,7 +246,8 @@ func follow_to_lane(var output_lane, var glob_angle):
 	follow_dict["offset"] = angle_mod
 	follow_dict["mid_flight"] = false # Technically true
 	follow_target = output_lane
-	print("Moving to lane ", output_lane)
+	if Global.DEBUG:
+		print("Moving to lane ", output_lane)
 	#output_lane.highlight(slot)
 
 	

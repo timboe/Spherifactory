@@ -11,6 +11,7 @@ const SAVE_FORMAT_VERSION = 2
 const CAMPAIGN_FORMAT_VERSION = 1
 const MAX_TRANSMUTE = 3
 const GEM_SIZE = 4
+const DEBUG := false # Set true to restore verbose runtime logging
 
 const GAME_SAVE_FILE := "user://save_data.json"
 const SETTINGS_SAVE_FILE := "user://settings.json"
@@ -69,6 +70,10 @@ var current_scene = null
 func _ready():
 	# Seed the global RNG so randi() (hint scramble, etc.) differs per run
 	randomize()
+	# Windows with display scaling >100% can open the game window misplaced
+	# (partially off-screen), so center it explicitly at startup.
+	if not OS.window_fullscreen:
+		OS.center_window()
 
 func populate_data():
 	recipies = campaign["recipies"]

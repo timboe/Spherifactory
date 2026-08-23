@@ -30,5 +30,6 @@ func _on_Music_finished():
 		next = R.randi() % tracks.size()
 	stream = tracks[next]
 	current = next
-	print("play ",current)
+	if Global.DEBUG:
+		print("play ",current)
 	play()

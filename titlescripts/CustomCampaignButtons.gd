@@ -51,7 +51,8 @@ func _on_Discard_pressed():
 	discard_conf_diag.popup_centered()
 
 func _on_DiscardConfirmationDialog_confirmed():
-	print("Discard")
+	if Global.DEBUG:
+		print("Discard")
 	main_menu.show_menu("CampaignManager")
 
 func _on_OverwriteConfirmationDialog_confirmed():

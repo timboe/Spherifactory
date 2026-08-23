@@ -16,4 +16,8 @@ func _on_SomethingChanged_timeout():
 	for r in get_tree().get_nodes_in_group("RingGroup"):
 		if is_instance_valid(r):
 			r.lane_system_changed()
+	# Batched refresh of the lane-content bars (was a synchronous fan-out
+	# per register/deregister in RingMultimesh - now coalesced here)
+	for c in get_tree().get_nodes_in_group("RingContentGroup"):
+		c.update_content()
 	id.update_diag()

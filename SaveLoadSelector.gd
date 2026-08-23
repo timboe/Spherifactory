@@ -65,7 +65,8 @@ func _on_Load_pressed():
 	Global.goto_scene("res://scenes/ShieldGen.tscn")
 
 func _on_DeleteConfirmationDialog_confirmed():
-	print("Erasing save ", save_number)
+	if Global.DEBUG:
+		print("Erasing save ", save_number)
 	var path : String = "user://save_%04d.png" % save_number
 	var dir = Directory.new()
 	dir.remove(path)
@@ -81,6 +82,7 @@ func _on_DeleteConfirmationDialog_confirmed():
 
 func _on_OverwriteConfirmationDialog_confirmed():
 	sl.save(save_number)
-	print("save override in number ",save_number," confirmed")
+	if Global.DEBUG:
+		print("save override in number ",save_number," confirmed")
 	id.hide_diag()
 

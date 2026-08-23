@@ -61,13 +61,15 @@ func change_level(var level, var with_popup := true):
 	# Show new mission intro
 	if with_popup:
 		if Global.sandbox:
-			print("popup sandbox")
+			if Global.DEBUG:
+				print("popup sandbox")
 			id.show_named_diag("Sandbox")
 			id.tut_max = get_tree().get_nodes_in_group("TutorialGroup").size()
 		elif Global.game_finished:
 			id.show_named_diag("Win")
 		else:
-			print("popup mission or tut")
+			if Global.DEBUG:
+				print("popup mission or tut")
 			var tut = get_tutorial_range()
 			if tut == [-1,-1]:
 				id.tut_max = get_tree().get_nodes_in_group("TutorialGroup").size()
@@ -165,7 +167,7 @@ func set_lanes(var l : int):
 		o.update()
 	
 func set_rings(var r : int):
-	var ringsys = get_tree().get_root().find_node("RingSystem", true, false)
+	var ringsys = rs # reuse the onready-cached RingSystem node
 	r += 1
 	Global.rings = r
 	# Note iterating backwards to remove ring above before running check_add_remove_ship on ring below

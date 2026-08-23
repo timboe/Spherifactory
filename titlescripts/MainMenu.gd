@@ -24,6 +24,10 @@ func _ready():
 		Global.settings[key] = saved_settings[key]
 	if Global.settings["fullscreen"] != OS.window_fullscreen:
 		OS.window_fullscreen = Global.settings["fullscreen"]
+	# Fullscreen<->windowed transitions can leave the window at a stale
+	# (partially off-screen) rect, so re-center it when windowed.
+	if not OS.window_fullscreen:
+		OS.center_window()
 	print("Set fullscreen to ",Global.settings["fullscreen"])
 	print("loaded with music ", Global.settings["music"])
 	Music.volume_db = linear2db(Global.settings["music"] * 0.01)

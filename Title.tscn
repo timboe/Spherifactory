@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://scenes/MissionConfiguration.tscn" type="PackedScene" id=1]
 [ext_resource path="res://titlescripts/SliderToText.gd" type="Script" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://images/icons/language.png" type="Texture" id=33]
 [ext_resource path="res://titlescripts/LanguageButton.gd" type="Script" id=34]
 [ext_resource path="res://resources/MinimalWindowPanelStyle.tres" type="StyleBox" id=35]
+[ext_resource path="res://titlescripts/ShieldPreview.gd" type="Script" id=36]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -246,6 +247,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 31 )
 
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 256, 256 )
+hdr = false
+disable_3d = true
+usage = 0
+render_target_v_flip = true
+gui_disable_input = true
+
+[node name="Shield" parent="Viewport" instance=ExtResource( 7 )]
+
 [node name="spacefield" type="TextureRect" parent="."]
 light_mask = 0
 margin_left = -1024.0
@@ -302,9 +313,9 @@ script = ExtResource( 5 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
 margin_left = 426.0
-margin_top = 132.0
+margin_top = 157.0
 margin_right = 854.0
-margin_bottom = 587.0
+margin_bottom = 563.0
 size_flags_horizontal = 3
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
@@ -316,7 +327,7 @@ modulate = Color( 1, 1, 1, 0.501961 )
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 396.0
-margin_bottom = 423.0
+margin_bottom = 374.0
 size_flags_horizontal = 3
 custom_styles/panel = ExtResource( 35 )
 
@@ -324,7 +335,7 @@ custom_styles/panel = ExtResource( 35 )
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 396.0
-margin_bottom = 423.0
+margin_bottom = 374.0
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
@@ -334,7 +345,7 @@ custom_constants/margin_bottom = 32
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 332.0
-margin_bottom = 359.0
+margin_bottom = 310.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 3
 custom_constants/separation = 16
@@ -358,6 +369,7 @@ icon = ExtResource( 22 )
 expand_icon = true
 
 [node name="LanguageButton" type="MenuButton" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
+visible = false
 margin_top = 98.0
 margin_right = 300.0
 margin_bottom = 131.0
@@ -372,36 +384,36 @@ __meta__ = {
 }
 
 [node name="SettingsButton" type="Button" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 147.0
+margin_top = 98.0
 margin_right = 300.0
-margin_bottom = 180.0
+margin_bottom = 131.0
 rect_min_size = Vector2( 300, 32 )
 text = "ui_settings"
 icon = ExtResource( 20 )
 expand_icon = true
 
 [node name="EditorButton" type="Button" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 196.0
+margin_top = 147.0
 margin_right = 300.0
-margin_bottom = 229.0
+margin_bottom = 180.0
 rect_min_size = Vector2( 0, 32 )
 text = "ui_campaign_manager"
 icon = ExtResource( 19 )
 expand_icon = true
 
 [node name="CreditsButton" type="Button" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 245.0
+margin_top = 196.0
 margin_right = 300.0
-margin_bottom = 278.0
+margin_bottom = 229.0
 rect_min_size = Vector2( 0, 32 )
 text = "ui_credits"
 icon = ExtResource( 18 )
 expand_icon = true
 
 [node name="ExitButton" type="Button" parent="MainMenu/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 294.0
+margin_top = 245.0
 margin_right = 300.0
-margin_bottom = 327.0
+margin_bottom = 278.0
 rect_min_size = Vector2( 0, 32 )
 text = "ui_exit_desktop"
 icon = ExtResource( 21 )
@@ -1608,40 +1620,40 @@ margin_bottom = 29.0
 
 [node name="OptionButton" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="2"]
 margin_left = 96.0
-margin_right = 160.0
+margin_right = 181.0
 margin_bottom = 33.0
 
 [node name="Margin" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="3"]
-margin_left = 164.0
-margin_right = 180.0
+margin_left = 185.0
+margin_right = 201.0
 margin_bottom = 33.0
 
 [node name="Rate" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="4"]
-margin_left = 184.0
+margin_left = 205.0
 margin_top = 4.0
-margin_right = 246.0
+margin_right = 267.0
 margin_bottom = 29.0
 
 [node name="N" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="5"]
-margin_left = 250.0
+margin_left = 271.0
 margin_top = 4.0
-margin_right = 282.0
+margin_right = 303.0
 margin_bottom = 29.0
 
 [node name="s" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="6"]
-margin_left = 286.0
+margin_left = 307.0
 margin_top = 4.0
-margin_right = 292.0
+margin_right = 313.0
 margin_bottom = 29.0
 
 [node name="s2" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="7"]
-margin_left = 296.0
+margin_left = 317.0
 margin_top = 4.0
-margin_right = 331.0
+margin_right = 352.0
 margin_bottom = 29.0
 
 [node name="RateSlider" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer/Input0" index="8"]
-margin_left = 335.0
+margin_left = 356.0
 margin_right = 458.0
 
 [node name="VSeparator" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer/TabContainer/tmp/MissionContainer/InputGridContainer" index="1"]
@@ -1880,11 +1892,11 @@ margin_bottom = 341.0
 
 [node name="CustomResourceDialog" type="WindowDialog" parent="CampaignEditor"]
 visible = true
-margin_left = 388.0
-margin_top = 130.0
-margin_right = 888.0
-margin_bottom = 590.0
-rect_min_size = Vector2( 500, 460 )
+margin_left = 310.0
+margin_top = 110.0
+margin_right = 965.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 655, 500 )
 custom_styles/panel = ExtResource( 35 )
 popup_exclusive = true
 window_title = "ui_resource_editor"
@@ -1908,14 +1920,14 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="CampaignEditor/CustomResourceDialog/MarginContainer"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 687.0
-margin_bottom = 506.0
+margin_right = 842.0
+margin_bottom = 546.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer"]
-margin_right = 671.0
+margin_right = 826.0
 margin_bottom = 471.0
 custom_constants/separation = 8
 
@@ -2000,6 +2012,7 @@ rect_min_size = Vector2( 128, 128 )
 texture = SubResource( 18 )
 expand = true
 stretch_mode = 6
+script = ExtResource( 36 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2042,9 +2055,10 @@ margin_bottom = 25.0
 text = "ui_colour"
 
 [node name="ColorPicker" type="ColorPicker" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 29.0
-margin_right = 380.0
-margin_bottom = 471.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = 384.0
+margin_bottom = 475.0
 edit_alpha = false
 presets_enabled = false
 presets_visible = false
@@ -2053,11 +2067,12 @@ __meta__ = {
 }
 
 [node name="Hints" type="WindowDialog" parent="CampaignEditor"]
+visible = true
 margin_left = 388.0
-margin_top = 130.0
+margin_top = 110.0
 margin_right = 888.0
-margin_bottom = 590.0
-rect_min_size = Vector2( 500, 460 )
+margin_bottom = 610.0
+rect_min_size = Vector2( 500, 500 )
 custom_styles/panel = ExtResource( 35 )
 popup_exclusive = true
 window_title = "ui_hints_editor"
@@ -2090,84 +2105,84 @@ __meta__ = {
 
 [node name="H1" type="HBoxContainer" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
 margin_right = 460.0
-margin_bottom = 14.0
+margin_bottom = 25.0
 
 [node name="H1" type="Label" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer/H1"]
-margin_right = 43.0
-margin_bottom = 14.0
+margin_right = 62.0
+margin_bottom = 25.0
 text = "ui_hint"
 
 [node name="H2" type="Label" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer/H1"]
-margin_left = 47.0
-margin_right = 72.0
-margin_bottom = 14.0
+margin_left = 66.0
+margin_right = 96.0
+margin_bottom = 25.0
 text = " #1:"
 
 [node name="HintEdit1" type="TextEdit" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
-margin_top = 26.0
+margin_top = 37.0
 margin_right = 460.0
-margin_bottom = 106.0
+margin_bottom = 117.0
 rect_min_size = Vector2( 0, 80 )
 size_flags_horizontal = 3
 wrap_enabled = true
 
 [node name="HSeparator" type="HSeparator" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
-margin_top = 118.0
+margin_top = 129.0
 margin_right = 460.0
-margin_bottom = 122.0
+margin_bottom = 133.0
 rect_min_size = Vector2( 460, 0 )
 size_flags_horizontal = 3
 
 [node name="H2" type="HBoxContainer" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
-margin_top = 134.0
+margin_top = 145.0
 margin_right = 460.0
-margin_bottom = 148.0
+margin_bottom = 170.0
 
 [node name="H1" type="Label" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer/H2"]
-margin_right = 43.0
-margin_bottom = 14.0
+margin_right = 62.0
+margin_bottom = 25.0
 text = "ui_hint"
 
 [node name="H2" type="Label" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer/H2"]
-margin_left = 47.0
-margin_right = 72.0
-margin_bottom = 14.0
+margin_left = 66.0
+margin_right = 96.0
+margin_bottom = 25.0
 text = " #2:"
 
 [node name="HintEdit2" type="TextEdit" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
-margin_top = 160.0
+margin_top = 182.0
 margin_right = 460.0
-margin_bottom = 240.0
+margin_bottom = 262.0
 rect_min_size = Vector2( 0, 80 )
 size_flags_horizontal = 3
 
 [node name="HSeparator2" type="HSeparator" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
-margin_top = 252.0
+margin_top = 274.0
 margin_right = 460.0
-margin_bottom = 256.0
+margin_bottom = 278.0
 rect_min_size = Vector2( 460, 0 )
 size_flags_horizontal = 3
 
 [node name="H3" type="HBoxContainer" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
-margin_top = 268.0
+margin_top = 290.0
 margin_right = 460.0
-margin_bottom = 282.0
+margin_bottom = 315.0
 
 [node name="H1" type="Label" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer/H3"]
-margin_right = 43.0
-margin_bottom = 14.0
+margin_right = 62.0
+margin_bottom = 25.0
 text = "ui_hint"
 
 [node name="H2" type="Label" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer/H3"]
-margin_left = 47.0
-margin_right = 72.0
-margin_bottom = 14.0
+margin_left = 66.0
+margin_right = 96.0
+margin_bottom = 25.0
 text = " #3:"
 
 [node name="HintEdit3" type="TextEdit" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
-margin_top = 294.0
+margin_top = 327.0
 margin_right = 460.0
-margin_bottom = 374.0
+margin_bottom = 407.0
 rect_min_size = Vector2( 0, 80 )
 size_flags_horizontal = 3
 __meta__ = {
@@ -2175,17 +2190,17 @@ __meta__ = {
 }
 
 [node name="HSeparator3" type="HSeparator" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
-margin_top = 386.0
+margin_top = 419.0
 margin_right = 460.0
-margin_bottom = 390.0
+margin_bottom = 423.0
 rect_min_size = Vector2( 460, 0 )
 size_flags_horizontal = 3
 
 [node name="Back" type="Button" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
 margin_left = 360.0
-margin_top = 402.0
+margin_top = 435.0
 margin_right = 460.0
-margin_bottom = 432.0
+margin_bottom = 468.0
 rect_min_size = Vector2( 100, 30 )
 size_flags_horizontal = 8
 text = "ui_back"
@@ -2193,11 +2208,12 @@ icon = ExtResource( 16 )
 expand_icon = true
 
 [node name="CustomRecipeDialog" type="WindowDialog" parent="CampaignEditor"]
+visible = true
 margin_left = 363.0
-margin_top = 162.0
+margin_top = 110.0
 margin_right = 913.0
-margin_bottom = 557.0
-rect_min_size = Vector2( 550, 395 )
+margin_bottom = 610.0
+rect_min_size = Vector2( 550, 500 )
 custom_styles/panel = ExtResource( 35 )
 popup_exclusive = true
 window_title = "ui_recipe_editor"
@@ -2222,7 +2238,7 @@ __meta__ = {
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 536.0
-margin_bottom = 382.0
+margin_bottom = 479.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2230,28 +2246,28 @@ __meta__ = {
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 28.0
+margin_bottom = 31.0
 custom_constants/separation = 8
 
 [node name="Name" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/HBoxContainer2"]
-margin_top = 5.0
-margin_right = 94.0
-margin_bottom = 23.0
+margin_top = 3.0
+margin_right = 131.0
+margin_bottom = 28.0
 text = "ui_name_colon"
 
 [node name="NameLineEdit" type="LineEdit" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/HBoxContainer2"]
-margin_left = 102.0
-margin_right = 148.0
-margin_bottom = 28.0
+margin_left = 139.0
+margin_right = 211.0
+margin_bottom = 31.0
 size_flags_horizontal = 0
 max_length = 5
 editable = false
 
 [node name="TabContainer" type="TabContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer"]
-margin_top = 44.0
+margin_top = 47.0
 margin_right = 520.0
-margin_bottom = 314.0
-rect_min_size = Vector2( 500, 270 )
+margin_bottom = 414.0
+rect_min_size = Vector2( 500, 367 )
 custom_colors/font_color_bg = Color( 0.7, 0.7, 0.7, 1 )
 tab_align = 0
 
@@ -2271,20 +2287,20 @@ custom_constants/margin_bottom = 16
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 492.0
-margin_bottom = 207.0
+margin_bottom = 304.0
 
 [node name="Label" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_no_recipe/VBoxContainer"]
-margin_right = 473.0
-margin_bottom = 18.0
+margin_right = 476.0
+margin_bottom = 25.0
 text = "ui_no_recipe_full"
 
 [node name="ui_factory" type="MarginContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 13.0
-margin_top = 27.0
-margin_right = -2.0
+margin_left = 6.0
+margin_top = 44.0
+margin_right = -6.0
 margin_bottom = -3.0
 custom_constants/margin_right = 16
 custom_constants/margin_top = 16
@@ -2294,83 +2310,83 @@ custom_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 489.0
+margin_right = 492.0
 margin_bottom = 304.0
 custom_constants/separation = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer"]
-margin_right = 473.0
-margin_bottom = 18.0
+margin_right = 476.0
+margin_bottom = 25.0
 custom_constants/separation = 16
 
 [node name="Label" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/HBoxContainer"]
-margin_right = 107.0
-margin_bottom = 18.0
+margin_right = 155.0
+margin_bottom = 25.0
 text = "ui_factory_inputs"
 
 [node name="HSeparator" type="HSeparator" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/HBoxContainer"]
-margin_left = 123.0
-margin_right = 473.0
-margin_bottom = 18.0
+margin_left = 171.0
+margin_right = 476.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 
 [node name="FactoryInput0" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer" instance=ExtResource( 25 )]
-margin_top = 26.0
-margin_right = 473.0
-margin_bottom = 52.0
+margin_top = 33.0
+margin_right = 476.0
+margin_bottom = 66.0
 
 [node name="FactoryInput1" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer" instance=ExtResource( 25 )]
-margin_top = 60.0
-margin_right = 473.0
-margin_bottom = 86.0
+margin_top = 74.0
+margin_right = 476.0
+margin_bottom = 107.0
 
 [node name="FactoryInput2" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer" instance=ExtResource( 25 )]
-margin_top = 94.0
-margin_right = 473.0
-margin_bottom = 120.0
+margin_top = 115.0
+margin_right = 476.0
+margin_bottom = 148.0
 
 [node name="FactoryInput3" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer" instance=ExtResource( 25 )]
-margin_top = 128.0
-margin_right = 473.0
-margin_bottom = 154.0
+margin_top = 156.0
+margin_right = 476.0
+margin_bottom = 189.0
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer"]
-margin_top = 162.0
-margin_right = 473.0
-margin_bottom = 180.0
+margin_top = 197.0
+margin_right = 476.0
+margin_bottom = 222.0
 custom_constants/separation = 16
 
 [node name="Label" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/HBoxContainer6"]
-margin_right = 110.0
-margin_bottom = 18.0
+margin_right = 159.0
+margin_bottom = 25.0
 text = "ui_factory_output"
 
 [node name="HSeparator" type="HSeparator" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/HBoxContainer6"]
-margin_left = 126.0
-margin_right = 473.0
-margin_bottom = 18.0
+margin_left = 175.0
+margin_right = 476.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 
 [node name="GridContainer" type="GridContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer"]
-margin_top = 188.0
-margin_right = 473.0
-margin_bottom = 232.0
+margin_top = 230.0
+margin_right = 476.0
+margin_bottom = 288.0
 custom_constants/vseparation = 8
 custom_constants/hseparation = 8
 columns = 2
 
 [node name="Number" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/GridContainer"]
-margin_right = 67.0
-margin_bottom = 18.0
+margin_right = 93.0
+margin_bottom = 25.0
 text = "ui_number"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/GridContainer"]
-margin_left = 75.0
-margin_right = 473.0
-margin_bottom = 18.0
+margin_left = 101.0
+margin_right = 476.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 custom_constants/separation = 8
 __meta__ = {
@@ -2379,7 +2395,7 @@ __meta__ = {
 
 [node name="N" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/GridContainer/HBoxContainer"]
 margin_right = 32.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 rect_min_size = Vector2( 32, 0 )
 text = "1"
 align = 2
@@ -2389,7 +2405,7 @@ __meta__ = {
 
 [node name="NumberOut" type="HSlider" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/GridContainer/HBoxContainer"]
 margin_left = 40.0
-margin_right = 398.0
+margin_right = 375.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 min_value = 1.0
@@ -2403,25 +2419,25 @@ __meta__ = {
 }
 
 [node name="Time" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/GridContainer"]
-margin_top = 26.0
-margin_right = 67.0
-margin_bottom = 44.0
+margin_top = 33.0
+margin_right = 93.0
+margin_bottom = 58.0
 text = "ui_time_s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/GridContainer"]
-margin_left = 75.0
-margin_top = 26.0
-margin_right = 473.0
-margin_bottom = 44.0
+margin_left = 101.0
+margin_top = 33.0
+margin_right = 476.0
+margin_bottom = 58.0
 size_flags_horizontal = 3
 custom_constants/separation = 8
 
 [node name="N" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/GridContainer/HBoxContainer2"]
 margin_right = 32.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 rect_min_size = Vector2( 32, 0 )
 text = "1"
 align = 2
@@ -2431,7 +2447,7 @@ __meta__ = {
 
 [node name="TimeOut" type="HSlider" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_factory/VBoxContainer/GridContainer/HBoxContainer2"]
 margin_left = 40.0
-margin_right = 398.0
+margin_right = 375.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 min_value = 0.5
@@ -2449,9 +2465,9 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 13.0
-margin_top = 27.0
-margin_right = -2.0
+margin_left = 6.0
+margin_top = 44.0
+margin_right = -6.0
 margin_bottom = -3.0
 custom_constants/margin_right = 16
 custom_constants/margin_top = 16
@@ -2462,8 +2478,8 @@ custom_constants/margin_bottom = 16
 visible = false
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 489.0
-margin_bottom = 224.0
+margin_right = 492.0
+margin_bottom = 304.0
 
 [node name="Label" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_transmute/CannotTransmute"]
 margin_right = 480.0
@@ -2473,19 +2489,19 @@ text = "ui_cannot_transmute"
 [node name="CanTransmute" type="VBoxContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_transmute"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 489.0
-margin_bottom = 224.0
+margin_right = 492.0
+margin_bottom = 304.0
 custom_constants/separation = 16
 
 [node name="Label" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_transmute/CanTransmute"]
-margin_right = 473.0
-margin_bottom = 18.0
+margin_right = 476.0
+margin_bottom = 25.0
 text = "ui_choose_transmute"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_transmute/CanTransmute"]
-margin_top = 34.0
-margin_right = 473.0
-margin_bottom = 60.0
+margin_top = 41.0
+margin_right = 476.0
+margin_bottom = 74.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2493,8 +2509,8 @@ __meta__ = {
 
 [node name="Input" type="Label" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_transmute/CanTransmute/HBoxContainer"]
 margin_top = 4.0
-margin_right = 93.0
-margin_bottom = 22.0
+margin_right = 131.0
+margin_bottom = 29.0
 text = "ui_input_colon"
 script = SubResource( 19 )
 __meta__ = {
@@ -2502,9 +2518,9 @@ __meta__ = {
 }
 
 [node name="TransmuteOptionButton" type="OptionButton" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/TabContainer/ui_transmute/CanTransmute/HBoxContainer"]
-margin_left = 97.0
-margin_right = 161.0
-margin_bottom = 26.0
+margin_left = 135.0
+margin_right = 217.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 64, 16 )
 text = "None"
 items = [ "None", null, false, 0, "None", "H+", null, false, 1, "H", "Ir-", null, false, 2, "Ir", "Cu-", null, false, 3, "Cu", "St-", null, false, 4, "St", "Si-", null, false, 5, "Si", "G+", null, false, 6, "G", "Hi+", null, false, 7, "Hi", "Cf-", null, false, 8, "Cf", "T+", null, false, 9, "T", "Bg+", null, false, 10, "Bg", "Mt+", null, false, 11, "Mt", "XA-", null, false, 12, "XA", "XB+", null, false, 13, "XB", "XC+", null, false, 14, "XC", "CG+", null, false, 15, "CG", "SW+", null, false, 16, "SW" ]
@@ -2514,25 +2530,25 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer"]
-margin_top = 330.0
+margin_top = 430.0
 margin_right = 520.0
-margin_bottom = 362.0
+margin_bottom = 463.0
 custom_constants/separation = 16
 
 [node name="Save" type="Button" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 100.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 100, 32 )
+margin_right = 150.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 150, 32 )
 size_flags_vertical = 3
 text = "ui_save"
 icon = ExtResource( 11 )
 expand_icon = true
 
 [node name="Discard" type="Button" parent="CampaignEditor/CustomRecipeDialog/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 116.0
-margin_right = 291.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 175, 32 )
+margin_left = 166.0
+margin_right = 416.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 250, 32 )
 size_flags_vertical = 3
 text = "ui_discard_changes"
 icon = ExtResource( 8 )
@@ -2559,7 +2575,6 @@ dialog_text = "ui_all_will_be_discarded"
 script = ExtResource( 23 )
 
 [node name="OverwriteConfirmationDialog" type="ConfirmationDialog" parent="CampaignEditor"]
-visible = true
 margin_left = 438.0
 margin_top = 290.0
 margin_right = 838.0
@@ -2569,16 +2584,6 @@ popup_exclusive = true
 window_title = "ui_confirmation"
 dialog_text = "ui_overwrite_campaign"
 script = ExtResource( 23 )
-
-[node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 256, 256 )
-hdr = false
-disable_3d = true
-usage = 0
-render_target_v_flip = true
-gui_disable_input = true
-
-[node name="Shield" parent="Viewport" instance=ExtResource( 7 )]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0

@@ -25,7 +25,6 @@ func serialise() -> Dictionary:
 	d["sink"] = sink
 	d["forbid_send"] = forbid_send
 	d["lane_provinance"] = lane_provinance
-	d["radians_per_slot"] = radians_per_slot
 	d["items_in_lane"] = items_in_lane
 	d["laneswap_target"] = laneswap_target[0].get_path() if laneswap_target[0] != null else null
 	#
@@ -51,7 +50,6 @@ func deserialise(var d : Dictionary):
 	sink = d["sink"]
 	forbid_send = d["forbid_send"]
 	lane_provinance = d["lane_provinance"]
-	radians_per_slot = d["radians_per_slot"]
 	items_in_lane = d["items_in_lane"]
 	laneswap_target[0] = null if d["laneswap_target"] == null else get_node(d["laneswap_target"])
 	if lane_content != null:
@@ -161,8 +159,9 @@ func register_resource(var new_resource : String, var provinance : Node):
 		normal_map = load("res://images/gems/gem_"+String(Global.data[lane_content]["shape"])+"_n.png")
 	if provinance != null:
 		lane_provinance.append(provinance.get_path())
-	for c in get_tree().get_nodes_in_group("RingContentGroup"):
-		c.update_content()
+	# Refresh the lane-content bars via the debounced SomethingChanged timer
+	# (batched - a synchronous fan-out here is O(rings) per lane operation)
+	$"/root/Game/SomethingChanged".something_changed()
 	
 func deregister_provider(var provider):
 	var path = provider.get_path()

@@ -1,7 +1,7 @@
 extends Button
 
 onready var id : WindowDialog = get_tree().get_root().find_node("InfoDialog",true,false)
-onready var click : AudioStreamPlayer = get_tree().get_root().find_node("Click",true,false)
+onready var click : AudioStreamPlayer = Sfx.get_node("Click")
 
 func _on_Button_pressed():
 	var mode : int

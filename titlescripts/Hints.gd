@@ -16,7 +16,8 @@ func _on_Hints_about_to_show():
 	$MarginContainer/VBoxContainer/HintEdit1.text = hints_array[level][0]
 	$MarginContainer/VBoxContainer/HintEdit2.text = hints_array[level][1]
 	$MarginContainer/VBoxContainer/HintEdit3.text = hints_array[level][2]
-	print("Show for tab ",level)
+	if Global.DEBUG:
+		print("Show for tab ",level)
 
 
 func _on_Hints_popup_hide():
@@ -25,4 +26,5 @@ func _on_Hints_popup_hide():
 	hints_array[level][1] = $MarginContainer/VBoxContainer/HintEdit2.text 
 	hints_array[level][2] = $MarginContainer/VBoxContainer/HintEdit3.text 
 	hide()
-	print("Hide for tab ",level)
+	if Global.DEBUG:
+		print("Hide for tab ",level)

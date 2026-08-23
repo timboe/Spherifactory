@@ -76,51 +76,52 @@ script = SubResource( 1 )
 
 [node name="OptionButton" type="OptionButton" parent="." groups=["ResRecUpdateGroup"]]
 margin_left = 71.0
-margin_right = 135.0
+margin_right = 156.0
 margin_bottom = 20.0
-rect_min_size = Vector2( 64, 16 )
+rect_min_size = Vector2( 85, 16 )
 script = SubResource( 2 )
 
 [node name="Margin" type="MarginContainer" parent="."]
-margin_left = 139.0
-margin_right = 155.0
+margin_left = 160.0
+margin_right = 176.0
 margin_bottom = 20.0
 custom_constants/margin_left = 16
 
 [node name="Rate" type="Label" parent="."]
-margin_left = 159.0
+margin_left = 180.0
 margin_top = 3.0
-margin_right = 202.0
+margin_right = 223.0
 margin_bottom = 17.0
 text = "ui_rate"
+align = 2
 
 [node name="N" type="Label" parent="."]
-margin_left = 206.0
+margin_left = 227.0
 margin_top = 3.0
-margin_right = 238.0
+margin_right = 259.0
 margin_bottom = 17.0
 rect_min_size = Vector2( 32, 0 )
 text = "2.0"
 align = 2
 
 [node name="s" type="Label" parent="."]
-margin_left = 242.0
+margin_left = 263.0
 margin_top = 3.0
-margin_right = 247.0
+margin_right = 268.0
 margin_bottom = 17.0
 text = "/"
 align = 2
 
 [node name="s2" type="Label" parent="."]
-margin_left = 251.0
+margin_left = 272.0
 margin_top = 3.0
-margin_right = 276.0
+margin_right = 297.0
 margin_bottom = 17.0
 text = "ui_s"
 align = 2
 
 [node name="RateSlider" type="HSlider" parent="."]
-margin_left = 280.0
+margin_left = 301.0
 margin_right = 344.0
 margin_bottom = 16.0
 size_flags_horizontal = 3

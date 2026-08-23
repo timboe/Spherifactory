@@ -2,11 +2,23 @@ extends Node2D
 
 const POINTS := 32
 
-onready var id = get_tree().get_root().find_node("InfoDialog", true, false) 
-onready var cam = get_tree().get_root().find_node("Camera2D", true, false) 
 onready var ring = find_parent("Ring*")
 onready var rotation_node = find_parent("Rotation")
-onready var camera_2d := get_tree().get_root().find_node("Camera2D", true, false)
+
+var _id : Node = null
+var _camera_2d : Node = null
+
+# Lazily resolved - avoids whole-tree find_node() scans every time a
+# building is placed or loaded
+func get_id() -> Node:
+	if _id == null or not is_instance_valid(_id):
+		_id = get_tree().get_root().find_node("InfoDialog", true, false)
+	return _id
+
+func get_camera_2d() -> Node:
+	if _camera_2d == null or not is_instance_valid(_camera_2d):
+		_camera_2d = get_tree().get_root().find_node("Camera2D", true, false)
+	return _camera_2d
 
 export(float) var inner_radius
 export(float) var outer_radius
@@ -87,7 +99,9 @@ func add_arc(var points : int,
    var centre : Vector2, var radius : float):
 	var span = end - start
 	for i in range(points + 1):
-		var angle_point = ((i * span) / POINTS) + start
+		# Use the passed-in count (was previously the POINTS constant,
+		# silently ignoring the parameter)
+		var angle_point = ((i * span) / points) + start
 		points_vec.push_back(centre + (Vector2(cos(angle_point), sin(angle_point)) * radius))
 
 func _draw():
@@ -173,8 +187,8 @@ func remove():
 		l.set_range_fillable(factory_angle_start, factory_angle_end, true)
 	name = "deleted"
 	queue_free()
-	if camera_2d.follow_target == self:
-		camera_2d.stop_follow()
+	if get_camera_2d().follow_target == self:
+		get_camera_2d().stop_follow()
 
 func lane_cleared(var lane_or_ship : Node2D):
 	$FactoryProcess.lane_cleared(lane_or_ship)
@@ -207,14 +221,17 @@ func check_add_remove_ship():
 	if $FactoryProcess.ship == null and mode == Global.BUILDING_EXTRACTOR and ring.ring_number + 1 == Global.rings:
 		_on_NewShip_timeout()
 	elif ring.ring_number + 1 != Global.rings:
-		print("rmove any ships from ",ring.ring_number + 1," (note +1) which is not ", Global.rings)
+		if Global.DEBUG:
+			print("rmove any ships from ",ring.ring_number + 1," (note +1) which is not ", Global.rings)
 		$FactoryProcess.remove_any_ship()
 
 func _on_NewShip_timeout():
 	if ring.ring_number + 1 != Global.rings:
-		print("_on_NewShip_timeout cancelled due to not being outer ring")
+		if Global.DEBUG:
+			print("_on_NewShip_timeout cancelled due to not being outer ring")
 		return
-	print("New ship")
+	if Global.DEBUG:
+		print("New ship")
 	var sr = ring.get_node("ShipRotationTemplate").duplicate(DUPLICATE_SCRIPTS|DUPLICATE_GROUPS|DUPLICATE_SIGNALS)
 	sr.name = "ShipRotation1"
 	ring.add_child(sr, true)
@@ -222,15 +239,15 @@ func _on_NewShip_timeout():
 	sr.global_rotation = self.global_rotation
 	$FactoryProcess.ship = sr.get_child(0)
 	$FactoryProcess.ship.configure_ship(recipy, self)
-	id.update_diag()
+	get_id().update_diag()
 
 func _on_TextureButton_gui_input(event):
 	if event is InputEventMouseButton and not event.pressed:
 		match event.button_index:
 			BUTTON_LEFT:
-				id.show_building_diag(self)
+				get_id().show_building_diag(self)
 				return
 			BUTTON_RIGHT:
 				configure_building()
 				return
-	cam._unhandled_input(event)
+	get_camera_2d()._unhandled_input(event)

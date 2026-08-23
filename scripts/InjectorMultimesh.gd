@@ -16,7 +16,7 @@ export(bool) var placed = false
 onready var outlines : Button = get_tree().get_root().find_node("Outlines", true, false)
 onready var injector_button = get_tree().get_root().find_node("InjectorButton" + String(int(get_parent().name)), true, false)
 onready var guide_lines : Node2D = get_parent().get_node("InjectorLines")
-onready var blip_a : AudioStreamPlayer = get_tree().get_root().find_node("BlipA", true, false)
+onready var blip_a : AudioStreamPlayer = Sfx.get_node("BlipA")
 
 func serialise() -> Dictionary:
 	var d = {}
