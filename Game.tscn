@@ -645,8 +645,8 @@ adjustment_saturation = 1.5
 pause_mode = 2
 
 [node name="UI" type="Control" parent="CanvasLayer"]
-margin_right = 1280.0
-margin_bottom = 720.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource( 48 )
 __meta__ = {
@@ -654,21 +654,17 @@ __meta__ = {
 }
 
 [node name="InfoUI" type="Control" parent="CanvasLayer/UI"]
-visible = false
-margin_right = 1280.0
-margin_bottom = 720.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UI/InfoUI"]
-margin_right = 1280.0
-margin_bottom = 720.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="InfoDialog" type="WindowDialog" parent="CanvasLayer/UI/InfoUI/CenterContainer"]
 visible = true
@@ -677,6 +673,7 @@ margin_top = 132.0
 margin_right = 867.0
 margin_bottom = 587.0
 rect_min_size = Vector2( 455, 455 )
+size_flags_vertical = 3
 custom_constants/scaleborder_size = 0
 custom_styles/panel = ExtResource( 81 )
 window_title = "Ring"
@@ -688,23 +685,20 @@ __meta__ = {
 
 [node name="RingContainer" type="MarginContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog"]
 visible = false
-margin_right = 371.0
-margin_bottom = 408.0
+margin_right = 455.0
+margin_bottom = 455.0
 rect_min_size = Vector2( 455, 420 )
 size_flags_horizontal = 3
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 447.0
-margin_bottom = 423.0
+margin_bottom = 447.0
 size_flags_horizontal = 3
 custom_constants/separation = 6
 __meta__ = {
@@ -713,13 +707,13 @@ __meta__ = {
 
 [node name="Lanes" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer"]
 margin_right = 439.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 text = "ui_lanes"
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer"]
-margin_top = 24.0
+margin_top = 31.0
 margin_right = 439.0
-margin_bottom = 158.0
+margin_bottom = 165.0
 rect_min_size = Vector2( 355, 0 )
 custom_constants/vseparation = 6
 custom_constants/hseparation = 6
@@ -729,21 +723,21 @@ __meta__ = {
 }
 
 [node name="L1" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_top = 23.0
-margin_right = 11.0
-margin_bottom = 41.0
+margin_top = 19.0
+margin_right = 15.0
+margin_bottom = 44.0
 text = "1:"
 
 [node name="LIcon1" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 17.0
-margin_right = 81.0
+margin_left = 21.0
+margin_right = 85.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="LBin1" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 87.0
-margin_right = 151.0
+margin_left = 91.0
+margin_right = 155.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 icon = ExtResource( 18 )
@@ -754,8 +748,8 @@ __meta__ = {
 }
 
 [node name="VSeparator" type="VSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 157.0
-margin_right = 173.0
+margin_left = 161.0
+margin_right = 177.0
 margin_bottom = 64.0
 custom_constants/separation = 16
 __meta__ = {
@@ -763,22 +757,22 @@ __meta__ = {
 }
 
 [node name="L2" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 179.0
-margin_top = 23.0
-margin_right = 190.0
-margin_bottom = 41.0
+margin_left = 183.0
+margin_top = 19.0
+margin_right = 198.0
+margin_bottom = 44.0
 text = "2:"
 
 [node name="LIcon2" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 196.0
-margin_right = 260.0
+margin_left = 204.0
+margin_right = 268.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="LBin2" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 266.0
-margin_right = 330.0
+margin_left = 274.0
+margin_right = 338.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 icon = ExtResource( 18 )
@@ -789,23 +783,23 @@ __meta__ = {
 }
 
 [node name="L3" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_top = 93.0
-margin_right = 11.0
-margin_bottom = 111.0
+margin_top = 89.0
+margin_right = 15.0
+margin_bottom = 114.0
 text = "3:"
 
 [node name="LIcon3" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 17.0
+margin_left = 21.0
 margin_top = 70.0
-margin_right = 81.0
+margin_right = 85.0
 margin_bottom = 134.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="LBin3" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 87.0
+margin_left = 91.0
 margin_top = 70.0
-margin_right = 151.0
+margin_right = 155.0
 margin_bottom = 134.0
 rect_min_size = Vector2( 64, 64 )
 icon = ExtResource( 18 )
@@ -816,9 +810,9 @@ __meta__ = {
 }
 
 [node name="VSeparator2" type="VSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 157.0
+margin_left = 161.0
 margin_top = 70.0
-margin_right = 173.0
+margin_right = 177.0
 margin_bottom = 134.0
 custom_constants/separation = 16
 __meta__ = {
@@ -826,24 +820,24 @@ __meta__ = {
 }
 
 [node name="L4" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 179.0
-margin_top = 93.0
-margin_right = 190.0
-margin_bottom = 111.0
+margin_left = 183.0
+margin_top = 89.0
+margin_right = 198.0
+margin_bottom = 114.0
 text = "4:"
 
 [node name="LIcon4" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 196.0
+margin_left = 204.0
 margin_top = 70.0
-margin_right = 260.0
+margin_right = 268.0
 margin_bottom = 134.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="LBin4" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/GridContainer"]
-margin_left = 266.0
+margin_left = 274.0
 margin_top = 70.0
-margin_right = 330.0
+margin_right = 338.0
 margin_bottom = 134.0
 rect_min_size = Vector2( 64, 4 )
 icon = ExtResource( 18 )
@@ -854,32 +848,33 @@ __meta__ = {
 }
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer"]
-margin_top = 164.0
+margin_top = 171.0
 margin_right = 439.0
-margin_bottom = 180.0
+margin_bottom = 187.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Satelites" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer"]
-margin_top = 186.0
+margin_top = 193.0
 margin_right = 439.0
-margin_bottom = 204.0
+margin_bottom = 218.0
 text = "ui_satelites"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer"]
-margin_top = 210.0
+margin_top = 224.0
 margin_right = 439.0
-margin_bottom = 340.0
+margin_bottom = 378.0
 rect_min_size = Vector2( 355, 130 )
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FactoriesList" type="ItemList" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer/ScrollContainer"]
 margin_right = 439.0
-margin_bottom = 130.0
+margin_bottom = 154.0
 rect_min_size = Vector2( 340, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -892,18 +887,18 @@ __meta__ = {
 }
 
 [node name="HSeparator3" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer"]
-margin_top = 346.0
+margin_top = 384.0
 margin_right = 439.0
-margin_bottom = 362.0
+margin_bottom = 400.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RemoveAll" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/RingContainer/VBoxContainer"]
-margin_top = 368.0
+margin_top = 406.0
 margin_right = 439.0
-margin_bottom = 400.0
+margin_bottom = 439.0
 rect_min_size = Vector2( 0, 32 )
 text = "ui_remove_all_lanes_sat"
 icon = ExtResource( 18 )
@@ -1078,18 +1073,18 @@ custom_constants/separation = 4
 
 [node name="Inputs" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set"]
 margin_right = 439.0
-margin_bottom = 235.0
+margin_bottom = 246.0
 custom_constants/separation = 6
 
 [node name="Inputs" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs"]
 margin_right = 439.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 text = "ui_inputs"
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs"]
-margin_top = 24.0
+margin_top = 31.0
 margin_right = 439.0
-margin_bottom = 164.0
+margin_bottom = 171.0
 rect_min_size = Vector2( 355, 0 )
 custom_constants/vseparation = 12
 custom_constants/hseparation = 6
@@ -1099,32 +1094,32 @@ __meta__ = {
 }
 
 [node name="I0" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer"]
-margin_right = 159.0
+margin_right = 163.0
 margin_bottom = 64.0
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I0"]
-margin_top = 23.0
-margin_right = 11.0
-margin_bottom = 41.0
+margin_top = 19.0
+margin_right = 15.0
+margin_bottom = 44.0
 text = "1:"
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I0"]
-margin_left = 15.0
-margin_right = 79.0
+margin_left = 19.0
+margin_right = 83.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="Spacer" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I0"]
-margin_left = 83.0
-margin_top = 23.0
-margin_right = 91.0
-margin_bottom = 41.0
+margin_left = 87.0
+margin_top = 19.0
+margin_right = 95.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 8, 0 )
 
 [node name="Count" type="Container" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I0"]
-margin_left = 95.0
-margin_right = 159.0
+margin_left = 99.0
+margin_right = 163.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 __meta__ = {
@@ -1138,8 +1133,8 @@ normal_map = ExtResource( 79 )
 script = ExtResource( 7 )
 
 [node name="I1" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer"]
-margin_left = 165.0
-margin_right = 344.0
+margin_left = 169.0
+margin_right = 352.0
 margin_bottom = 64.0
 
 [node name="VSeparator" type="VSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I1"]
@@ -1152,28 +1147,28 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I1"]
 margin_left = 20.0
-margin_top = 23.0
-margin_right = 31.0
-margin_bottom = 41.0
+margin_top = 19.0
+margin_right = 35.0
+margin_bottom = 44.0
 text = "2:"
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I1"]
-margin_left = 35.0
-margin_right = 99.0
+margin_left = 39.0
+margin_right = 103.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="Spacer" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I1"]
-margin_left = 103.0
-margin_top = 23.0
-margin_right = 111.0
-margin_bottom = 41.0
+margin_left = 107.0
+margin_top = 19.0
+margin_right = 115.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 8, 0 )
 
 [node name="Count" type="Container" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I1"]
-margin_left = 115.0
-margin_right = 179.0
+margin_left = 119.0
+margin_right = 183.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 __meta__ = {
@@ -1188,32 +1183,32 @@ script = ExtResource( 7 )
 
 [node name="I2" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer"]
 margin_top = 76.0
-margin_right = 159.0
+margin_right = 163.0
 margin_bottom = 140.0
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I2"]
-margin_top = 23.0
-margin_right = 11.0
-margin_bottom = 41.0
+margin_top = 19.0
+margin_right = 15.0
+margin_bottom = 44.0
 text = "3:"
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I2"]
-margin_left = 15.0
-margin_right = 79.0
+margin_left = 19.0
+margin_right = 83.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="Spacer" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I2"]
-margin_left = 83.0
-margin_top = 23.0
-margin_right = 91.0
-margin_bottom = 41.0
+margin_left = 87.0
+margin_top = 19.0
+margin_right = 95.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 8, 0 )
 
 [node name="Count" type="Container" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I2"]
-margin_left = 95.0
-margin_right = 159.0
+margin_left = 99.0
+margin_right = 163.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 __meta__ = {
@@ -1227,9 +1222,9 @@ normal_map = ExtResource( 79 )
 script = ExtResource( 7 )
 
 [node name="I3" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer"]
-margin_left = 165.0
+margin_left = 169.0
 margin_top = 76.0
-margin_right = 344.0
+margin_right = 352.0
 margin_bottom = 140.0
 
 [node name="VSeparator" type="VSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I3"]
@@ -1242,28 +1237,28 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I3"]
 margin_left = 20.0
-margin_top = 23.0
-margin_right = 31.0
-margin_bottom = 41.0
+margin_top = 19.0
+margin_right = 35.0
+margin_bottom = 44.0
 text = "4:"
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I3"]
-margin_left = 35.0
-margin_right = 99.0
+margin_left = 39.0
+margin_right = 103.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="Spacer" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I3"]
-margin_left = 103.0
-margin_top = 23.0
-margin_right = 111.0
-margin_bottom = 41.0
+margin_left = 107.0
+margin_top = 19.0
+margin_right = 115.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 8, 0 )
 
 [node name="Count" type="Container" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs/GridContainer/I3"]
-margin_left = 115.0
-margin_right = 179.0
+margin_left = 119.0
+margin_right = 183.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 __meta__ = {
@@ -1277,9 +1272,9 @@ normal_map = ExtResource( 79 )
 script = ExtResource( 7 )
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs"]
-margin_top = 170.0
+margin_top = 177.0
 margin_right = 439.0
-margin_bottom = 186.0
+margin_bottom = 193.0
 rect_min_size = Vector2( 355, 0 )
 custom_constants/separation = 16
 __meta__ = {
@@ -1287,15 +1282,15 @@ __meta__ = {
 }
 
 [node name="FactoryProgressBar" type="ProgressBar" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs"]
-margin_top = 192.0
+margin_top = 199.0
 margin_right = 439.0
-margin_bottom = 213.0
+margin_bottom = 224.0
 max_value = 1.0
 
 [node name="HSeparator3" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Inputs"]
-margin_top = 219.0
+margin_top = 230.0
 margin_right = 439.0
-margin_bottom = 235.0
+margin_bottom = 246.0
 rect_min_size = Vector2( 355, 0 )
 custom_constants/separation = 16
 __meta__ = {
@@ -1303,21 +1298,21 @@ __meta__ = {
 }
 
 [node name="Output" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set"]
-margin_top = 239.0
+margin_top = 250.0
 margin_right = 439.0
-margin_bottom = 327.0
+margin_bottom = 345.0
 rect_min_size = Vector2( 355, 0 )
 custom_constants/separation = 6
 
 [node name="Output" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Output"]
 margin_right = 439.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 text = "ui_output"
 
 [node name="OutAndShip" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Output"]
-margin_top = 24.0
+margin_top = 31.0
 margin_right = 439.0
-margin_bottom = 88.0
+margin_bottom = 95.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1327,9 +1322,9 @@ margin_right = 160.0
 margin_bottom = 64.0
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Output/OutAndShip/Out"]
-margin_top = 23.0
+margin_top = 19.0
 margin_right = 12.0
-margin_bottom = 41.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 12, 0 )
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Output/OutAndShip/Out"]
@@ -1341,9 +1336,9 @@ expand = true
 
 [node name="Spacer" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Output/OutAndShip/Out"]
 margin_left = 84.0
-margin_top = 23.0
+margin_top = 19.0
 margin_right = 92.0
-margin_bottom = 41.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 8, 0 )
 
 [node name="Count" type="Container" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Output/OutAndShip/Out"]
@@ -1376,9 +1371,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Output/OutAndShip/Ship"]
 margin_left = 20.0
-margin_top = 23.0
+margin_top = 19.0
 margin_right = 32.0
-margin_bottom = 41.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 12, 0 )
 
 [node name="Ship" type="Container" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Output/OutAndShip/Ship"]
@@ -1395,9 +1390,9 @@ script = SubResource( 16 )
 
 [node name="Spacer" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Output/OutAndShip/Ship"]
 margin_left = 104.0
-margin_top = 23.0
+margin_top = 19.0
 margin_right = 112.0
-margin_bottom = 41.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 8, 0 )
 
 [node name="Count" type="Container" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/Output/OutAndShip/Ship"]
@@ -1416,9 +1411,9 @@ normal_map = ExtResource( 79 )
 script = ExtResource( 7 )
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set"]
-margin_top = 331.0
+margin_top = 349.0
 margin_right = 439.0
-margin_bottom = 347.0
+margin_bottom = 365.0
 rect_min_size = Vector2( 355, 0 )
 custom_constants/separation = 16
 __meta__ = {
@@ -1426,9 +1421,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set"]
-margin_top = 351.0
+margin_top = 369.0
 margin_right = 439.0
-margin_bottom = 383.0
+margin_bottom = 402.0
 rect_min_size = Vector2( 355, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1436,7 +1431,7 @@ __meta__ = {
 
 [node name="Clear" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/HBoxContainer"]
 margin_right = 217.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 text = "ui_reset_satellite"
@@ -1449,7 +1444,7 @@ __meta__ = {
 [node name="Remove" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/HBoxContainer"]
 margin_left = 221.0
 margin_right = 439.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 text = "ui_remove_satellite"
@@ -1460,9 +1455,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set"]
-margin_top = 387.0
+margin_top = 406.0
 margin_right = 439.0
-margin_bottom = 419.0
+margin_bottom = 439.0
 rect_min_size = Vector2( 355, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1470,7 +1465,7 @@ __meta__ = {
 
 [node name="Rotate" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/HBoxContainer2"]
 margin_right = 217.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 toggle_mode = true
@@ -1484,7 +1479,7 @@ __meta__ = {
 [node name="Close" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/FactoryContainer/Set/HBoxContainer2"]
 margin_left = 221.0
 margin_right = 439.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 text = "ui_close"
@@ -1503,9 +1498,6 @@ custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Container" type="CenterContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MenuContainer"]
 margin_left = 8.0
@@ -1629,24 +1621,24 @@ custom_constants/separation = 6
 
 [node name="RingsLabel" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer"]
 margin_right = 439.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 text = "ui_rings"
 
 [node name="Ring" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer"]
-margin_top = 24.0
+margin_top = 31.0
 margin_right = 439.0
-margin_bottom = 42.0
+margin_bottom = 56.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer/Ring"]
-margin_right = 7.0
-margin_bottom = 18.0
+margin_right = 9.0
+margin_bottom = 25.0
 text = "1"
 
 [node name="RingsSlider" type="HSlider" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer/Ring"]
-margin_left = 11.0
+margin_left = 13.0
 margin_right = 439.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
@@ -1658,29 +1650,29 @@ tick_count = 9
 script = SubResource( 21 )
 
 [node name="HSeparator3" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer"]
-margin_top = 48.0
+margin_top = 62.0
 margin_right = 439.0
-margin_bottom = 52.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 
 [node name="Label3" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer"]
-margin_top = 58.0
+margin_top = 72.0
 margin_right = 439.0
-margin_bottom = 76.0
+margin_bottom = 97.0
 text = "ui_lanes"
 
 [node name="Lane" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer"]
-margin_top = 82.0
+margin_top = 103.0
 margin_right = 439.0
-margin_bottom = 100.0
+margin_bottom = 128.0
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer/Lane"]
-margin_right = 7.0
-margin_bottom = 18.0
+margin_right = 9.0
+margin_bottom = 25.0
 text = "1"
 
 [node name="LanesSlider" type="HSlider" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer/Lane"]
-margin_left = 11.0
+margin_left = 13.0
 margin_right = 439.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
@@ -1692,63 +1684,63 @@ tick_count = 4
 script = SubResource( 22 )
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer"]
-margin_top = 106.0
+margin_top = 134.0
 margin_right = 439.0
-margin_bottom = 110.0
+margin_bottom = 138.0
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer"]
-margin_top = 116.0
+margin_top = 144.0
 margin_right = 439.0
-margin_bottom = 134.0
+margin_bottom = 169.0
 text = "ui_input_resources"
 
 [node name="Input0" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer" instance=ExtResource( 39 )]
-margin_top = 140.0
+margin_top = 175.0
 margin_right = 439.0
-margin_bottom = 166.0
+margin_bottom = 208.0
 
 [node name="Input1" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer" instance=ExtResource( 39 )]
-margin_top = 172.0
+margin_top = 214.0
 margin_right = 439.0
-margin_bottom = 198.0
+margin_bottom = 247.0
 
 [node name="Input2" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer" instance=ExtResource( 39 )]
-margin_top = 204.0
+margin_top = 253.0
 margin_right = 439.0
-margin_bottom = 230.0
+margin_bottom = 286.0
 
 [node name="Input3" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer" instance=ExtResource( 39 )]
-margin_top = 236.0
+margin_top = 292.0
 margin_right = 439.0
-margin_bottom = 262.0
+margin_bottom = 325.0
 
 [node name="Input4" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer" instance=ExtResource( 39 )]
-margin_top = 268.0
+margin_top = 331.0
 margin_right = 439.0
-margin_bottom = 294.0
+margin_bottom = 364.0
 
 [node name="Input5" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer" instance=ExtResource( 39 )]
-margin_top = 300.0
+margin_top = 370.0
 margin_right = 439.0
-margin_bottom = 326.0
+margin_bottom = 403.0
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer"]
-margin_top = 332.0
+margin_top = 409.0
 margin_right = 439.0
-margin_bottom = 336.0
+margin_bottom = 413.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer"]
-margin_top = 342.0
+margin_top = 419.0
 margin_right = 439.0
-margin_bottom = 360.0
+margin_bottom = 444.0
 text = "ui_satellite_factories_collect"
 
 [node name="FactoryBehaviour" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer"]
-margin_top = 366.0
+margin_top = 450.0
 margin_right = 439.0
-margin_bottom = 430.0
+margin_bottom = 514.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1790,9 +1782,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SandboxContainer/VBoxContainer"]
-margin_top = 436.0
+margin_top = 520.0
 margin_right = 439.0
-margin_bottom = 436.0
+margin_bottom = 520.0
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1800,16 +1792,19 @@ __meta__ = {
 
 [node name="SolContainer" type="MarginContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog"]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -227.5
+margin_top = -213.0
+margin_right = 227.5
+margin_bottom = 213.0
 rect_min_size = Vector2( 455, 420 )
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer"]
 margin_left = 8.0
@@ -1823,13 +1818,13 @@ __meta__ = {
 
 [node name="Lanes" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer"]
 margin_right = 439.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 text = "ui_lanes"
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer"]
-margin_top = 24.0
+margin_top = 31.0
 margin_right = 439.0
-margin_bottom = 164.0
+margin_bottom = 171.0
 rect_min_size = Vector2( 355, 0 )
 custom_constants/vseparation = 12
 custom_constants/hseparation = 12
@@ -1839,22 +1834,22 @@ __meta__ = {
 }
 
 [node name="H" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_top = 23.0
-margin_right = 11.0
-margin_bottom = 41.0
+margin_top = 19.0
+margin_right = 15.0
+margin_bottom = 44.0
 text = "1:"
 
 [node name="HIcon" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 23.0
-margin_right = 87.0
+margin_left = 27.0
+margin_right = 91.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="Inf" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 99.0
+margin_left = 103.0
 margin_top = 16.0
-margin_right = 163.0
+margin_right = 167.0
 margin_bottom = 48.0
 rect_min_size = Vector2( 32, 32 )
 size_flags_vertical = 4
@@ -1863,8 +1858,8 @@ expand = true
 stretch_mode = 7
 
 [node name="VSeparator" type="VSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 175.0
-margin_right = 191.0
+margin_left = 179.0
+margin_right = 195.0
 margin_bottom = 64.0
 custom_constants/separation = 16
 __meta__ = {
@@ -1872,22 +1867,22 @@ __meta__ = {
 }
 
 [node name="Trans1" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 203.0
-margin_top = 23.0
-margin_right = 214.0
-margin_bottom = 41.0
+margin_left = 207.0
+margin_top = 19.0
+margin_right = 222.0
+margin_bottom = 44.0
 text = "2:"
 
 [node name="TransIcon1" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 226.0
-margin_right = 290.0
+margin_left = 234.0
+margin_right = 298.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="Count1" type="Container" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 302.0
-margin_right = 366.0
+margin_left = 310.0
+margin_right = 374.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 __meta__ = {
@@ -1901,23 +1896,23 @@ normal_map = ExtResource( 79 )
 script = ExtResource( 7 )
 
 [node name="Trans2" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_top = 99.0
-margin_right = 11.0
-margin_bottom = 117.0
+margin_top = 95.0
+margin_right = 15.0
+margin_bottom = 120.0
 text = "3:"
 
 [node name="TransIcon2" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 23.0
+margin_left = 27.0
 margin_top = 76.0
-margin_right = 87.0
+margin_right = 91.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="Count2" type="Container" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 99.0
+margin_left = 103.0
 margin_top = 76.0
-margin_right = 163.0
+margin_right = 167.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 64, 64 )
 __meta__ = {
@@ -1931,9 +1926,9 @@ normal_map = ExtResource( 79 )
 script = ExtResource( 7 )
 
 [node name="VSeparator2" type="VSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 175.0
+margin_left = 179.0
 margin_top = 76.0
-margin_right = 191.0
+margin_right = 195.0
 margin_bottom = 140.0
 custom_constants/separation = 16
 __meta__ = {
@@ -1941,24 +1936,24 @@ __meta__ = {
 }
 
 [node name="Trans3" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 203.0
-margin_top = 99.0
-margin_right = 214.0
-margin_bottom = 117.0
+margin_left = 207.0
+margin_top = 95.0
+margin_right = 222.0
+margin_bottom = 120.0
 text = "3:"
 
 [node name="TransIcon3" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 226.0
+margin_left = 234.0
 margin_top = 76.0
-margin_right = 290.0
+margin_right = 298.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 64, 64 )
 expand = true
 
 [node name="Count3" type="Container" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/GridContainer"]
-margin_left = 302.0
+margin_left = 310.0
 margin_top = 76.0
-margin_right = 366.0
+margin_right = 374.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 64, 64 )
 __meta__ = {
@@ -1972,24 +1967,24 @@ normal_map = ExtResource( 79 )
 script = ExtResource( 7 )
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer"]
-margin_top = 170.0
+margin_top = 177.0
 margin_right = 439.0
-margin_bottom = 186.0
+margin_bottom = 193.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Transmut" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer"]
-margin_top = 192.0
+margin_top = 199.0
 margin_right = 439.0
-margin_bottom = 210.0
+margin_bottom = 224.0
 text = "ui_transmutations"
 
 [node name="TransmuteGridSC" type="ScrollContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer"]
-margin_top = 216.0
+margin_top = 230.0
 margin_right = 439.0
-margin_bottom = 404.0
+margin_bottom = 410.0
 rect_min_size = Vector2( 355, 180 )
 mouse_filter = 1
 size_flags_horizontal = 3
@@ -2000,7 +1995,7 @@ __meta__ = {
 
 [node name="TransmuteGrid" type="GridContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SolContainer/VBoxContainer/TransmuteGridSC" groups=["UIGridsGroup"]]
 margin_right = 439.0
-margin_bottom = 188.0
+margin_bottom = 180.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2011,127 +2006,128 @@ script = ExtResource( 23 )
 
 [node name="MissionContainer" type="MarginContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog"]
 visible = false
-margin_right = 120.0
-margin_bottom = 30.0
+margin_right = 461.0
+margin_bottom = 455.0
 rect_min_size = Vector2( 455, 420 )
+size_flags_vertical = 3
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBox" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 453.0
-margin_bottom = 412.0
+margin_bottom = 447.0
 custom_constants/separation = 8
 
 [node name="CampaignName" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox"]
-margin_right = 439.0
-margin_bottom = 18.0
+margin_right = 445.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
 text = "Campaign Name"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox"]
-margin_top = 26.0
-margin_right = 439.0
-margin_bottom = 30.0
+margin_top = 33.0
+margin_right = 445.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
 
 [node name="InfoGrid" type="GridContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox"]
-margin_top = 38.0
-margin_right = 439.0
-margin_bottom = 82.0
+margin_top = 45.0
+margin_right = 445.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
 custom_constants/vseparation = 8
 custom_constants/hseparation = 8
 columns = 4
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/InfoGrid"]
-margin_right = 108.0
-margin_bottom = 18.0
+margin_right = 152.0
+margin_bottom = 25.0
 text = "ui_mission_colon"
 align = 2
 
 [node name="MissionNumber" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/InfoGrid"]
-margin_left = 116.0
-margin_right = 123.0
-margin_bottom = 18.0
+margin_left = 160.0
+margin_right = 169.0
+margin_bottom = 25.0
 text = "1"
 
 [node name="Label7" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/InfoGrid"]
-margin_left = 131.0
-margin_right = 339.0
-margin_bottom = 18.0
+margin_left = 177.0
+margin_right = 307.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 text = "ui_lanes_colon"
 align = 2
 
 [node name="FromAbove" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/InfoGrid"]
-margin_left = 347.0
-margin_right = 439.0
-margin_bottom = 18.0
+margin_left = 315.0
+margin_right = 445.0
+margin_bottom = 25.0
 text = "ui_from_above"
 
 [node name="Label3" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/InfoGrid"]
-margin_top = 26.0
-margin_right = 108.0
-margin_bottom = 44.0
+margin_top = 33.0
+margin_right = 152.0
+margin_bottom = 58.0
 text = "ui_rings_colon"
 align = 2
 
 [node name="Rings" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/InfoGrid"]
-margin_left = 116.0
-margin_top = 26.0
-margin_right = 123.0
-margin_bottom = 44.0
+margin_left = 160.0
+margin_top = 33.0
+margin_right = 169.0
+margin_bottom = 58.0
 text = "1"
 
 [node name="Label5" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/InfoGrid"]
-margin_left = 131.0
-margin_top = 26.0
-margin_right = 339.0
-margin_bottom = 44.0
+margin_left = 177.0
+margin_top = 33.0
+margin_right = 307.0
+margin_bottom = 58.0
 text = "ui_lanes_colon"
 align = 2
 
 [node name="Lanes" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/InfoGrid"]
-margin_left = 347.0
-margin_top = 26.0
-margin_right = 439.0
-margin_bottom = 44.0
+margin_left = 315.0
+margin_top = 33.0
+margin_right = 445.0
+margin_bottom = 58.0
 text = "1"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox"]
-margin_top = 90.0
-margin_right = 439.0
-margin_bottom = 108.0
+margin_top = 111.0
+margin_right = 445.0
+margin_bottom = 136.0
 custom_constants/separation = 16
 
 [node name="NewResources" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/HBoxContainer"]
-margin_right = 109.0
-margin_bottom = 18.0
+margin_right = 157.0
+margin_bottom = 25.0
 text = "ui_new_resources"
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/HBoxContainer"]
-margin_left = 125.0
-margin_right = 439.0
-margin_bottom = 18.0
+margin_left = 173.0
+margin_right = 445.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 
 [node name="NewResourceGridSC" type="ScrollContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox"]
-margin_top = 116.0
-margin_right = 439.0
-margin_bottom = 194.0
+margin_top = 144.0
+margin_right = 445.0
+margin_bottom = 218.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NewResourcesGrid" type="GridContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/NewResourceGridSC" groups=["UIGridsGroup"]]
-margin_right = 439.0
-margin_bottom = 78.0
+margin_right = 445.0
+margin_bottom = 74.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 8
@@ -2143,26 +2139,26 @@ __meta__ = {
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox"]
-margin_top = 202.0
-margin_right = 439.0
-margin_bottom = 220.0
+margin_top = 226.0
+margin_right = 445.0
+margin_bottom = 251.0
 custom_constants/separation = 8
 
 [node name="Label3" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/HBoxContainer2"]
-margin_right = 94.0
-margin_bottom = 18.0
+margin_right = 135.0
+margin_bottom = 25.0
 text = "ui_new_recipes"
 
 [node name="HSeparator3" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/HBoxContainer2"]
-margin_left = 102.0
-margin_right = 439.0
-margin_bottom = 18.0
+margin_left = 143.0
+margin_right = 445.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 
 [node name="NewRecipeGridSC2" type="ScrollContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox"]
-margin_top = 228.0
-margin_right = 439.0
-margin_bottom = 306.0
+margin_top = 259.0
+margin_right = 445.0
+margin_bottom = 334.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -2170,8 +2166,8 @@ __meta__ = {
 }
 
 [node name="NewRecipiesGrid" type="GridContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/NewRecipeGridSC2" groups=["UIGridsGroup"]]
-margin_right = 439.0
-margin_bottom = 78.0
+margin_right = 445.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 8
@@ -2183,29 +2179,29 @@ __meta__ = {
 }
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox"]
-margin_top = 314.0
-margin_right = 439.0
-margin_bottom = 332.0
+margin_top = 342.0
+margin_right = 445.0
+margin_bottom = 367.0
 custom_constants/separation = 8
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label3" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/HBoxContainer3"]
-margin_right = 45.0
-margin_bottom = 18.0
+margin_right = 64.0
+margin_bottom = 25.0
 text = "ui_goal"
 
 [node name="HSeparator3" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/HBoxContainer3"]
-margin_left = 53.0
-margin_right = 439.0
-margin_bottom = 18.0
+margin_left = 72.0
+margin_right = 445.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 
 [node name="HBottomBox" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox"]
-margin_top = 340.0
-margin_right = 439.0
-margin_bottom = 404.0
+margin_top = 375.0
+margin_right = 445.0
+margin_bottom = 439.0
 custom_constants/separation = 8
 
 [node name="GoalTextureRect" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/HBottomBox"]
@@ -2216,16 +2212,16 @@ expand = true
 
 [node name="GoalNumber" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/HBottomBox"]
 margin_left = 72.0
-margin_top = 23.0
-margin_right = 143.0
-margin_bottom = 41.0
+margin_top = 19.0
+margin_right = 149.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 text = "x100"
 valign = 1
 
 [node name="Hints" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/HBottomBox"]
-margin_left = 151.0
-margin_right = 291.0
+margin_left = 157.0
+margin_right = 297.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 140, 64 )
 text = "ui_hints"
@@ -2233,8 +2229,8 @@ icon = ExtResource( 67 )
 expand_icon = true
 
 [node name="Close" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/MissionContainer/VBox/HBottomBox"]
-margin_left = 299.0
-margin_right = 439.0
+margin_left = 305.0
+margin_right = 445.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 140, 64 )
 text = "ui_close"
@@ -2250,50 +2246,47 @@ custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 447.0
-margin_bottom = 427.0
+margin_bottom = 448.0
 size_flags_horizontal = 3
-custom_constants/separation = 12
+custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HHBox1" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer"]
 margin_right = 439.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 custom_constants/separation = 6
 
 [node name="H1" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer/HHBox1"]
-margin_right = 44.0
-margin_bottom = 18.0
+margin_right = 62.0
+margin_bottom = 25.0
 text = "ui_hint"
 
 [node name="H2" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer/HHBox1"]
-margin_left = 50.0
-margin_right = 68.0
-margin_bottom = 18.0
+margin_left = 68.0
+margin_right = 93.0
+margin_bottom = 25.0
 text = "#1:"
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer/HHBox1"]
-margin_left = 74.0
+margin_left = 99.0
 margin_right = 439.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBox1" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer"]
-margin_top = 30.0
+margin_top = 40.0
 margin_right = 439.0
-margin_bottom = 94.0
+margin_bottom = 104.0
 custom_constants/separation = 12
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2317,35 +2310,35 @@ readonly = true
 wrap_enabled = true
 
 [node name="HHBox2" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer"]
-margin_top = 106.0
+margin_top = 119.0
 margin_right = 439.0
-margin_bottom = 124.0
+margin_bottom = 144.0
 custom_constants/separation = 6
 
 [node name="H2" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer/HHBox2"]
-margin_right = 44.0
-margin_bottom = 18.0
+margin_right = 62.0
+margin_bottom = 25.0
 text = "ui_hint"
 
 [node name="H3" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer/HHBox2"]
-margin_left = 50.0
-margin_right = 68.0
-margin_bottom = 18.0
+margin_left = 68.0
+margin_right = 93.0
+margin_bottom = 25.0
 text = "#2:"
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer/HHBox2"]
-margin_left = 74.0
+margin_left = 99.0
 margin_right = 439.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBox2" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer"]
-margin_top = 136.0
+margin_top = 159.0
 margin_right = 439.0
-margin_bottom = 200.0
+margin_bottom = 223.0
 custom_constants/separation = 12
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2369,35 +2362,35 @@ readonly = true
 wrap_enabled = true
 
 [node name="HHBox3" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer"]
-margin_top = 212.0
+margin_top = 238.0
 margin_right = 439.0
-margin_bottom = 230.0
+margin_bottom = 263.0
 custom_constants/separation = 6
 
 [node name="H2" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer/HHBox3"]
-margin_right = 44.0
-margin_bottom = 18.0
+margin_right = 62.0
+margin_bottom = 25.0
 text = "ui_hint"
 
 [node name="H3" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer/HHBox3"]
-margin_left = 50.0
-margin_right = 68.0
-margin_bottom = 18.0
+margin_left = 68.0
+margin_right = 93.0
+margin_bottom = 25.0
 text = "#3:"
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer/HHBox3"]
-margin_left = 74.0
+margin_left = 99.0
 margin_right = 439.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBox3" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer"]
-margin_top = 242.0
+margin_top = 278.0
 margin_right = 439.0
-margin_bottom = 306.0
+margin_bottom = 342.0
 custom_constants/separation = 12
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2421,17 +2414,17 @@ readonly = true
 wrap_enabled = true
 
 [node name="HSeparator3" type="HSeparator" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer"]
-margin_top = 318.0
+margin_top = 357.0
 margin_right = 439.0
-margin_bottom = 322.0
+margin_bottom = 361.0
 rect_min_size = Vector2( 430, 0 )
 size_flags_horizontal = 3
 
 [node name="BackToMission" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/HintsContainer/VBoxContainer"]
 margin_left = 299.0
-margin_top = 334.0
+margin_top = 376.0
 margin_right = 439.0
-margin_bottom = 398.0
+margin_bottom = 440.0
 rect_min_size = Vector2( 140, 64 )
 size_flags_horizontal = 8
 text = "ui_back"
@@ -2450,9 +2443,6 @@ custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBox" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/AllRecipesContainer"]
 margin_left = 8.0
@@ -2463,7 +2453,7 @@ custom_constants/separation = 8
 
 [node name="RecipeGrid" type="ScrollContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/AllRecipesContainer/VBox"]
 margin_right = 439.0
-margin_bottom = 332.0
+margin_bottom = 365.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -2472,7 +2462,7 @@ __meta__ = {
 
 [node name="AllRecipesGrid" type="GridContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/AllRecipesContainer/VBox/RecipeGrid" groups=["UIGridsGroup"]]
 margin_right = 439.0
-margin_bottom = 332.0
+margin_bottom = 365.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 8
@@ -2484,9 +2474,9 @@ __meta__ = {
 }
 
 [node name="HBottomBox" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/AllRecipesContainer/VBox"]
-margin_top = 340.0
+margin_top = 375.0
 margin_right = 439.0
-margin_bottom = 404.0
+margin_bottom = 439.0
 custom_constants/separation = 8
 alignment = 2
 
@@ -2508,9 +2498,6 @@ custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBox" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/ExportedContainer"]
 margin_left = 8.0
@@ -2521,13 +2508,13 @@ custom_constants/separation = 8
 
 [node name="CampaignName" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/ExportedContainer/VBox"]
 margin_right = 439.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 text = "ui_exported_resources"
 
 [node name="ExportedResourceGridSC" type="ScrollContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/ExportedContainer/VBox"]
-margin_top = 26.0
+margin_top = 33.0
 margin_right = 439.0
-margin_bottom = 332.0
+margin_bottom = 368.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2535,7 +2522,7 @@ __meta__ = {
 
 [node name="ExportedResourcesGrid" type="GridContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/ExportedContainer/VBox/ExportedResourceGridSC" groups=["UIGridsGroup"]]
 margin_right = 439.0
-margin_bottom = 306.0
+margin_bottom = 335.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 8
@@ -2547,12 +2534,12 @@ __meta__ = {
 }
 
 [node name="Container" type="MarginContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/ExportedContainer/VBox/ExportedResourceGridSC/ExportedResourcesGrid"]
-margin_right = 219.0
-margin_bottom = 18.0
+margin_right = 220.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/ExportedContainer/VBox/ExportedResourceGridSC/ExportedResourcesGrid/Container"]
-margin_right = 219.0
+margin_right = 220.0
 margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -2562,7 +2549,7 @@ value = 50.0
 percent_visible = false
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/ExportedContainer/VBox/ExportedResourceGridSC/ExportedResourcesGrid/Container"]
-margin_right = 219.0
+margin_right = 220.0
 margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -2573,9 +2560,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/ExportedContainer/VBox"]
-margin_top = 340.0
+margin_top = 375.0
 margin_right = 439.0
-margin_bottom = 404.0
+margin_bottom = 439.0
 alignment = 2
 
 [node name="Close" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/ExportedContainer/VBox/HBoxContainer"]
@@ -2609,7 +2596,7 @@ custom_constants/separation = 8
 
 [node name="SaveContainerSC" type="ScrollContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SaveContainer/VBox"]
 margin_right = 439.0
-margin_bottom = 332.0
+margin_bottom = 360.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2621,9 +2608,9 @@ size_flags_horizontal = 3
 custom_constants/separation = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SaveContainer/VBox"]
-margin_top = 340.0
+margin_top = 370.0
 margin_right = 439.0
-margin_bottom = 404.0
+margin_bottom = 434.0
 
 [node name="NewSave" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/SaveContainer/VBox/HBoxContainer"]
 margin_right = 150.0
@@ -2657,9 +2644,6 @@ custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBox" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/LoadContainer"]
 margin_left = 8.0
@@ -2670,7 +2654,7 @@ custom_constants/separation = 8
 
 [node name="LoadContainerSC" type="ScrollContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/LoadContainer/VBox"]
 margin_right = 439.0
-margin_bottom = 332.0
+margin_bottom = 360.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2682,9 +2666,9 @@ size_flags_horizontal = 3
 custom_constants/separation = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/LoadContainer/VBox"]
-margin_top = 340.0
+margin_top = 375.0
 margin_right = 439.0
-margin_bottom = 404.0
+margin_bottom = 439.0
 alignment = 2
 
 [node name="Back" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/LoadContainer/VBox/HBoxContainer"]
@@ -2699,26 +2683,25 @@ expand_icon = true
 [node name="TutorialContainer" type="MarginContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog"]
 visible = false
 margin_right = 455.0
-margin_bottom = 420.0
+margin_bottom = 455.0
 rect_min_size = Vector2( 455, 420 )
+size_flags_vertical = 3
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBox" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/TutorialContainer"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 447.0
-margin_bottom = 412.0
+margin_bottom = 447.0
+size_flags_vertical = 3
 custom_constants/separation = 8
 
 [node name="TutorialContainerSC" type="ScrollContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/TutorialContainer/VBox"]
 margin_right = 439.0
-margin_bottom = 306.0
+margin_bottom = 326.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2973,45 +2956,40 @@ texture = ExtResource( 64 )
 
 [node name="8" type="VBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/TutorialContainer/VBox/TutorialContainerSC/TutorialVBox" groups=["TutorialGroup"]]
 margin_right = 439.0
-margin_bottom = 154.0
+margin_bottom = 161.0
 size_flags_horizontal = 3
 custom_constants/separation = 8
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/TutorialContainer/VBox/TutorialContainerSC/TutorialVBox/8"]
 margin_right = 439.0
-margin_bottom = 18.0
+margin_bottom = 25.0
 text = "tut_8"
 autowrap = true
 
 [node name="ColorRect12" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/TutorialContainer/VBox/TutorialContainerSC/TutorialVBox/8"]
 margin_left = 19.0
-margin_top = 26.0
+margin_top = 33.0
 margin_right = 419.0
-margin_bottom = 154.0
+margin_bottom = 161.0
 rect_min_size = Vector2( 400, 128 )
 size_flags_horizontal = 4
 texture = ExtResource( 65 )
 
 [node name="HBox" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/TutorialContainer/VBox"]
-margin_top = 314.0
+margin_top = 334.0
 margin_right = 439.0
-margin_bottom = 332.0
-
-[node name="Label" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/TutorialContainer/VBox/HBox"]
-margin_right = 104.0
-margin_bottom = 18.0
-text = "ui_show_tutorial"
+margin_bottom = 367.0
 
 [node name="ShowTutorialCheckbox" type="CheckBox" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/TutorialContainer/VBox/HBox"]
-margin_left = 108.0
-margin_right = 124.0
-margin_bottom = 18.0
+margin_right = 194.0
+margin_bottom = 33.0
+text = "ui_show_tutorial"
 script = SubResource( 24 )
 
 [node name="HBox2" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/TutorialContainer/VBox"]
-margin_top = 340.0
+margin_top = 375.0
 margin_right = 439.0
-margin_bottom = 404.0
+margin_bottom = 439.0
 custom_constants/separation = 8
 
 [node name="Prev" type="Button" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/TutorialContainer/VBox/HBox2"]
@@ -3044,6 +3022,7 @@ icon = ExtResource( 30 )
 expand_icon = true
 
 [node name="WinContainer" type="MarginContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog"]
+visible = false
 margin_right = 455.0
 margin_bottom = 455.0
 size_flags_vertical = 3
@@ -3102,13 +3081,13 @@ flip_h = true
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/WinContainer/VBox"]
 margin_top = 98.0
 margin_right = 439.0
-margin_bottom = 320.0
+margin_bottom = 306.0
 size_flags_vertical = 3
 alignment = 1
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/WinContainer/VBox/HBoxContainer"]
 margin_right = 439.0
-margin_bottom = 222.0
+margin_bottom = 208.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 50 )
@@ -3119,7 +3098,7 @@ __meta__ = {
 }
 
 [node name="FinishedText" type="Label" parent="CanvasLayer/UI/InfoUI/CenterContainer/InfoDialog/WinContainer/VBox"]
-margin_top = 328.0
+margin_top = 314.0
 margin_right = 439.0
 margin_bottom = 367.0
 size_flags_vertical = 1
@@ -3160,8 +3139,8 @@ process_mode = 0
 wait_time = 0.2
 
 [node name="MainUI" type="Control" parent="CanvasLayer/UI"]
-margin_right = 1280.0
-margin_bottom = 720.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 46 )
 __meta__ = {

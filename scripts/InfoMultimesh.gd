@@ -65,6 +65,6 @@ func set_lane_resource(var _lane):
 	lane_process = _lane
 	resource = _lane.lane_content
 	modulate = Global.data[resource]["color"]
-	texture = load("res://images/"+Global.data[resource]["shape"]+".png")
-	normal_map = load("res://images/"+Global.data[resource]["shape"]+"_n.png")
+	texture = load("res://images/"+str(Global.data[resource]["shape"])+".png")
+	normal_map = load("res://images/"+str(Global.data[resource]["shape"])+"_n.png")
 	update_visible()
