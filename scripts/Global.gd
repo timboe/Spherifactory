@@ -97,8 +97,9 @@ func set_basics():
 	Global.data["None"] = none
 	Global.data["Sol"] = sol
 	Global.data["H"] = H
-	for r in data:
-		data[r]["color"] = Color(data[r]["color_hex"])
+	# Convert the hex colors of the entries we just added (Global.data, not data)
+	for r in Global.data:
+		Global.data[r]["color"] = Color(Global.data[r]["color_hex"])
 			
 func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)

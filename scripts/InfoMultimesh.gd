@@ -47,7 +47,7 @@ func update_visible():
 func update_visible_lane():
 	multimesh.visible_instance_count = clamp(lane_process.items_in_lane, 0, Global.MAX_STORAGE)
 
-func set_resource(var _resource : String, var _factory_process, var _is_input : bool = false, var _index : bool = 0):
+func set_resource(var _resource : String, var _factory_process, var _is_input : bool = false, var _index : int = 0):
 	#print("called set_resource with resource=",_resource," factory_process=",_factory_process," _is_input=",_is_input," _index=",_index)
 	is_input = _is_input
 	input_index = _index

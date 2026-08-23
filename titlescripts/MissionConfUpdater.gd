@@ -12,12 +12,14 @@ var required_resources = {}
 var required_recipies = {}
 var input_lanes = []
 var missing = []
+var _seen = {} # Guards recursive_check against cyclic recipes
 
 func update_configuration():
 	required_resources.clear()
 	required_recipies.clear()
 	input_lanes.clear()
 	missing.clear()
+	_seen.clear()
 	
 	# Un-tick any things we previously required
 	untick_for(recipies_node)
@@ -51,7 +53,7 @@ func update_configuration():
 			continue
 		if "delete" in c.name:
 			continue
-		add_required_resource(c.name, "ui_recipe_active")
+		add_required_resource(c.name, tr("ui_recipe_active"))
 		for input_resource in Global.recipies[c.name]["input"]:
 			add_required_resource(input_resource, tr("ui_required_to_make")+c.name+Global.data[c.name]["mode"])
 		
@@ -67,6 +69,9 @@ func update_configuration():
 	warning_placeholder.visible = !warning_button.visible
 	
 func recursive_check(var r : String):
+	if r in _seen: # Already visited - breaks cycles (e.g. A requires B requires A)
+		return
+	_seen[r] = true
 	# Is this thing available in an input lane?
 	if r in input_lanes:
 		return

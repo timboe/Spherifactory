@@ -230,7 +230,6 @@ func follow_to_lane(var output_lane, var glob_angle):
 		return
 	if "Ship" in output_lane.name:
 		follow_target = output_lane
-		follow_target.depart()
 		print("Moving to ship ", output_lane)
 		return
 	var slot = output_lane.get_slot_from_global_angle(glob_angle)

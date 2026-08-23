@@ -13,6 +13,7 @@ func _on_Button_pressed():
 		mode = Global.BUILDING_FACTORY
 	else:
 		print("ERROR in assigning new building job")
+		return
 	click.play()
 	Global.last_satelite_type = mode
 	Global.last_satelite_recipe = name

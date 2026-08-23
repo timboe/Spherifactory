@@ -3,6 +3,7 @@ extends OptionButton
 onready var mission_container : VBoxContainer = find_parent("MissionContainer")
 
 func update_resource_recipy():
+	clear() # This is called repeatedly (via ResRecUpdateGroup) - avoid stacking duplicates
 	add_item("None", 0)
 	set_item_metadata(0, "None")
 	var i : int = 1

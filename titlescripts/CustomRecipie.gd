@@ -118,7 +118,7 @@ func _on_Save_pressed():
 				current_transmutes += r + Global.data[r]["mode"] + " "
 		if where_used.size() >= Global.MAX_TRANSMUTE:
 			warn_diag.dialog_text = tr("ui_n_transmute_1") + "\n\n"
-			warn_diag.dialog_text += tr("ui_n_transmute_2 ") + current_transmutes
+			warn_diag.dialog_text += tr("ui_n_transmute_2") + current_transmutes
 			warn_diag.popup_centered()
 			return
 		# Each input can only be used once

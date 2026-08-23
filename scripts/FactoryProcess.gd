@@ -153,8 +153,10 @@ func lane_cleared(var lane_or_ship : Node2D):
 	var something_changed : bool = false
 	if output_lane == lane_or_ship:
 		output_lane = null
-		#print("ship = null by lane_cleared, was ", ship)
-		ship = null
+		# Only clear the ship if the cleared thing IS our ship. A regular
+		# output lane being cleared must not orphan a live ship node.
+		if ship == lane_or_ship:
+			ship = null
 		something_changed = true
 #	for input_resource in input_lanes:
 #		for idx in range(input_resource.size() -1, -1):
@@ -180,14 +182,16 @@ func lane_system_changed():
 		return
 	var something_changed = false
 	# Remove invalid inputs
+	# Note: iterate backwards and remove from BOTH parallel arrays
+	# (input_lanes and input_lanes_distance must stay index-aligned)
 	for input_idx in range(input_lanes.size()):
 		var required_content = input_content[input_idx]
-		for l in input_lanes[input_idx]:
-			if not is_instance_valid(l):
-				continue
-			var lane_is_valid = (l.lane_content == required_content)
-			if not lane_is_valid:
-				input_lanes[input_idx].erase(l)
+		for j in range(input_lanes[input_idx].size() - 1, -1, -1):
+			var l = input_lanes[input_idx][j]
+			if not is_instance_valid(l) or l.lane_content != required_content:
+				input_lanes[input_idx].remove(j)
+				if j < input_lanes_distance[input_idx].size():
+					input_lanes_distance[input_idx].remove(j)
 				something_changed = true
 	# Remove invalid outputs
 	if output_lane != null and is_instance_valid(output_lane) and not "Ship" in output_lane.name and output_lane.lane_content != output_content:

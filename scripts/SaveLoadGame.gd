@@ -163,5 +163,10 @@ func _on_NewSave_pressed():
 	id.hide_diag()
 
 func _on_Autosave_timeout():
-	snap()
-	save(-1,true)
+	# snap() is a coroutine (waits two idle frames so the texture is ready).
+	# Wait for it to finish BEFORE saving, otherwise the screenshot is
+	# written un-flipped and un-resized.
+	var snap_state = snap()
+	if snap_state != null:
+		yield(snap_state, "completed")
+	save(-1, true)

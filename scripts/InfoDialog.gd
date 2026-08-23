@@ -100,7 +100,7 @@ func get_title_tr(var w : String):
 		return tr("ui_hints")
 	elif  w == "AllRecipes":
 		return tr("ui_all_recipes")
-	elif  w == "exported":
+	elif w == "Exported" or w == "exported":
 		return tr("ui_exported")
 	elif  w == "Save":
 		return tr("ui_save")

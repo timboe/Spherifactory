@@ -37,5 +37,8 @@ func _on_Button_toggled(button_pressed):
 			it.visible = button_pressed
 		# Hide if not placed
 		if button_pressed == false:
-			for r in get_tree().get_nodes_in_group("InjectorGroup"):
-				r.stop_hint_resource()
+			for il in get_tree().get_nodes_in_group("InjectorLinesGroup"):
+				if is_instance_valid(il) and il.get_parent() != null:
+					var mm = il.get_parent().get_node_or_null("InjectorMm")
+					if mm != null:
+						mm.stop_hint_resource()

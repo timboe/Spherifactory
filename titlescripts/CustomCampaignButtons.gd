@@ -29,9 +29,10 @@ func _on_Save_pressed():
 		return
 		
 	if campaign_name.text == "ui_main_campaign" or campaign_name.text == "Main Campaign": 
-		warn_diag.dialog_text = tr("ui_overwrite_main_1") + "\n\n"
-		warn_diag.dialog_text += tr("ui_overwrite_main_2")
-		warn_diag.popup_centered()
+		pass
+		#warn_diag.dialog_text = tr("ui_overwrite_main_1") + "\n\n"
+		#warn_diag.dialog_text += tr("ui_overwrite_main_2")
+		#warn_diag.popup_centered()
 		#return
 		
 	if campaign_name.text == "":
