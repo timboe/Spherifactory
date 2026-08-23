@@ -64,13 +64,12 @@ func dedictionise_internal(var load_campaign : Dictionary) -> bool:
 	for mission in load_campaign["missions"]:
 		if not "goal" in mission or not "goal_amount" in mission or not "lanes" in mission \
 			or not "rings" in mission or not "factories_collect_above" in mission or not "input_lanes" in mission \
-			or not "recipies" in mission or not "resources" in mission:
+			or not "recipies" in mission or not "resources" in mission or not "hints" in mission:
 				return false
-		
+
 		var new_tab = tab_container.get_node(String(mission_number + 1))
-		
-		hints.hints_array[mission_number].clear()
-		hints.hints_array[mission_number].append_array( mission["hints"] )
+
+		hints.set_hints(mission_number, mission["hints"])
 		
 		mission_number += 1
 		
@@ -161,7 +160,7 @@ func dictionise() -> Dictionary:
 				resources.append(c.name)
 		mission_dict["resources"] = resources
 		#
-		mission_dict["hints"] = hints.hints_array[mission_number]
+		mission_dict["hints"] = hints.hints_array[mission_number].duplicate()
 		#
 		missions.append(mission_dict)
 		mission_number += 1

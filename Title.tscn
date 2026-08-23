@@ -1265,7 +1265,6 @@ icon = ExtResource( 16 )
 expand_icon = true
 
 [node name="CampaignEditor" type="CenterContainer" parent="." groups=["PrimaryMenuElement"]]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -4.0
@@ -1276,20 +1275,20 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="CampaignEditor"]
-margin_left = 171.0
-margin_top = 70.0
-margin_right = 1105.0
-margin_bottom = 649.0
+margin_left = 142.0
+margin_top = 9.0
+margin_right = 1133.0
+margin_bottom = 711.0
 
 [node name="Panel" type="Panel" parent="CampaignEditor/MarginContainer"]
 modulate = Color( 1, 1, 1, 0.501961 )
-margin_right = 934.0
-margin_bottom = 579.0
+margin_right = 991.0
+margin_bottom = 702.0
 custom_styles/panel = ExtResource( 35 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CampaignEditor/MarginContainer"]
-margin_right = 934.0
-margin_bottom = 579.0
+margin_right = 991.0
+margin_bottom = 702.0
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
@@ -1298,8 +1297,8 @@ custom_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="CampaignEditor/MarginContainer/MarginContainer"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 926.0
-margin_bottom = 571.0
+margin_right = 983.0
+margin_bottom = 694.0
 custom_constants/separation = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CampaignEditor/MarginContainer/MarginContainer/VBoxContainer"]
@@ -1891,7 +1890,6 @@ margin_right = 785.0
 margin_bottom = 341.0
 
 [node name="CustomResourceDialog" type="WindowDialog" parent="CampaignEditor"]
-visible = true
 margin_left = 310.0
 margin_top = 110.0
 margin_right = 965.0
@@ -2155,6 +2153,7 @@ margin_right = 460.0
 margin_bottom = 262.0
 rect_min_size = Vector2( 0, 80 )
 size_flags_horizontal = 3
+wrap_enabled = true
 
 [node name="HSeparator2" type="HSeparator" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
 margin_top = 274.0
@@ -2185,6 +2184,7 @@ margin_right = 460.0
 margin_bottom = 407.0
 rect_min_size = Vector2( 0, 80 )
 size_flags_horizontal = 3
+wrap_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2197,18 +2197,17 @@ rect_min_size = Vector2( 460, 0 )
 size_flags_horizontal = 3
 
 [node name="Back" type="Button" parent="CampaignEditor/Hints/MarginContainer/VBoxContainer"]
-margin_left = 360.0
+margin_left = 310.0
 margin_top = 435.0
 margin_right = 460.0
 margin_bottom = 468.0
-rect_min_size = Vector2( 100, 30 )
+rect_min_size = Vector2( 150, 30 )
 size_flags_horizontal = 8
 text = "ui_back"
 icon = ExtResource( 16 )
 expand_icon = true
 
 [node name="CustomRecipeDialog" type="WindowDialog" parent="CampaignEditor"]
-visible = true
 margin_left = 363.0
 margin_top = 110.0
 margin_right = 913.0
