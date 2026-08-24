@@ -41,6 +41,7 @@ func deserialise(var d : Dictionary):
 	lane = d["lane"]
 	ring = d["ring"]
 	placed = d["placed"]
+	visible = placed # A placed injector is always visible (and vice versa)
 	#
 	set_properties_internal()
 	# We have already deseralised the ring, so can properly reg the injector

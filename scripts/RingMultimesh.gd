@@ -157,7 +157,7 @@ func register_resource(var new_resource : String, var provinance : Node):
 		modulate = Global.data[lane_content]["color"]
 		texture = load("res://images/gems/gem_"+String(Global.data[lane_content]["shape"])+".png")
 		normal_map = load("res://images/gems/gem_"+String(Global.data[lane_content]["shape"])+"_n.png")
-	if provinance != null:
+	if provinance != null and not (provinance.get_path() in lane_provinance):
 		lane_provinance.append(provinance.get_path())
 	# Refresh the lane-content bars via the debounced SomethingChanged timer
 	# (batched - a synchronous fan-out here is O(rings) per lane operation)

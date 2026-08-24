@@ -32,15 +32,15 @@ func _draw():
 	var _inner : float = p.radius_array[ 0 ] - p.LANE_OFFSET/2.0
 	var outer : float = p.radius_array[ to_draw-1] + p.LANE_OFFSET/2.0
 #	var width = (outer - inner) / 2.0
-	var c = Color(0.36, 0.6, 0.6)
+	var c = Color(0.4, 0.478, 0.561)
 	if highlight:
-		c = Color(0.48, 0.8, 0.8)
+		c = Color(0.561, 0.639, 0.722)
 
 	
 	if ring_n % 2 == 1:
-		c = Color(0.6, 0.36, 0.6)
+		c = Color(0.561, 0.502, 0.4)
 		if highlight:
-			c = Color(0.8, 0.48, 0.8)
+			c = Color(0.722, 0.667, 0.561)
 	
 #	if not injector:
 	for i in range(to_draw):

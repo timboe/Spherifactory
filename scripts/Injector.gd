@@ -15,9 +15,11 @@ func _draw():
 func serialise() -> Dictionary:
 	var d = mm.serialise()
 	d["visible"] = visible
+	d["mm_visible"] = mm.visible
 	return d
 
 func deserialise(var d : Dictionary):
 	visible = d["visible"]
 	mm.deserialise(d)
+	mm.visible = d.get("mm_visible", d["placed"]) # Fall back for old saves
 	update()
