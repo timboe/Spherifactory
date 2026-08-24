@@ -181,6 +181,8 @@ func reset():
 	set_descriptive_name()
 
 func remove():
+	mode = Global.BUILDING_UNSET
+	remove_from_group("FactoryGroup")
 	$FactoryProcess.reset()
 	$FactoryProcess.name = "deleted"
 	for l in ring.get_lanes():
@@ -191,7 +193,10 @@ func remove():
 		get_camera_2d().stop_follow()
 
 func lane_cleared(var lane_or_ship : Node2D):
-	$FactoryProcess.lane_cleared(lane_or_ship)
+	var process_node := get_node_or_null("FactoryProcess")
+	if process_node == null:
+		return
+	process_node.lane_cleared(lane_or_ship)
 	
 func set_descriptive_name():
 	descriptive_name = "#" + String(name.to_int()) + ": "

@@ -71,10 +71,10 @@ func _ready():
 	
 func reset():
 	for l in get_lanes():
-		if is_instance_valid(l) and l.lane_content != null:
+		if is_instance_valid(l) and not l.is_queued_for_deletion() and l.lane_content != null:
 			l.deregister_resource()
 	for f in get_factories():
-		if is_instance_valid(f):
+		if is_instance_valid(f) and not f.is_queued_for_deletion():
 			f.remove()
 	$"/root/Game/SomethingChanged".something_changed()
 	

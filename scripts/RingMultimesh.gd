@@ -188,7 +188,7 @@ func deregister_resource():
 		set_slot_filled(i, false, true)
 	# These calls handle things also which take from the lane
 	for f in get_tree().get_nodes_in_group("FactoryGroup"):
-		if is_instance_valid(f):
+		if is_instance_valid(f) and not f.is_queued_for_deletion():
 			f.lane_cleared(self)
 
 func get_slot_filled(var i : int) -> bool:
