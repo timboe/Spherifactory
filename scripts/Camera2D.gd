@@ -114,28 +114,11 @@ func _process(delta):
 	if Input.is_action_just_pressed("toggle_ui"):
 		ui.visible = !ui.visible
 				
-	if Input.is_action_just_pressed("trail_start"):
-		if follow_target:
-			return stop_follow()
-		follow_dict.clear()
-		var inj0 = get_tree().get_root().find_node("Injector0",true,false)
-		if inj0 == null or inj0.get_node("InjectorMm") == null:
-			return
-		follow_target = inj0.get_node("InjectorMm")
-		follow_dict["inj_x"] = -770
-		ADVANCED_FOLLOW = true
-		set_physics_process(true)
-		#
-		#follow_target = get_tree().get_root().find_node("Ring11",true,false).get_node("Rotation/Lanes/Lane0")
-		if Global.DEBUG:
-			print("Follow is ",follow_target," ", follow_target.name)
-
-### Follow cam
+	### Follow cam
 
 func _physics_process(delta):
 	if follow_target == null or not is_instance_valid(follow_target):
-		stop_follow()
-		return
+		return # TrailerController owns the camera during its finale
 	if ADVANCED_FOLLOW:
 		advanced_follow(delta)
 	else:

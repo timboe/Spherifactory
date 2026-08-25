@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=2]
+[gd_scene load_steps=121 format=2]
 
 [ext_resource path="res://scripts/BinLane.gd" type="Script" id=1]
 [ext_resource path="res://resources/NewBuildingButtonGroup.tres" type="ButtonGroup" id=2]
@@ -70,6 +70,7 @@
 [ext_resource path="res://resources/WindowPanelStyle.tres" type="StyleBox" id=81]
 [ext_resource path="res://scripts/SolAnim.gd" type="Script" id=82]
 [ext_resource path="res://scripts/RingSystem.gd" type="Script" id=83]
+[ext_resource path="res://scripts/TrailerController.gd" type="Script" id=84]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends ItemList
@@ -3792,6 +3793,9 @@ offset = Vector2( 640, 360 )
 current = true
 script = ExtResource( 5 )
 noise = SubResource( 51 )
+
+[node name="TrailerController" type="Node" parent="."]
+script = ExtResource( 84 )
 
 [node name="SomethingChanged" type="Timer" parent="."]
 pause_mode = 2
