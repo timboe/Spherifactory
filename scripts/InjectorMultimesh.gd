@@ -142,6 +142,28 @@ func lane_cleared(var _lane):
 	placed = false
 	stop_hint_resource()
 	
+var highlighted_instance := -1
+export(float) var highlight_scale := 1.35
+
+func set_highlight(var i : int):
+	if i == highlighted_instance:
+		return
+	if highlighted_instance >= 0:
+		set_instance_scale(highlighted_instance, 1.0)
+	highlighted_instance = i
+	if i >= 0:
+		set_instance_scale(i, highlight_scale)
+
+func set_instance_scale(var i : int, var s : float):
+	if i < 0 or i >= multimesh.instance_count:
+		return
+	var t : Transform2D = multimesh.get_instance_transform_2d(i)
+	if s != 1.0:
+		t = Transform2D(t.x * s, t.y * s, t.origin)
+	else:
+		t = Transform2D(Vector2.RIGHT, Vector2.DOWN, t.origin)
+	multimesh.set_instance_transform_2d(i, t)
+
 func _physics_process(delta):
 	if not placed:
 		return

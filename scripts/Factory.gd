@@ -70,7 +70,7 @@ func deserialise(var d : Dictionary):
 	recipy = d["recipy"]
 	descriptive_name = d["descriptive_name"]
 	if recipy != null:
-		$Label.text = recipy + Global.data[recipy]["mode"]
+		$LabelHolder/Label.text = recipy + Global.data[recipy]["mode"]
 	update()
 	$FactoryProcess.deserialise(d)
 
@@ -150,7 +150,8 @@ func _draw():
 	$FactoryProcess.angle_front = span_radians/2.0
 	#
 	$TextureButton.rect_position.x = inner_radius
-	$Label.rect_position.x = inner_radius + 21 # Magic number from size of rotated text box
+	# High-res label wrapper: centred on the building (half the ~40px text left (x), half the ~20px band up (y)
+	$LabelHolder.position = Vector2(inner_radius + 25, -7.5)
 	
 func configure_building():
 	if Global.last_satelite_type == null:
@@ -162,7 +163,7 @@ func configure_building():
 	$FactoryProcess.configure(mode, recipy)
 	factory_outline_color = Global.data[recipy]["color"]
 	factory_color[0] = Global.lighten(factory_outline_color)
-	$Label.text = recipy + Global.data[recipy]["mode"]
+	$LabelHolder/Label.text = recipy + Global.data[recipy]["mode"]
 	update()
 	set_descriptive_name()
 	check_add_remove_ship()
@@ -176,7 +177,7 @@ func reset():
 	factory_outline_color = Color(0.8, 0.8, 0.8)
 	factory_color = PoolColorArray([Color(0.6, 0.6, 0.6, 1.0)])
 	$FactoryProcess.reset()
-	$Label.text = ""
+	$LabelHolder/Label.text = ""
 	update()
 	set_descriptive_name()
 

@@ -73,7 +73,9 @@ func deserialise(var d : Dictionary):
 			c.b = 1 # fillable
 		else:
 			c.g = 1 # capturable
-			c.b = 0 # fillable
+			# Keep the saved fillable bit: filled slots in live play retain b=1,
+			# so they become sendable again once emptied (b=0 would permanently
+			# break the lane for try_send/deregister after a load)
 			var t : Transform2D = multimesh.get_instance_transform_2d(i)
 			t.origin /= DISABLE
 			multimesh.set_instance_transform_2d(i, t)
@@ -122,12 +124,14 @@ func add_to_ring(var angle : float) -> bool:
 		var i_wrap = wrap_i(i)
 		if get_slot_empty_and_fillable(i_wrap):
 			set_slot_filled(i_wrap, true, true)
+			last_added_slot = i_wrap
 			return true
 	# Or, if we cannot - then try and fill up behind
 	for i in range(slot-1, slot-4, -1):
 		var i_wrap = wrap_i(i)
 		if get_slot_empty_and_fillable(i_wrap):
 			set_slot_filled(i_wrap, true, true)
+			last_added_slot = i_wrap
 			return true
 	return false
 
@@ -284,11 +288,32 @@ func _physics_process(var delta):
 		multimesh.set_instance_transform_2d(i, t)
 
 
-func highlight(var i):
-	set_slot_filled(i, true, true)
+var highlighted_slot := -1
+var last_added_slot := -1
+export(float) var highlight_scale := 1.35
+
+func set_highlight(var i : int):
+	if i == highlighted_slot:
+		return
+	if highlighted_slot >= 0:
+		set_slot_scale(highlighted_slot, 1.0)
+	highlighted_slot = i
+	if i >= 0:
+		set_slot_scale(i, highlight_scale)
+
+func set_slot_scale(var i : int, var s : float):
+	if i < 0 or i >= multimesh.instance_count:
+		return
 	var t : Transform2D = multimesh.get_instance_transform_2d(i)
-	var offset = get_angle(i)
-	t.origin = Vector2(cos(offset), sin(offset)) * (radius - 5)
+	if s != 1.0:
+		# Ensure the followed gem is rendered (a just-dropped or sink-held gem may still be hidden)
+		if t.origin.length() > radius * 50.0:
+			t.origin /= DISABLE
+		# Scale only the basis columns - scaled() in some Godot builds also scales
+		# the origin, pushing the gem off the lane (invisible to the follow camera)
+		t = Transform2D(t.x * s, t.y * s, t.origin)
+	else:
+		t = Transform2D(get_angle(i), t.origin)
 	multimesh.set_instance_transform_2d(i, t)
 
 func set_slot_filled(var i : int, var filled : bool, var capturable : bool):

@@ -22,6 +22,7 @@ var input_lanes = [] # This is a list of lists of Node. Providers of each input
 var input_lanes_distance = [] # This is a list of lists. How far away are each provider (1 or 2)
 
 var ship = null
+var force_ship_depart := false
 
 export(float) var angle_back
 export(float) var angle_front
@@ -73,6 +74,8 @@ func deserialise(var d : Dictionary):
 	for i in range(input_lanes_save.size()):
 		var inner = []
 		for j in range(input_lanes_save[i].size()):
+			if not has_node(input_lanes_save[i][j]):
+				continue
 			var n = get_node(input_lanes_save[i][j])
 			if n != null and is_instance_valid(n):
 				inner.append(n)
@@ -86,15 +89,28 @@ func deserialise(var d : Dictionary):
 	output_storage = d["output_storage"]
 	output_content = d["output_content"]
 	output_direction = d["output_direction"]
-	var out_node = get_node(d["output_lane"]) if d["output_lane"] != null else null
+	# Ships are recreated AFTER factories in the load sequence, so a ship
+	# output path legitimately does not exist here yet. lane_system_changed()
+	# relinks it once the ship has deserialised.
+	var out_node = null
+	if d["output_lane"] != null and has_node(d["output_lane"]):
+		out_node = get_node(d["output_lane"])
 	output_lane = out_node if out_node != null and is_instance_valid(out_node) else null
 	mode = d["mode"]
 	check_process()
+	# The timer doesn't persist across saves, and nothing else triggers
+	# check_factory_production once inputs are already stored on load, so
+	# restart production for factories that can produce. Also re-apply the
+	# recipe's craft time (the duplicated template's Timer uses its default).
+	if mode == Global.BUILDING_FACTORY:
+		$Timer.wait_time = Global.recipies[output_content]["time"]
+		check_factory_production()
 
 
 func reset():
 	#
 	remove_any_ship() # Note do this first (before dereg providers)
+	force_ship_depart = false
 	#
 	input_content.clear()
 	input_storage.clear()
@@ -372,6 +388,10 @@ func _physics_process(_delta):
 func add_item(var lane : MultiMeshInstance2D):
 	if mode != Global.BUILDING_FACTORY:
 		output_storage += 1
+		# The camera can order an early ship departure for the promo finale
+		if force_ship_depart and ship != null and is_instance_valid(ship) and ship.built:
+			force_ship_depart = false
+			ship.depart()
 		# If this is the first thing we have had to output - then we may need to link our output lane
 		if output_storage == 1 and output_lane == null:
 			lane_system_changed()

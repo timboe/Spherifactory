@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=2]
+[gd_scene load_steps=122 format=2]
 
 [ext_resource path="res://scripts/BinLane.gd" type="Script" id=1]
 [ext_resource path="res://resources/NewBuildingButtonGroup.tres" type="ButtonGroup" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://scripts/InputCapture.gd" type="Script" id=12]
 [ext_resource path="res://scripts/BuildInjectButton.gd" type="Script" id=13]
 [ext_resource path="res://images/icons/refreshing.png" type="Texture" id=14]
+[ext_resource path="res://images/title.png" type="Texture" id=15]
 [ext_resource path="res://images/space-2.png" type="Texture" id=16]
 [ext_resource path="res://images/icons/trash.png" type="Texture" id=18]
 [ext_resource path="res://scripts/SomethingChanged.gd" type="Script" id=20]
@@ -647,6 +648,7 @@ adjustment_saturation = 1.5
 pause_mode = 2
 
 [node name="UI" type="Control" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -3796,6 +3798,17 @@ noise = SubResource( 51 )
 
 [node name="TrailerController" type="Node" parent="."]
 script = ExtResource( 84 )
+
+[node name="CenterContainer" type="CenterContainer" parent="TrailerController"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="TrailerController/CenterContainer"]
+margin_left = 165.0
+margin_top = 260.0
+margin_right = 1115.0
+margin_bottom = 460.0
+texture = ExtResource( 15 )
 
 [node name="SomethingChanged" type="Timer" parent="."]
 pause_mode = 2

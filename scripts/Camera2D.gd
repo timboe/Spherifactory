@@ -39,6 +39,16 @@ var follow_target = null
 var follow_dict = {}
 var global_position_target : Vector2
 var ignore : bool = false
+var building_time := 0.0
+var linger_time := 0.0
+var highlighted_lane = null
+var highlighted_injector = null
+var ship_armed := false
+var ship_armed_proc = null
+var ship_armed_ship = null
+
+export(float) var min_building_dwell := 1.0 # Min time on a building before following its output
+export(float) var ship_building_dwell := 3.0 # Dwell on a ship-launching exporter before arming early departure
 ###
 
 func _ready():
@@ -48,14 +58,7 @@ func _ready():
 func _unhandled_input(event):
 	var change = false
 
-	# Zoom mouse
 	if event is InputEventMouseButton and event.is_pressed():
-		if event.button_index == BUTTON_WHEEL_UP and zoom_target.x > min_zoom:
-			zoom_target /= 1.1
-			change = true
-		if event.button_index == BUTTON_WHEEL_DOWN and zoom_target.x < max_zoom:
-			zoom_target *= 1.1
-			change = true
 		down_point = event.position
 	# Pan mouse
 	if event is InputEventMouseMotion and Input.is_action_pressed("ui_mouse_pan"):
@@ -90,17 +93,28 @@ func _unhandled_input(event):
 				change = true
 	## Update
 	if change:
-		var zoom_mod = clamp(zoom_target.x, 1.0, 2.0) / 1.5
-		var w : float = ProjectSettings.get_setting("display/window/size/width") * zoom_mod
-		var h : float = ProjectSettings.get_setting("display/window/size/height") * 1.3 * zoom_mod
-		global_position.x = clamp(global_position.x, -w, w)
-		global_position.y = clamp(global_position.y, -h, h)
+		_clamp_position_to_zoom()
+
+func _clamp_position_to_zoom():
+	var zoom_mod = clamp(zoom_target.x, 1.0, 2.0) / 1.5
+	var w : float = ProjectSettings.get_setting("display/window/size/width") * zoom_mod
+	var h : float = ProjectSettings.get_setting("display/window/size/height") * 1.3 * zoom_mod
+	global_position.x = clamp(global_position.x, -w, w)
+	global_position.y = clamp(global_position.y, -h, h)
 
 func _process(delta):
 	apply_shake(delta)
 	decay_trauma(delta)
 	
 	zoom = zoom + (zoom_target - zoom) * delta * 5.0
+	
+	# Wheel zoom - polled via actions so GUI consumption can't block it
+	if Input.is_action_just_pressed("ui_zoom_in") and zoom_target.x > min_zoom:
+		zoom_target /= 1.1
+		_clamp_position_to_zoom()
+	if Input.is_action_just_pressed("ui_zoom_out") and zoom_target.x < max_zoom:
+		zoom_target *= 1.1
+		_clamp_position_to_zoom()
 	
 	if Input.is_action_pressed("ui_left"):
 		global_position += Vector2.LEFT * delta * MOVE_SPEED * zoom.x
@@ -118,11 +132,35 @@ func _process(delta):
 
 func _physics_process(delta):
 	if follow_target == null or not is_instance_valid(follow_target):
-		return # TrailerController owns the camera during its finale
+		_clear_ship_depart_arm()
+		_clear_injector_highlight()
+		_set_lane_highlight(null, -1)
+		building_time = 0.0
+		# TrailerController eases the targets during the finale - keep gliding
+		global_position = global_position + (global_position_target - global_position) * delta * 5.0
+		return
 	if ADVANCED_FOLLOW:
 		advanced_follow(delta)
 	else:
 		follow()
+	if "Factory" in follow_target.name or "Ship" in follow_target.name:
+		building_time += delta
+	else:
+		building_time = 0.0
+	if _is_ship_building():
+		if building_time >= ship_building_dwell and not ship_armed:
+			ship_armed = true
+			var proc = _followed_factory_process()
+			if proc != null:
+				ship_armed_proc = proc
+				ship_armed_ship = proc.ship
+				proc.force_ship_depart = true
+	# Hop onto the ship the moment the armed departure fires - its departure
+	# nulls FactoryProcess.ship, so the normal factory->ship hand-off can't happen
+	if ship_armed and ship_armed_ship != null and is_instance_valid(ship_armed_ship) and ship_armed_ship.launch:
+		if follow_target != ship_armed_ship:
+			follow_target = ship_armed_ship
+			_set_lane_highlight(null, -1)
 	global_position = global_position + (global_position_target - global_position) * delta * 5.0
 
 func follow():
@@ -141,6 +179,10 @@ func stop_follow():
 	rotating = false
 	rotation = 0
 	follow_target = null
+	_clear_ship_depart_arm()
+	_clear_injector_highlight()
+	_set_lane_highlight(null, -1)
+	building_time = 0.0
 	set_physics_process(false)
 
 func advanced_follow(var delta):
@@ -149,27 +191,44 @@ func advanced_follow(var delta):
 	#rotating = true
 	if "Injector" in follow_target.name:
 		rotating = false
+		if linger_time > 0.0:
+			# Hold on the start of the input lane before following (set by TrailerController)
+			linger_time -= delta
+			global_position_target = Vector2(follow_dict["inj_x"], -follow_target.radius)
+			return
 		follow_dict["inj_x"] += follow_target.linear_velocity * delta
 		global_position_target = Vector2(follow_dict["inj_x"], -follow_target.radius)
+		# Highlight the gem nearest to the followed point on the input lane
+		highlighted_injector = follow_target
+		var i : int = int(round((follow_target.transform.origin.x - follow_dict["inj_x"]) / (follow_target.linear_velocity * follow_target.set_period)))
+		follow_target.set_highlight(clamp(i, 0, follow_target.n - 1))
 		if follow_dict["inj_x"] > 0:
+			_clear_injector_highlight()
 			# Goto LANE
 			follow_dict.clear()
 			var ring = get_node(follow_target.ring)
 			if ring == null or not is_instance_valid(ring):
 				stop_follow()
 				return
-			# Get the angle at the "top" where we want to add an item
+			# Get the angle at the "top" where the injector just added an item
 			var angle_mod = (1.5 * PI) - ring.get_node("Rotation").rotation
 			var lane = ring.get_lane(follow_target.lane)
 			var slot = lane.get_slot(angle_mod)
-			# Correct the angle mod w.r.t current rotation
-			angle_mod += ring.get_node("Rotation").rotation + (0.5 * PI)
+			# Use the slot the gem actually landed on (add_to_ring fills ahead)
+			if lane.last_added_slot >= 0:
+				slot = lane.last_added_slot
+			# Transmute lanes send their gems to the laneswap target
+			if lane.laneswap_target[0] != null:
+				lane = lane.laneswap_target[0]
+			# Centre the camera on the actual slot angle
+			angle_mod = lane.get_angle(slot) + ring.get_node("Rotation").rotation + (0.5 * PI)
 			follow_dict["slot"] = slot
 			follow_dict["ring"] = ring
 			follow_dict["offset"] = angle_mod
 			follow_dict["mid_flight"] = false
 			follow_target = lane
-			lane.highlight(slot)
+			_set_lane_highlight(lane, slot)
+			print("Trailer lane hand-off: slot=", slot, " last_added=", lane.last_added_slot, " origin=", stepify(lane.multimesh.get_instance_transform_2d(slot).origin.length(), 1.0), " radius=", lane.radius)
 			if Global.DEBUG:
 				print("Move to lane ", lane, " with slot ", slot," at angle ",rad2deg(angle_mod))
 	elif "Lane" in follow_target.name:
@@ -196,6 +255,7 @@ func advanced_follow(var delta):
 				# Reached end of OUTGOING fligt, goto FACTORY
 				follow_target = follow_dict["call"]
 				follow_dict.clear()
+				_set_lane_highlight(null, -1)
 				if Global.DEBUG:
 					print("Move to factory ",follow_target)
 			else:
@@ -203,7 +263,8 @@ func advanced_follow(var delta):
 				follow_dict["mid_flight"] = false
 				# Is there a laneswap?
 				if follow_target.laneswap_target[0] != null:
-					follow_target = follow_target.laneswap_target[0] 
+					follow_target = follow_target.laneswap_target[0]
+					_set_lane_highlight(follow_target, follow_dict["slot"]) 
 				
 	elif "Factory" in follow_target.name or "Ship" in follow_target.name:
 		rotation = follow_target.get_global_transform().get_rotation() + PI/2.0
@@ -214,8 +275,12 @@ func advanced_follow(var delta):
 func follow_to_lane(var output_lane, var glob_angle):
 	if output_lane == null or not is_instance_valid(output_lane):
 		return
+	var dwell : float = ship_building_dwell if _is_ship_building() else min_building_dwell
+	if building_time < dwell:
+		return
 	if "Ship" in output_lane.name:
 		follow_target = output_lane
+		_set_lane_highlight(null, -1)
 		if Global.DEBUG:
 			print("Moving to ship ", output_lane)
 		return
@@ -229,9 +294,57 @@ func follow_to_lane(var output_lane, var glob_angle):
 	follow_dict["offset"] = angle_mod
 	follow_dict["mid_flight"] = false # Technically true
 	follow_target = output_lane
+	_set_lane_highlight(output_lane, slot)
 	if Global.DEBUG:
 		print("Moving to lane ", output_lane)
-	#output_lane.highlight(slot)
+
+func _set_lane_highlight(var lane, var slot : int):
+	if highlighted_lane != null and is_instance_valid(highlighted_lane):
+		highlighted_lane.set_highlight(-1)
+	highlighted_lane = lane
+	if lane != null and is_instance_valid(lane):
+		lane.set_highlight(slot)
+
+func _clear_injector_highlight():
+	if highlighted_injector != null and is_instance_valid(highlighted_injector):
+		highlighted_injector.set_highlight(-1)
+	highlighted_injector = null
+
+func _is_ship_building() -> bool:
+	var proc = _followed_factory_process()
+	if proc == null:
+		return false
+	return proc.mode == Global.BUILDING_EXTRACTOR and proc.ship != null and is_instance_valid(proc.ship)
+
+# The follow target is the FactoryProcess node itself (lane -> factory hand-off),
+# not the Factory node - resolve the process node either way
+func _followed_factory_process():
+	if follow_target == null or not is_instance_valid(follow_target):
+		return null
+	if "FactoryProcess" in follow_target.name:
+		return follow_target
+	if follow_target.has_node("FactoryProcess"):
+		return follow_target.get_node("FactoryProcess")
+	return null
+
+func followed_ship_launched() -> bool:
+	if follow_target == null or not is_instance_valid(follow_target):
+		return false
+	if "Ship" in follow_target.name:
+		return follow_target.launch == true
+	var proc = _followed_factory_process()
+	if proc != null and proc.ship != null and is_instance_valid(proc.ship):
+		return proc.ship.launch == true
+	if ship_armed_ship != null and is_instance_valid(ship_armed_ship):
+		return ship_armed_ship.launch == true
+	return false
+
+func _clear_ship_depart_arm():
+	if ship_armed_proc != null and is_instance_valid(ship_armed_proc):
+		ship_armed_proc.force_ship_depart = false
+	ship_armed_proc = null
+	ship_armed_ship = null
+	ship_armed = false
 
 	
 ###
