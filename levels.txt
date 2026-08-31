@@ -1,0 +1,233 @@
+Key:
+	Gem on lane : [H+]
+	Gem injected on to lane : >[Ir-]
+	Extractor : /H+^\
+	Injector : \Ir-/
+	Factory : <Hi+>
+
+[H+] flows outward from the Sun. A building that pulls resources outward can 
+capture it for you.
+
+Extractors draw resources from the ring below and push them outward. Build one 
+on the one available ring to feed [H+] to a waiting ship.
+
+Build a building on the ring. Click on it and make it an Extractor. Choose [H+] 
+as the extracted resource. 
+
+! LEVEL 1    ^
+### RING 1: /H+\ 
+L1:          |
+### SOL:     |
+L1:         [H+]
+###
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+[Hi+] is made from [H+] and [St-]. [Ir-] arrives on the outer rings and flows 
+inward, look for the building type that pulls [-] resources in that direction.
+
+Build a [St-] factory ([Ir-]→[St-]) on the 
+ring 1 below or 2 below the [Ir-]. Then build a [Hi+] factory ([H+]+[St-]→[Hi+]) 
+where outward-flowing [H+] and inward-flowing [St-] are also both 1 or 2 rings
+above the factory.
+
+Inject [Ir-] on Ring 5 (outmost), then Build a [St-] factory on Ring 4 to deposit [St-] 
+on Ring 3. Build a [Hi+] factory on Ring 1 and supply it additionally with [H+]
+by building a [H+] extractor on Ring 1. Finish by constructing [Hi+] extractors
+on Rings 3 and 5.
+
+! LEVEL 2    ^
+### RING 5: /Hi+\ 
+L2:          |
+L1:          |   >[Ir-]
+### RING 4:  ^    <St->
+L2:          |     |
+L1:         [Hi+]  |
+### RING 3: /Hi+\  v
+L2:          |     |
+L1:          |    [St-]
+### RING 2:  ^
+L2:         [Hi+]
+L1:          |    [H+]
+### RING 1: <Hi+> /H+\ 
+L2:                | 
+L1:                |
+### SOL:           ^
+L2:                |
+L1:               [H+]
+###
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Focus first on transmuting [T+]. You will need to combine [Cu-] and [Ir-] into 
+[Cf-] and use Injectors to cast this into Sol, creating [T+] which can then 
+be exported.
+
+Your [Bg+] factory will need to pull [H+] and [T+] from the ring immidiately 
+above it, the [Bg+] it creates will occupy the third lane on this Ring.
+
+Both [Cu-] and [Ir-] need to be injected onto the outermost Ring 5. The [Bg+] 
+factories must be on Ring [3].
+
+! LEVEL 3    ^
+### RING 5: /Bg+\ 
+L3:          |
+L2:          |                   >[Cu-]
+L1:          |             >[Ir-]  |
+### RING 4:  ^               v     v
+L3:         [Bg+]            |     |
+L2:          |    [H+]       |     |
+L1:          |     |   [T+]  |    /
+### RING 3: <Bg+> /H+\ /T+\ <Cf-> 
+L3:                |    |    |
+L2:                |    |    |
+L1:                |    |    |
+### RING 2:        ^    ^    v
+L3:               [H+]  |    |
+L2:                |   [T+]  |
+L1:                |        [Cf-]
+### RING 1:       /H+\ /T+\ \Cf-/
+L3:                |    |    | 
+L2:                |    |    |
+L1:                |    |    |
+### SOL:           ^    ^    v
+L3:                |    |    |
+L2:                |   [T+] [T+]
+L1:               [H+] 
+###
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+To serve all the factories required to complete this level, [Ir-] needs to be 
+injected on a higher Ring than [Cu-].
+
+[Cu-] needs to be injected on Ring 5, and also Inserted down to Ring 3.
+Similarly, [Ir-] needs to be injected on Ring 6 and also Inserted down to Ring 4.
+
+Make [Mt+] on Ring 2, pull [Cu+] from Ring 3, and [St-] and [T+] from Ring 4.
+
+! LEVEL 4    ^
+### RING 6: /Mt+\
+L3:          |   
+L2:          |
+L1:          |   >[Ir-]      >[Ir-]
+### RING 5:  ^    \Ir-/       <St->
+L3:          |     |           |
+L2:          |     |   >[Cu-]  |
+L1:         [Mt+]  |     |     |
+### RING 4: /Mt+\  v    \Cu-/  v
+L3:          |     |     |     |    [T+]
+L2:          |     |    /|    [St-]  |
+L1:          |    [Ir-]  |           |
+### RING 3:  ^    <Cf->  v          /T+\ 
+L3:          |     |     |           |
+L2:          |     |    [Cu+]        |
+L1:         [Mt+]  |                 |
+### RING 2: <Mt+>  v                 ^
+L3:                |                 |
+L2:                |                [T+]
+L1:               [Cf-]              |
+### RING 1:       \Cf-/             /T+\
+L3:                |                 |
+L2:                |                 |
+L1:                |                 |
+### SOL:           v                 ^
+L3:                |                 | 
+L2:               [T+]              [T+]  
+L1:         [H+]      
+###
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+x
+
+x
+
+x
+
+! LEVEL 5   
+### RING 8: 
+L3:          
+L2:          
+L1:    
+### RING 7: 
+L3:          
+L2:          
+L1:    
+### RING 6: 
+L3:          
+L2:          
+L1:    
+### RING 5: 
+L3:          
+L2:          
+L1:          
+### RING 4:  
+L3:         
+L2:         
+L1:         
+### RING 3: 
+L3:                
+L2:                
+L1:                
+### RING 2:        
+L3:               
+L2:                
+L1:                
+### RING 1:       
+L3:                
+L2:                
+L1:               
+### SOL:          
+L3:                
+L2:                
+L1:               
+###
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+x
+
+x
+
+x
+
+! LEVEL 6
+### RING 8: 
+L3:          
+L2:          
+L1:    
+### RING 7: 
+L3:          
+L2:          
+L1:    
+### RING 6: 
+L3:          
+L2:          
+L1:    
+### RING 5: 
+L3:          
+L2:          
+L1:          
+### RING 4:  
+L3:         
+L2:         
+L1:         
+### RING 3: 
+L3:                
+L2:                
+L1:                
+### RING 2:        
+L3:               
+L2:                
+L1:                
+### RING 1:       
+L3:                
+L2:                
+L1:               
+### SOL:          
+L3:                
+L2:                
+L1:               
+###
+

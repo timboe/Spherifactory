@@ -58,7 +58,14 @@ func _ready():
 func _unhandled_input(event):
 	var change = false
 
+	# Zoom mouse - via unhandled input so GUI-consumed wheel events (scroll boxes) don't zoom
 	if event is InputEventMouseButton and event.is_pressed():
+		if event.button_index == BUTTON_WHEEL_UP and zoom_target.x > min_zoom:
+			zoom_target /= 1.1
+			change = true
+		if event.button_index == BUTTON_WHEEL_DOWN and zoom_target.x < max_zoom:
+			zoom_target *= 1.1
+			change = true
 		down_point = event.position
 	# Pan mouse
 	if event is InputEventMouseMotion and Input.is_action_pressed("ui_mouse_pan"):
@@ -107,14 +114,6 @@ func _process(delta):
 	decay_trauma(delta)
 	
 	zoom = zoom + (zoom_target - zoom) * delta * 5.0
-	
-	# Wheel zoom - polled via actions so GUI consumption can't block it
-	if Input.is_action_just_pressed("ui_zoom_in") and zoom_target.x > min_zoom:
-		zoom_target /= 1.1
-		_clamp_position_to_zoom()
-	if Input.is_action_just_pressed("ui_zoom_out") and zoom_target.x < max_zoom:
-		zoom_target *= 1.1
-		_clamp_position_to_zoom()
 	
 	if Input.is_action_pressed("ui_left"):
 		global_position += Vector2.LEFT * delta * MOVE_SPEED * zoom.x

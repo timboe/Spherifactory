@@ -58,6 +58,10 @@ func _ready():
 	if overlay != null:
 		overlay.visible = false
 		overlay.modulate.a = 0.0
+		overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var overlay_container = get_node_or_null("CenterContainer")
+	if overlay_container != null:
+		overlay_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var layer := CanvasLayer.new()
 	layer.name = "TrailerDebugLayer"
 	debug_label = Label.new()

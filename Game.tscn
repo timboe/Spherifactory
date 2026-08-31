@@ -3802,12 +3802,14 @@ script = ExtResource( 84 )
 [node name="CenterContainer" type="CenterContainer" parent="TrailerController"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="TrailerController/CenterContainer"]
 margin_left = 165.0
 margin_top = 260.0
 margin_right = 1115.0
 margin_bottom = 460.0
+mouse_filter = 2
 texture = ExtResource( 15 )
 
 [node name="SomethingChanged" type="Timer" parent="."]
