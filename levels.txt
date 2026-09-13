@@ -14,6 +14,11 @@ on the one available ring to feed [H+] to a waiting ship.
 Build a building on the ring. Click on it and make it an Extractor. Choose [H+] 
 as the extracted resource. 
 
+
+! LEVEL 1 SHORTHAND:
+R1:  /H+\ | L1: ·
+SOL: ·    | L1: [H+]
+
 ! LEVEL 1    ^
 ### RING 1: /H+\ 
 L1:          |
@@ -35,6 +40,14 @@ Inject [Ir-] on Ring 5 (outmost), then Build a [St-] factory on Ring 4 to deposi
 on Ring 3. Build a [Hi+] factory on Ring 1 and supply it additionally with [H+]
 by building a [H+] extractor on Ring 1. Finish by constructing [Hi+] extractors
 on Rings 3 and 5.
+
+! LEVEL 2 SHORTHAND:
+R5:  /Hi+\      | L1: >[Ir-]  L2: ·
+R4:  <St->      | L1: [Hi+]   L2: ·
+R3:  /Hi+\      | L1: [St-]   L2: ·
+R2:  ·          | L1: [H+]    L2: [Hi+]
+R1:  <Hi+> /H+\ | L1: ·       L2: ·
+SOL: ·          | L1: [H+]    L2: ·
 
 ! LEVEL 2    ^
 ### RING 5: /Hi+\ 
@@ -68,6 +81,15 @@ above it, the [Bg+] it creates will occupy the third lane on this Ring.
 
 Both [Cu-] and [Ir-] need to be injected onto the outermost Ring 5. The [Bg+] 
 factories must be on Ring [3].
+
+
+! LEVEL 3 SHORTHAND:
+R5:  /Bg+\                 | L1: >[Ir-]  L2: >[Cu-]     L3: ·
+R4:  ·                     | L1: [T+]    L2: [H+]       L3: [Bg+]
+R3:  /H+\ /T+\ <Bg+> <Cf-> | L1: ·       L2: ·          L3: ·
+R2:  ·                     | L1: [Cf-]   L2: [T+]       L3: [H+]
+R1:  /H+\ /T+\ \Cf-/       | L1: ·       L2: ·          L3: ·
+SOL: ·                     | L1: [H+]    L2: [Cf-](→T)  L3: [T+]
 
 ! LEVEL 3    ^
 ### RING 5: /Bg+\ 
@@ -104,7 +126,16 @@ injected on a higher Ring than [Cu-].
 [Cu-] needs to be injected on Ring 5, and also Inserted down to Ring 3.
 Similarly, [Ir-] needs to be injected on Ring 6 and also Inserted down to Ring 4.
 
-Make [Mt+] on Ring 2, pull [Cu+] from Ring 3, and [St-] and [T+] from Ring 4.
+Make [Mt+] on Ring 2, pull [Cu-] from Ring 3, and [St-] and [T+] from Ring 4.
+
+! LEVEL 4 SHORTHAND:
+R6:  /Mt+\       | L1: >[Ir-]  L2: ·          L3: ·
+R5:  <St-> \Ir-/ | L1: [Mt+]   L2: >[Cu-]     L3: ·
+R4:  /Mt+\ \Cu-/ | L1: [Ir-]   L2: [St-]      L3: [T+]
+R3:  /T+\ <Cf->  | L1: [Mt+]   L2: [Cu-]      L3: ·
+R2:  <Mt+>       | L1: [Cf-]   L2: [T+]       L3: ·
+R1:  /T+\ \Cf-/  | L1: ·       L2: ·          L3: ·
+SOL: ·           | L1: [H+]    L2: [Cf-](→T)  L3: [T+]
 
 ! LEVEL 4    ^
 ### RING 6: /Mt+\
@@ -121,7 +152,7 @@ L2:          |    [St-]-[St-]  |     |    |     |
 L1:          |     |           |     |   [Ir-]-[Ir-] 
 ### RING 3:  ^     v           v    /T+\ <Cf-> 
 L3:          |     |           |     |    |
-L2:          |    [Cu-]-------[Cu+]  |    |
+L2:          |    [Cu-]-------[Cu-]  |    |
 L1:         [Mt+]-[Mt+]              |    |
 ### RING 2:       <Mt+>              ^    v
 L3:                                  |    |
@@ -146,6 +177,18 @@ The [XC+] factory shares the same Ring as the [XB+] factory.
 
 [Cu-] should be made available on all of Rings 8, 6 and 4. The [Xc+] factories
 then reside on Ring 2. 
+
+
+! LEVEL 5 SHORTHAND:
+R8:  /XC+\             | L1: >[Ir-]  L2: >[Cu-]  L3: ·
+R7:  <St-> \Cu-/       | L1: [XC+]   L2: ·       L3: ·
+R6:  /XC+\ <Cf->       | L1: [St-]   L2: [Cu-]   L3: [H+]
+R5:  \Cu-/ /H+\        | L1: [XC+]   L2: [Cf-]   L3: [Hi+]
+R4:  /XC+\ <Hi+> <XA-> | L1: [Cu-]   L2: [H+]    L3: ·
+R3:  /H+\              | L1: [XA-]   L2: [XB+]   L3: [XC+]
+R2:  <XB+> <XC+>       | L1: [H+]    L2: ·       L3: ·
+R1:  /H+\              | L1: ·       L2: ·       L3: ·
+SOL: ·                 | L1: [H+]    L2: ·       L3: ·
 
 ! LEVEL 5    ^
 ### RING 8: /XC+\
@@ -193,6 +236,17 @@ The [G+] factory must be on the same Ring as the [Cf-] factory.
 
 Make [Bg+] on Ring 2.
 
+! LEVEL 6 SHORTHAND:
+R8:  /SW+\             | L1: ·       L2: ·          L3: ·
+R7:  ·                 | L1: [SW+]   L2: >[Si-]     L3: ·
+R6:  /SW+\             | L1: >[Ir-]  L2: >[Cu-]     L3: [G+]
+R5:  <G+> <Cf->        | L1: [SW+]   L2: [CG+]      L3: [Bg+]
+R4:  <SW+> <CG+> /Bg+\ | L1: [H+]    L2: [T+]       L3: [Cf-]
+R3:  /H+\ /T+\ \Cf-/   | L1: [Bg+]   L2: ·          L3: ·
+R2:  <Bg+>             | L1: [H+]    L2: [T+]       L3: [Cf-]
+R1:  /H+\ /T+\ \Cf-/   | L1: ·       L2: ·          L3: ·
+SOL: ·                 | L1: [H+]    L2: [Cf-](→T)  L3: [T+]
+
 ! LEVEL 6    ^
 ### RING 8: /SW+\
 R8 L3:       |  
@@ -234,57 +288,66 @@ R0 L1:                  [H+]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-x
+Lane space is the major bottleneck here, keep an eye on the four lanes of
+Rings 5, 6 and 7: every input of the [OO-] and [OP+] factories must sit 1 or
+2 Rings above them.
 
-x
+Inject [Si-] and [Ir-] on Ring 7, [Cu-] on Ring 3 and [T+] on Ring 2. Build
+[Bg+] and [CG+] on Ring 1 and extract them outward, [Hi+] on Ring 2 with
+[St-] inserted down from Ring 5, [SW+] and [G+] on Ring 5, [OO-] on Ring 6
+and finally [OP+] on Ring 4 with an extractor chain pushing it out through
+Ring 7 to the ship.
 
-x
+! LEVEL 7 SHORTHAND:
+R8:  /OP+\                   | L1: [Bg+]   L2: [SW+]    L3: ·      L4: ·
+R7:  /Bg+\ /SW+\             | L1: [OP+]   L2: [Hi+]    L3: >[Ir-] L4: >[Si-]
+R6:  <OO-> <St-> /OP+\ /Hi+\ | L1: [Bg+]   L2: [CG+]    L3: [G+]   L4: [SW+]
+R5:  <G+> <SW+> /Bg+\ /CG+\  | L1: [St-]   L2: [Hi+]    L3: [OO-]  L4: [OP+]
+R4:  <OP+> /Hi+\ \St-/       | L1: [H+]    L2: [Bg+]    L3: [CG+]  L4: ·
+R3:  /H+\ /Bg+\ /CG+\        | L1: [Hi+]   L2: [St-]    L3: >[Cu-] L4: ·
+R2:  <Hi+> <Bg+> <CG+>       | L1: [H+]    L2: >[T+]    L3: [Bg+]  L4: [CG+]
+R1:  /H+\ <Bg+> <CG+>        | L1: ·       L2: ·        L3: ·      L4: ·
+SOL: ·                       | L1: [H+]    L2: ·        L3: ·      L4: ·
 
-! LEVEL 7
-### RING 8: 
-R8 L4:
-R8 L3:          
-R8 L2:          
-R8 L1:    
-### RING 7: 
-R7 L4:
-R7 L3:          
-R7 L2:          
-R7 L1:    
-### RING 6: 
-R6 L4:
-R6 L3:          
-R6 L2:          
-R6 L1:    
-### RING 5: 
-R5 L4:
-R5 L3:          
-R5 L2:          
-R5 L1:          
-### RING 4:  
-R4 L4:
-R4 L3:         
-R4 L2:         
-R4 L1:         
-### RING 3: 
-R3 L4:
-R3 L3:                
-R3 L2:                
-R3 L1:                
-### RING 2:        
-R2 L4:
-R2 L3:               
-R2 L2:                
-R2 L1:                
-### RING 1:       
-R1 L4:
-R1 L3:                
-R1 L2:                
-R1 L1:               
-### SOL:          
-R0 L3:                
-R0 L2:                
-R0 L1:               
+! LEVEL 7    ^
+### RING 8: /OP+\
+R8 L2:       |                             [SW+]
+R8 L1:       |                 [Bg+]
+### RING 7:  ^  /Bg+\ /SW+\
+R7 L4:       |    |      |      |       |    >[Si-]
+R7 L3:       |    |      |      |       |    |   >[Ir-]
+R7 L2:       |   [Hi+]   |      |       |    |     |
+R7 L1:      [OP+] |      |      |       |    |     |
+### RING 6: /OP+\ /Hi+\ <OO-> <St->
+R6 L4:       |   [Hi+]   |      |       |    |     |    |   [SW+]
+R6 L3:       |     |     |      |       |   [G+]  |    |    |
+R6 L2:       |     |     |      |      [CG+]  |    |    |    |
+R6 L1:       |     |    [Bg+]   |        |    |    |    |    |
+### RING 5: /Bg+\ /CG+\ <G+> <SW+>
+R5 L4:      [OP+]  |     |      |        |    |    |    |    |    |
+R5 L3:       |     |     |      |        |    |    |  [OO-] |    |
+R5 L2:       |    [Hi+]  |      |        |    |    |    |    |    |
+R5 L1:       |     |    [St-]   |        |    |    |    |    |    |
+### RING 4: <OP+> /Hi+\ \St-/
+R4 L3:       |     |     |      |       [CG+]  |    |    |    |    |
+R4 L2:       |     |    [Bg+]   |         |    |    |    |    |    |
+R4 L1:      [H+]   |     |      |         |    |    |    |    |    |
+### RING 3: /H+\ /Bg+\ /CG+\
+R3 L3:       |     |     |      |         |   [Cu-]  |    |    |    |
+R3 L2:       |     |     |      |         |    |    |   [St-] |    |
+R3 L1:       |    [Hi+]  |      |         |    |    |    |    |    |
+### RING 2:  ^   <Hi+> <Bg+> <CG+>
+R2 L4:       |     |     |      |         |    |    |   [CG+] |    |
+R2 L3:       |     |    [Bg+]   |         |    |    |    |    |    |
+R2 L2:       |     |     |      |        [T+]  |    |    |    |    |
+R2 L1:      [H+]   |     |      |         |    |    |    |    |    |
+### RING 1: /H+\ <Bg+> <CG+>
+R1 L4:       |     |     |      |         |    |    |    |    |    |
+R1 L3:       |     |     |      |         |    |    |    |    |    |
+R1 L2:       |     |     |      |         |    |    |    |    |    |
+R1 L1:       |     |     |      |         |    |    |    |    |    |
+### SOL:     ^     |     |      |         |    |    |    |    |    |
+R0 L1:      [H+]   |     |      |         |    |    |    |    |    |
 ###
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -297,6 +360,17 @@ will then need both [Mt+] and [T+] to produce [Vt-] on Ring 3.
 
 You need all of [Cf-], [Vt-], [T+] and [D+] on Ring 2, and the [Mt+]
 factories must be on Ring 4.
+
+
+! LEVEL 9 SHORTHAND:
+R7:  /D+\                  | L1: >[Ir-]  L2: >[Cu-]     L3: ·      L4: ·
+R6:  <St-> \Cu-/           | L1: [D+]    L2: [T+]       L3: ·      L4: ·
+R5:  /D+\ <Cf-> /T+\       | L1: [Mt+]   L2: [Cu-]      L3: [St-]  L4: ·
+R4:  <Mt+>                 | L1: [T+]    L2: [D+]       L3: [Cf-]  L4: ·
+R3:  /D+\ /T+\ <Vt-> \Cf-/ | L1: ·       L2: ·          L3: ·      L4: ·
+R2:  ·                     | L1: [Cf-]   L2: [T+]       L3: [D+]   L4: [Vt-]
+R1:  /D+\ /T+\ \Vt-/ \Cf-/ | L1: ·       L2: ·          L3: ·      L4: ·
+SOL: ·                     | L1: [H+]    L2: [Cf-](→T)  L3: [T+]   L4: [Vt-](→D)  L5: [D+]
 
 ! LEVEL 9    ^
 ### RING 7: /D+\ 
@@ -393,3 +467,4 @@ R0 L3:                              [T+]                          |
 R0 L2:                                \--------------------------[Cf-]   
 R0 L1:                                                                 [H+]
 ###
+
