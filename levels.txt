@@ -82,7 +82,6 @@ above it, the [Bg+] it creates will occupy the third lane on this Ring.
 Both [Cu-] and [Ir-] need to be injected onto the outermost Ring 5. The [Bg+] 
 factories must be on Ring [3].
 
-
 ! LEVEL 3 SHORTHAND:
 R5:  /Bg+\                 | L1: >[Ir-]  L2: >[Cu-]     L3: ·
 R4:  ·                     | L1: [T+]    L2: [H+]       L3: [Bg+]
@@ -229,12 +228,11 @@ R0 L1:                               [H+]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-Lane space is the major bottleneck here, the [Bg+] factory must not share the
-same Ring as the [Cf-] factory.
+xxx
 
-The [G+] factory must be on the same Ring as the [Cf-] factory.
+xxx
 
-Make [Bg+] on Ring 2.
+xxx
 
 ! LEVEL 6 SHORTHAND:
 R8:  /SW+\             | L1: ·       L2: ·          L3: ·
@@ -288,15 +286,11 @@ R0 L1:                  [H+]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-[OP+] now demands its own [Si-] lane: the [OP+] factory on Ring 4 pulls [Si-]
-from Ring 5, while the [OO-] factory two Rings above must draw a second [Si-]
-from Ring 7 — no single [Si-] lane can reach both.
+xxx
 
-Build [St-] on Ring 5 (from [Ir-] on Ring 7) so it lands on Ring 4, feeding
-[Hi+] on Ring 2 directly. Inject [Cu-] on Ring 3 and [T+] on Ring 2 for the
-[Bg+] and [CG+] chain on Ring 1. [G+] and [SW+] share Ring 5, [OO-] is made
-on Ring 6, and [OP+] on Ring 4 is extracted outward through Ring 7 to the
-ship.
+xxx
+
+xxx
 
 ! LEVEL 7 SHORTHAND:
 R8:  /OP+\                        | L1: [Bg+]   L2: [SW+]    L3: ·      L4: ·
@@ -305,7 +299,7 @@ R6:  <OO-> /OP+\ /Hi+\            | L1: [Bg+]   L2: [CG+]    L3: [G+]   L4: [SW+
 R5:  <St-> <G+> <SW+> /Bg+\ /CG+\ | L1: >[Si-]  L2: [Hi+]    L3: [OO-]  L4: [OP+]
 R4:  <OP+> /Hi+\                  | L1: [H+]    L2: [Bg+]    L3: [CG+]  L4: [St-]
 R3:  /H+\ /Bg+\ /CG+\             | L1: [Hi+]   L2: >[Cu-]   L3: ·      L4: ·
-R2:  <Hi+> <Bg+> <CG+>            | L1: [H+]    L2: >[T+]    L3: [Bg+]  L4: [CG+]
+R2:  <Hi+>                        | L1: [H+]    L2: >[T+]    L3: [Bg+]  L4: [CG+]
 R1:  /H+\ <Bg+> <CG+>             | L1: ·       L2: ·        L3: ·      L4: ·
 SOL: ·                            | L1: [H+]    L2: ·        L3: ·      L4: ·
 
@@ -313,45 +307,45 @@ SOL: ·                            | L1: [H+]    L2: ·        L3: ·      L4: �
 ### RING 8: /OP+\
 R8 L4:       |
 R8 L3:       |
-R8 L2:-------|--------------------------[SW+]
-R8 L1:-------|----------------[Bg+]
-### RING 7:  ^  /Bg+\ /SW+\
-R7 L4:       |    |      |              >[Si-]
-R7 L3:       |    |      |              |   >[Ir-]
-R7 L2:       |    |      |             [Hi+]
-R7 L1:      [OP+] |      |              |
-### RING 6: /OP+\ /Hi+\ <OO->
-R6 L4:       |     |              |              |   [SW+]
-R6 L3:       |   [Bg+] |              |           [G+]
-R6 L2:       |     |    [CG+]           |           |
-R6 L1:       |     |     |              |           |
-### RING 5: <St-> <G+> <SW+> /Bg+\ /CG+\
-R5 L4:      [OP+]  |     |              |           |
-R5 L3:       |     |     |              |          [OO-]
-R5 L2:       |    [Hi+]  |              |           |
-R5 L1:       |     |     |              |          >[Si-]
-### RING 4: <OP+>  ^     ^              ^     ^    ^
-R4 L4:       |     |     |              |     |   [St-]
-R4 L3:       |     |    [CG+]           |     |    |
-R4 L2:       |     |   [Bg+]            |     |    |
-R4 L1:      [H+]   |     |              |     |    |
-### RING 3: /H+\   ^     ^              ^     ^    ^
-R3 L4:       |     |     |              |     |    |
-R3 L3:       |     |     |              |     |    |
-R3 L2:       |     |     |              |     |   >[Cu-]
-R3 L1:       |    [Hi+]  |              |     |    |
-### RING 2:  ^   <Hi+> <Bg+> <CG+>
-R2 L4:       |     |     |              |     |   [CG+]
-R2 L3:       |     |   [Bg+]            |     |    |
-R2 L2:       |     |     |              |     |   >[T+]
-R2 L1:      [H+]   |     |              |     |    |
-### RING 1: /H+\ <Bg+> <CG+>
-R1 L4:       |     |     |              |     |    |
-R1 L3:       |     |     |              |     |    |
-R1 L2:       |     |     |              |     |    |
-R1 L1:       |     |     |              |     |    |
-### SOL:     ^     |     |              |     |    |
-R0 L1:      [H+]   |     |              |     |    |
+R8 L2:       |    [SW+]------------------------------------[SW+]
+R8 L1:       |    [Bg+]------------------------------[Bg+]  |
+### RING 7:  ^     v                                 /Bg+\ /SW+\
+R7 L4:-------|-----|-------------------------->[Ir-]--|-----|--->[Ir-]
+R7 L3:       |    [Hi+]-------[Hi+]             |     |     |     |
+R7 L2:-------|--->[Si-]>[Si-]  |                |     |     |     |
+R7 L1:      [OP+]  |     |     |                |     |     |     |
+### RING 6: /OP+\ <OO->  v    /Hi+\             v     ^     ^     v
+R6 L4:       |     |     |     |                |     |     |    [CG+]-[CG+]
+R6 L3:       |     |     |     |                |     |    [SW+]-[SW+]  |
+R6 L2:       |     |     |     |                |    [Bg+]        |     |
+R6 L1:      [G+]---|----[G+]---|----------------|-----|----------[G+]   |
+### RING 5:  ^     v    <G+>   ^               <St-> /Bg+\       <SW+> /CG+\
+R5 L4:----->[Si-]  |           |                |     |                 |
+R5 L3:       |     |          [Hi+]             |     |                 |
+R5 L2:      [OO-]-[OO-]        |                |     |                 |
+R5 L1:      [OP+]              |                |     |                 |
+### RING 4: <OP+>             /Hi+\             v     ^                 ^
+R4 L4:                         |                |     |                [CG+]
+R4 L3:                         |                |    [Bg+]              |
+R4 L2:                         |    [St-]------[St-]  |                 |
+R4 L1:                         |    [H+]--[H+]        |                 |
+### RING 3:                    ^     v    /H+\       /Bg+\             /CG+\
+R3 L4:                         |     |     |          |                 |
+R3 L3:                         |     |     |          |                 |
+R3 L2:-------------------------|-----|-----|----------|-----------------|--->[Cu-]
+R3 L1:                        [Hi+]-[Hi+]  |          |                 |     |
+### RING 2:                         <Hi+>  ^          ^                 ^     v
+R2 L4:                                     |          |                [CG+]-[CG+]
+R2 L3:-------------------------------------|----------|--->[T+]               |
+R2 L2:                                     |         [Bg+]-[Bg+]-------------[Bg+]
+R2 L1:                                    [H+]-------------[H+]               |
+### RING 1:                               /H+\             <Bg+>             <CG+>
+R1 L4:                                     |
+R1 L3:                                     |
+R1 L2:                                     |
+R1 L1:                                     |
+### SOL:                                   ^
+R0 L1:                                    [H+]
 ###
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
