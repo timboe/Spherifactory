@@ -163,9 +163,9 @@ func update_diag():
 # Below used to update page on initial draw
 
 func update_Win_diag():
-	var h : int = int(Global.time_played) / 3600
+	var h : int = int( int(Global.time_played) / 3600 )
 	var remainder : int = int(Global.time_played) % 3600
-	var m = remainder / 60
+	var m = int(remainder / 60)
 	var s = remainder % 60
 	window_title = tr("ui_congratulations")
 	$WinContainer/VBox/FinishedText.text = tr(Global.campaign["name"]) + " " + tr("ui_finished in") + "\n\n"
@@ -190,6 +190,7 @@ func update_Tutorial_diag():
 	$"TutorialContainer/VBox/TutorialContainerSC/TutorialVBox/7/ColorRect_above".visible = Global.factories_pull_from_above
 	$"TutorialContainer/VBox/TutorialContainerSC/TutorialVBox/7/Label_below".visible = !Global.factories_pull_from_above
 	$"TutorialContainer/VBox/TutorialContainerSC/TutorialVBox/7/ColorRect_below".visible = !Global.factories_pull_from_above	
+	$TutorialContainer/VBox/TutorialContainerSC.scroll_vertical = 0
 
 func update_Save_diag():
 	update_SaveLoad_common(save_vbox)
@@ -223,7 +224,7 @@ func export_process():
 		if res in Global.exported:
 			n = min(Global.exported[res], 100000)
 		var current : float = g.get_child(i + 1).get_child(0).value
-		var add = max(1, round((n - current) * 0.005))
+		var add := int(max(1, round((n - current) * 0.005)))
 		if first:
 			current = n
 		elif not is_equal_approx(current, n):

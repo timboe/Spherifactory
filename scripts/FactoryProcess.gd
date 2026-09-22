@@ -152,7 +152,7 @@ func configure(var _mode : int, var recipy : String):
 		input_content.append(recipy) # recipy is just the thing we are moving
 		input_storage.append(0)
 		input_lanes.append([])
-		# input_lanes_distance not used
+		input_lanes_distance.append([]) # Kept aligned with input_lanes; not used
 		# input_factory_required not used
 		# output_amount not used
 	# Output
@@ -191,10 +191,11 @@ func lane_cleared(var lane_or_ship : Node2D):
 # reworked below - delete this comment block
 #				something_changed = true			
 	for i in range(input_lanes.size()):
-		for j in range(input_lanes[i].size() -1, -1):
+		for j in range(input_lanes[i].size() -1, -1, -1):
 			if input_lanes[i][j] == lane_or_ship:
 				input_lanes[i].remove(j)
-				input_lanes_distance[i].remove(j)
+				if i < input_lanes_distance.size() and j < input_lanes_distance[i].size():
+					input_lanes_distance[i].remove(j)
 				something_changed = true			
 	check_process()
 	if something_changed:
@@ -215,7 +216,7 @@ func lane_system_changed():
 			var l = input_lanes[input_idx][j]
 			if not is_instance_valid(l) or l.lane_content != required_content:
 				input_lanes[input_idx].remove(j)
-				if j < input_lanes_distance[input_idx].size():
+				if input_idx < input_lanes_distance.size() and j < input_lanes_distance[input_idx].size():
 					input_lanes_distance[input_idx].remove(j)
 				something_changed = true
 	# Remove invalid outputs

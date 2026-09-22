@@ -155,6 +155,7 @@ amount = 64
 local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 9 )
+visibility_rect = Rect2( -4096, -4096, 8192, 8192 )
 
 [node name="Rocket" type="AudioStreamPlayer" parent="ShipRotationTemplate/Ship"]
 stream = ExtResource( 14 )

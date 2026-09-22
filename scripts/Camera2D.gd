@@ -54,6 +54,7 @@ export(float) var ship_building_dwell := 3.0 # Dwell on a ship-launching exporte
 func _ready():
 	set_process_unhandled_input(true)
 	set_physics_process(false)
+	zoom_target = zoom
 
 func _unhandled_input(event):
 	var change = false
@@ -247,7 +248,7 @@ func advanced_follow(var delta):
 				if "call" in in_flight and not "call" in follow_dict:
 					follow_dict["call"] = in_flight["call"]
 				break
-		var r = follow_target.radius + (follow_target.radius - radius_mod)
+		var _r = follow_target.radius + (follow_target.radius - radius_mod)
 		global_position_target = follow_target.global_position - Vector2(640,360) - Vector2(0,  + radius_mod).rotated(rotation)
 		if in_flight_now == false and follow_dict["mid_flight"] == true:
 			if "call" in follow_dict:
