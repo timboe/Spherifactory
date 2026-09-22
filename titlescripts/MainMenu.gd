@@ -11,11 +11,14 @@ func _ready():
 	# Load 
 	Global.saves = load_from_disk(Global.GAME_SAVE_FILE)
 	#
-	Global.campaigns = load_from_disk(Global.CAMPAIGN_SAVE_FILE)
-	if Global.campaigns.size() == 0:
-		var dir = Directory.new()
-		dir.copy(Global.CAMPAIGN_INITIAL_FILE, Global.CAMPAIGN_SAVE_FILE)
-		Global.campaigns = load_from_disk(Global.CAMPAIGN_SAVE_FILE)
+	Global.builtin_campaigns = load_from_disk(Global.BUILTIN_CAMPAIGNS_FILE)
+	Global.campaigns = Global.builtin_campaigns.duplicate(true)
+	var custom_campaigns = load_from_disk(Global.CUSTOM_CAMPAIGNS_FILE)
+	for name in custom_campaigns:
+		if Global.is_builtin(name):
+			print("WARNING: custom campaign '", name, "' collides with a built-in, skipping")
+		else:
+			Global.campaigns[name] = custom_campaigns[name]
 	#
 	Global.settings = {}
 	setings.set_default() # Ensure every key exists, then overlay saved values

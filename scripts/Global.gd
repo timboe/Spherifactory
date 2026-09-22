@@ -15,8 +15,8 @@ const DEBUG := false # Set true to restore verbose runtime logging
 
 const GAME_SAVE_FILE := "user://save_data.json"
 const SETTINGS_SAVE_FILE := "user://settings.json"
-const CAMPAIGN_SAVE_FILE := "user://campaign_data.json"
-const CAMPAIGN_INITIAL_FILE := "res://resources/campaign_data.json"
+const CUSTOM_CAMPAIGNS_FILE := "user://custom_campaigns.json"
+const BUILTIN_CAMPAIGNS_FILE := "res://resources/campaign_data.json"
 
 enum {BUILDING_UNSET, BUILDING_EXTRACTOR, BUILDING_INSERTER, BUILDING_FACTORY}
 enum {OUTWARDS, INWARDS}
@@ -127,5 +127,9 @@ func _deferred_goto_scene(path):
 #####################################################
 # Cache of all campaign data
 var campaigns := {}
+var builtin_campaigns := {}
 var saves := {}
 var settings := {}
+
+func is_builtin(var name) -> bool:
+	return builtin_campaigns.has(name)

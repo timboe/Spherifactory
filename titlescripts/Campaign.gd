@@ -172,7 +172,11 @@ func dictionise() -> Dictionary:
 	return result
 	
 func flush_campaign_to_disk():
+	var custom_campaigns := {}
+	for name in Global.campaigns:
+		if not Global.is_builtin(name):
+			custom_campaigns[name] = Global.campaigns[name]
 	var file = File.new()
-	file.open(Global.CAMPAIGN_SAVE_FILE, File.WRITE)
-	file.store_string(JSON.print(Global.campaigns))
+	file.open(Global.CUSTOM_CAMPAIGNS_FILE, File.WRITE)
+	file.store_string(JSON.print(custom_campaigns))
 	file.close()

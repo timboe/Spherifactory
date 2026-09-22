@@ -34,7 +34,7 @@ onready var info : AcceptDialog = find_parent(\"CampaignManager\").find_node(\"I
 
 func _on_Delete_pressed():
 	var cname = get_parent().get_parent().get_node(\"CampaignName\").text
-	if cname == \"Main Campaign\" or cname == \"ui_main_campaign\":
+	if Global.is_builtin(cname):
 		info.dialog_text = tr(\"ui_cannot_delete_main\")
 		info.popup_centered()
 	else:

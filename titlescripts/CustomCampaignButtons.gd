@@ -28,12 +28,11 @@ func _on_Save_pressed():
 		warn_diag.popup_centered()
 		return
 		
-	if campaign_name.text == "ui_main_campaign" or campaign_name.text == "Main Campaign": 
-		pass
-		#warn_diag.dialog_text = tr("ui_overwrite_main_1") + "\n\n"
-		#warn_diag.dialog_text += tr("ui_overwrite_main_2")
-		#warn_diag.popup_centered()
-		#return
+	if Global.is_builtin(campaign_name.text) or campaign_name.text == tr("ui_main_campaign"): 
+		warn_diag.dialog_text = tr("ui_overwrite_main_1") + "\n\n"
+		warn_diag.dialog_text += tr("ui_overwrite_main_2")
+		warn_diag.popup_centered()
+		return
 		
 	if campaign_name.text == "":
 		warn_diag.dialog_text = tr("ui_no_campaign_name")
