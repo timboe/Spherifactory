@@ -295,6 +295,68 @@ R0 L1:                  [H+]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+[XD+] is the meeting point of three branches: [XA-] to [XB+] to [XC+], [T+] to
+[Bg+] to [CG+], and [Si-] to [G+]. The injectors run at 30/s, so build
+duplicate factories along each branch or the lanes will back up behind them -
+and note that [Ir-] is never supplied, so skip the [St-]/[Hi+]/[Cf-] line
+entirely.
+
+The middle of the map is full: Ring 4 must carry [Cu-], [CG+], [Bg+] and [G+],
+and Ring 3 must carry [XA-], [XB+], [XC+] and [XD+] - all four lanes on each.
+Put the [XB+], [XC+] and [XD+] factories on Ring 2 so they can see Rings 3 and
+4, and the [CG+] and [G+] factories on Ring 3.
+
+Inject [XA-] on Ring 3, [Cu-] on Ring 4, [Si-] on Ring 5 and [T+] on Ring 2.
+On Ring 1, an [H+] Extractor feeds the [Bg+] factory together with the injected
+[T+]; on Ring 3 make [CG+] and [G+]; on Ring 2 chain [XB+] to [XC+] to [XD+].
+Extract [XD+] outward on Rings 4 and 6 and ship it from Ring 6.
+
+! LEVEL 7 SHORTHAND:
+R6:  /XD+\                 | L1: ·       L2: ·       L3: ·       L4: ·
+R5:  ·                     | L1: [XD+]   L2: >[Si-]  L3: ·       L4: ·
+R4:  /XD+\                 | L1: >[Cu-]  L2: [CG+]   L3: [Bg+]   L4: [G+]
+R3:  <CG+> <G+> /Bg+\      | L1: [XD+]   L2: [XC+]   L3: [XB+]   L4: >[XA-]
+R2:  <XD+> <XC+> <XB+>     | L1: [Bg+]   L2: >[T+]   L3: [H+]    L4: ·
+R1:  /H+\ <Bg+>            | L1: ·       L2: ·       L3: ·       L4: ·
+SOL: ·                     | L1: [H+]    L2: ·       L3: ·       L4: ·
+
+! LEVEL 7    ^
+### RING 6: /XD+\ 
+R6 L4:       |   
+R6 L3:       | 
+R6 L2:       |
+R6 L1:       |
+### RING 5:  ^
+R5 L4:       |   
+R5 L3:       |   
+R5 L2:-------|-------------------------------------------->[Si-]
+R5 L1:      [XD+]                                           |
+### RING 4: /XD+\                                           v
+R4 L4:       |    [G+]                                     [G+]
+R4 L3:       |     |                [Bg+]------------[Bg+]  |
+R4 L2:       |    [CG+]-------------[CG+]             |     | 
+R4 L1:-------|-----|--->[Cu-]------>[Cu-]             |     |
+### RING 3:  ^     v     v          <CG+>            /Bg+\ <G+>
+R3 L4:-------|-----|-----|--->[XA-]                   |
+R3 L3:       |     |    [XB+]-[XB+]                   |
+R3 L2:       |    [XC+]-[XC+]  |                      |
+R3 L1:      [XD+]-[XD+]  |     |                      |
+### RING 2:       <XD+> <XC+> <XB+>                   ^
+R2 L4:                                                |
+R2 L3:                                    [H+]--[H+]  |
+R2 L2:----------------------------------->[T+]   |    |
+R2 L1:                                    [Bg+]--|---[Bg+]
+### RING 1:                               <Bg+> /H+\
+R1 L4:                                           |
+R1 L3:                                           |
+R1 L2:                                           |
+R1 L1:                                           |
+### SOL:                                         ^
+R0 L1:                                          [H+]  
+###
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 No transmutation is needed here: [T+] arrives from an injector. Everything is
 built from five injected streams - [Ir-], [Cu-], [T+] and two [Si-] feeds. The
 two hard parts are [OO-], which needs four inputs, and [OP+], which needs three.
@@ -312,7 +374,7 @@ and [T+] on Ring 2. On Ring 1 build the [H+] Extractor with the [Bg+] and
 Ring 5. Build [St-], [G+] and [SW+] on Ring 5, [OO-] on Ring 6 and [OP+] on
 Ring 4, then ship from Ring 8.
 
-! LEVEL 7 SHORTHAND:
+! LEVEL 8 SHORTHAND:
 R8:  /OP+\                        | L1: [Bg+]   L2: [SW+]    L3: ·      L4: ·
 R7:  /Bg+\ /SW+\                  | L1: [OP+]   L2: >[Si-]   L3: [Hi+]  L4: >[Ir-]
 R6:  <OO-> /OP+\ /Hi+\            | L1: [G+]    L2: [Bg+]    L3: [SW+]  L4: [CG+]
@@ -322,7 +384,7 @@ R2:  <Hi+>                        | L1: [H+]    L2: [Bg+]    L3: >[T+]  L4: [CG+
 R1:  /H+\ <Bg+> <CG+>             | L1: ·       L2: ·        L3: ·      L4: ·
 SOL: ·                            | L1: [H+]    L2: ·        L3: ·      L4: ·
 
-! LEVEL 7    ^
+! LEVEL 8    ^
 ### RING 8: /OP+\
 R8 L4:       |
 R8 L3:       |
@@ -365,68 +427,6 @@ R1 L2:                                     |
 R1 L1:                                     |
 ### SOL:                                   ^
 R0 L1:                                    [H+]
-###
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-[XD+] is the meeting point of three branches: [XA-] to [XB+] to [XC+], [T+] to
-[Bg+] to [CG+], and [Si-] to [G+]. The injectors run at 30/s, so build
-duplicate factories along each branch or the lanes will back up behind them -
-and note that [Ir-] is never supplied, so skip the [St-]/[Hi+]/[Cf-] line
-entirely.
-
-The middle of the map is full: Ring 4 must carry [Cu-], [CG+], [Bg+] and [G+],
-and Ring 3 must carry [XA-], [XB+], [XC+] and [XD+] - all four lanes on each.
-Put the [XB+], [XC+] and [XD+] factories on Ring 2 so they can see Rings 3 and
-4, and the [CG+] and [G+] factories on Ring 3.
-
-Inject [XA-] on Ring 3, [Cu-] on Ring 4, [Si-] on Ring 5 and [T+] on Ring 2.
-On Ring 1, an [H+] Extractor feeds the [Bg+] factory together with the injected
-[T+]; on Ring 3 make [CG+] and [G+]; on Ring 2 chain [XB+] to [XC+] to [XD+].
-Extract [XD+] outward on Rings 4 and 6 and ship it from Ring 6.
-
-! LEVEL 8 SHORTHAND:
-R6:  /XD+\                 | L1: ·       L2: ·       L3: ·       L4: ·
-R5:  ·                     | L1: [XD+]   L2: >[Si-]  L3: ·       L4: ·
-R4:  /XD+\                 | L1: >[Cu-]  L2: [CG+]   L3: [Bg+]   L4: [G+]
-R3:  <CG+> <G+> /Bg+\      | L1: [XD+]   L2: [XC+]   L3: [XB+]   L4: >[XA-]
-R2:  <XD+> <XC+> <XB+>     | L1: [Bg+]   L2: >[T+]   L3: [H+]    L4: ·
-R1:  /H+\ <Bg+>            | L1: ·       L2: ·       L3: ·       L4: ·
-SOL: ·                     | L1: [H+]    L2: ·       L3: ·       L4: ·
-
-! LEVEL 8    ^
-### RING 6: /XD+\ 
-R6 L4:       |   
-R6 L3:       | 
-R6 L2:       |
-R6 L1:       |
-### RING 5:  ^
-R5 L4:       |   
-R5 L3:       |   
-R5 L2:-------|-------------------------------------------->[Si-]
-R5 L1:      [XD+]                                           |
-### RING 4: /XD+\                                           v
-R4 L4:       |    [G+]                                     [G+]
-R4 L3:       |     |                [Bg+]------------[Bg+]  |
-R4 L2:       |    [CG+]-------------[CG+]             |     | 
-R4 L1:-------|-----|--->[Cu-]------>[Cu-]             |     |
-### RING 3:  ^     v     v          <CG+>            /Bg+\ <G+>
-R3 L4:-------|-----|-----|--->[XA-]                   |
-R3 L3:       |     |    [XB+]-[XB+]                   |
-R3 L2:       |    [XC+]-[XC+]  |                      |
-R3 L1:      [XD+]-[XD+]  |     |                      |
-### RING 2:       <XD+> <XC+> <XB+>                   ^
-R2 L4:                                                |
-R2 L3:                                    [H+]--[H+]  |
-R2 L2:----------------------------------->[T+]   |    |
-R2 L1:                                    [Bg+]--|---[Bg+]
-### RING 1:                               <Bg+> /H+\
-R1 L4:                                           |
-R1 L3:                                           |
-R1 L2:                                           |
-R1 L1:                                           |
-### SOL:                                         ^
-R0 L1:                                          [H+]  
 ###
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -497,19 +497,18 @@ R0 L1:                                                                 [H+]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-[Rs+] exists only inside the Sun: a third transmutation chamber turns [Qg-]
+[Rs+] exists only inside the Sun: discard [Qg-] into the Sun and it transmutes
 into [Rs+]. [Qg-] itself is [D+] + [T+] - the first compound you make from two
-transmuted resources. Click the Sun to inspect the chambers.
+transmuted resources.
 
 Ring 2 must carry [T+], [D+], [Cf-] and [Rs+] - all four of its lanes. There is
 no room for [Vt-] and [Qg-] there, so build those two factories on Ring 1,
-where their [-] output drops straight into a Sun chamber. The Sun will finish
-with all eight of its lanes at work.
+where their [-] output drops straight into the Sun.
 
 Inject [Ir-] and [Cu-] on Ring 7 at 4/s. Build three [Cf-] factories on Ring 5
-to keep the [T+] chamber fed, [St-] on Ring 6, Insert [Cu-] down to Ring 3, and
+to keep the [T+] transmutation fed, [St-] on Ring 6, Insert [Cu-] down to Ring 3, and
 put [Mt+] on Ring 2 where it can pull [Cu-], [St-] and [T+]. On Ring 1, [Vt-]
-from [Mt+]+[T+] and [Qg-] from [D+]+[T+] feed chambers 2 and 3. Extract [T+],
+from [Mt+]+[T+] and [Qg-] from [D+]+[T+] drop into the Sun to become [D+] and [Rs+]. Extract [T+],
 [D+] and [Rs+] from the Sun, chain [Rs+] outward with Extractors and ship it
 from Ring 7.
 
