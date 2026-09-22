@@ -8,8 +8,8 @@ Key:
 [H+] flows outward from the Sun. A building that pulls resources outward can 
 capture it for you.
 
-Extractors draw resources from the ring below and push them outward. Build one 
-on the one available ring to feed [H+] to a waiting ship.
+An Extractor draws resources from the ring below and pushes them outward. Build
+one on the one available ring to feed [H+] to a waiting ship.
 
 Build a building on the ring. Click on it and make it an Extractor. Choose [H+] 
 as the extracted resource. 
@@ -36,10 +36,10 @@ ring 1 below or 2 below the [Ir-]. Then build a [Hi+] factory ([H+]+[St-]→[Hi+
 where outward-flowing [H+] and inward-flowing [St-] are also both 1 or 2 rings
 above the factory.
 
-Inject [Ir-] on Ring 5 (outermost), then Build a [St-] factory on Ring 4 to deposit [St-] 
-on Ring 3. Build a [Hi+] factory on Ring 1 and supply it additionally with [H+]
-by building a [H+] extractor on Ring 1. Finish by constructing [Hi+] extractors
-on Rings 3 and 5.
+Inject [Ir-] on Ring 5 (outermost), then build a [St-] factory on Ring 4 to
+deposit [St-] on Ring 3. Build a [Hi+] factory on Ring 1 and supply it
+additionally with [H+] by building a [H+] Extractor on Ring 1. Finish by
+extracting [Hi+] outward at Rings 3 and 5.
 
 ! LEVEL 2 SHORTHAND:
 R5:  /Hi+\      | L1: >[Ir-]  L2: ·
@@ -73,14 +73,14 @@ L1:                           [H+]
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 Focus first on transmuting [T+]. You will need to combine [Cu-] and [Ir-] into 
-[Cf-] and use Injectors to cast this into Sol, creating [T+] which can then 
+[Cf-] and use an Injector to cast this into Sol, creating [T+] which can then 
 be exported.
 
 Your [Bg+] factory will need to pull [H+] and [T+] from the ring immediately 
 above it; the [Bg+] it produces occupies the third lane of that ring (Ring 4).
 
 Both [Cu-] and [Ir-] need to be injected onto the outermost Ring 5. The [Bg+] 
-factories must be on Ring [3].
+factory must be on Ring 3.
 
 ! LEVEL 3 SHORTHAND:
 R5:  /Bg+\                 | L1: >[Ir-]  L2: >[Cu-]     L3: ·
@@ -119,8 +119,7 @@ L1:               [H+]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-To serve all the factories required to complete this level, [Ir-] needs to be 
-injected on a higher Ring than [Cu-].
+To complete this level, [Ir-] needs to be injected on a higher Ring than [Cu-].
 
 [Cu-] needs to be injected on Ring 5, and also Inserted down to Ring 3.
 Similarly, [Ir-] needs to be injected on Ring 6 and also Inserted down to Ring 4.
@@ -174,8 +173,8 @@ two Rings above the [XB+] factory.
 
 The [XC+] factory shares the same Ring as the [XB+] factory.
 
-[Cu-] should be made available on all of Rings 8, 6 and 4. The [XC+] factories
-then reside on Ring 2. 
+[Cu-] should be made available on all of Rings 8, 6 and 4. The [XC+] factory
+then resides on Ring 2. 
 
 
 ! LEVEL 5 SHORTHAND:
@@ -228,20 +227,19 @@ R0 L1:                               [H+]
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-[SW+] is fed by three separate production lines, so build them in parallel:
+[SW+] is fed by three separate production lines:
 [G+] from [Si-], [Ir-] straight from an injector, and [CG+] from the [Bg+]
 chain. Only the [Bg+] line needs the Sun: [Cf-] goes in, [T+] comes back out.
 
 The [Cf-]→[T+]→[Bg+]→[CG+] path spans most of the map. Make [Cf-] on Ring 5,
-Insert it down Rings 3 and 1 into Sol, then Extract the resulting [T+] back up
-to Rings 2 and 4. Build [Bg+] on Ring 2 where it can see both [H+] and [T+],
-then carry [Bg+] back outward to Ring 5 for the [CG+] factory.
+push it down into Sol, then bring the resulting [T+] back out to Rings 2 and 4.
+Build [Bg+] on Ring 2 where it can see both [H+] and [T+], then carry [Bg+] back
+outward to Ring 5 for the [CG+] factory.
 
-Inject [Si-] on Ring 7 and [Ir-]/[Cu-] on Ring 6. Build the [G+] and [Cf-]
-factories on Ring 5; their products land on Rings 6 and 4. Run [H+] up from Sol
-with Extractors on Rings 1 and 3, then build [Bg+] on Ring 2, [CG+] on Ring 4
-(it needs the injected [Cu-]) and [SW+] on Ring 4. Ship it outward with
-Extractors on Rings 6 and 8.
+Inject [Si-] on Ring 7 and [Ir-]/[Cu-] on Ring 6. Build the [G+] factory and the
+[Cf-] factory on Ring 5; their products land on Rings 6 and 4. Run [H+] up from
+Sol to Ring 4, then build [Bg+] on Ring 2, [CG+] on Ring 4 (it needs the
+injected [Cu-]) and [SW+] on Ring 4. Carry [SW+] outward and ship it from Ring 8.
 
 ! LEVEL 6 SHORTHAND:
 R8:  /SW+\             | L1: ·       L2: ·          L3: ·
@@ -296,10 +294,8 @@ R0 L1:                  [H+]
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 [XD+] is the meeting point of three branches: [XA-] to [XB+] to [XC+], [T+] to
-[Bg+] to [CG+], and [Si-] to [G+]. The injectors run at 30/s, so build
-duplicate factories along each branch or the lanes will back up behind them -
-and note that [Ir-] is never supplied, so skip the [St-]/[Hi+]/[Cf-] line
-entirely.
+[Bg+] to [CG+], and [Si-] to [G+]. There is no [Ir-] supply, so skip the
+[St-]/[Hi+]/[Cf-] line entirely.
 
 The middle of the map is full: Ring 4 must carry [Cu-], [CG+], [Bg+] and [G+],
 and Ring 3 must carry [XA-], [XB+], [XC+] and [XD+] - all four lanes on each.
@@ -309,7 +305,7 @@ Put the [XB+], [XC+] and [XD+] factories on Ring 2 so they can see Rings 3 and
 Inject [XA-] on Ring 3, [Cu-] on Ring 4, [Si-] on Ring 5 and [T+] on Ring 2.
 On Ring 1, an [H+] Extractor feeds the [Bg+] factory together with the injected
 [T+]; on Ring 3 make [CG+] and [G+]; on Ring 2 chain [XB+] to [XC+] to [XD+].
-Extract [XD+] outward on Rings 4 and 6 and ship it from Ring 6.
+Carry [XD+] outward to Ring 6 and ship it from there.
 
 ! LEVEL 7 SHORTHAND:
 R6:  /XD+\                 | L1: ·       L2: ·       L3: ·       L4: ·
@@ -369,7 +365,7 @@ above, [G+] two rings above).
 
 Inject [Ir-] and [Si-] on Ring 7, the second [Si-] on Ring 5, [Cu-] on Ring 3
 and [T+] on Ring 2. On Ring 1 build the [H+] Extractor with the [Bg+] and
-[CG+] factories, and on Ring 2 the [Hi+] factory. Use Extractor hops to lift
+[CG+] factories, and on Ring 2 the [Hi+] factory. Lift
 [H+], [Bg+] and [CG+] to Ring 4 (and [Bg+]/[CG+] on to Ring 6) and [Hi+] to
 Ring 5. Build [St-], [G+] and [SW+] on Ring 5, [OO-] on Ring 6 and [OP+] on
 Ring 4, then ship from Ring 8.
@@ -438,7 +434,7 @@ Focus first on transmuting [T+], you will need this to produce [Mt+], and you
 will then need both [Mt+] and [T+] to produce [Vt-] on Ring 3.
 
 You need all of [Cf-], [Vt-], [T+] and [D+] on Ring 2, and the [Mt+]
-factories must be on Ring 4.
+factory must be on Ring 4.
 
 
 ! LEVEL 9 SHORTHAND:
@@ -502,15 +498,15 @@ into [Rs+]. [Qg-] itself is [D+] + [T+] - the first compound you make from two
 transmuted resources.
 
 Ring 2 must carry [T+], [D+], [Cf-] and [Rs+] - all four of its lanes. There is
-no room for [Vt-] and [Qg-] there, so build those two factories on Ring 1,
-where their [-] output drops straight into the Sun.
+no room for [Vt-] and [Qg-] there, so make [Vt-] and [Qg-] on Ring 1, where
+their [-] output drops straight into the Sun.
 
-Inject [Ir-] and [Cu-] on Ring 7 at 4/s. Build three [Cf-] factories on Ring 5
-to keep the [T+] transmutation fed, [St-] on Ring 6, Insert [Cu-] down to Ring 3, and
-put [Mt+] on Ring 2 where it can pull [Cu-], [St-] and [T+]. On Ring 1, [Vt-]
-from [Mt+]+[T+] and [Qg-] from [D+]+[T+] drop into the Sun to become [D+] and [Rs+]. Extract [T+],
-[D+] and [Rs+] from the Sun, chain [Rs+] outward with Extractors and ship it
-from Ring 7.
+Inject [Ir-] and [Cu-] on Ring 7. Build a [Cf-] factory on Ring 5 to keep the
+[T+] transmutation fed, [St-] on Ring 6, Insert [Cu-] down to Ring 3, and put
+[Mt+] on Ring 2 where it can pull [Cu-], [St-] and [T+]. On Ring 1, [Vt-] from
+[Mt+]+[T+] and [Qg-] from [D+]+[T+] drop into the Sun to become [D+] and [Rs+].
+Extract [T+], [D+] and [Rs+] from the Sun, carry [Rs+] outward and ship it from
+Ring 7.
 
 ! LEVEL 10 SHORTHAND:
 R7:  /Rs+\                            | L1: >[Ir-]  L2: >[Cu-]     L3: ·      L4: ·
