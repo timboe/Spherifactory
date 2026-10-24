@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ader-da-silva-phyllodia-1451.ogg-1275d4b076063e38c00439fac5461bc4.oggstr"
+
+[deps]
+
+source_file="res://resources/ader-da-silva-phyllodia-1451.ogg"
+dest_files=[ "res://.import/ader-da-silva-phyllodia-1451.ogg-1275d4b076063e38c00439fac5461bc4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

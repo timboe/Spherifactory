@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Thud-SoundBible.com-395560493.wav-4af8e5006772cdf2be79caca9542aa91.sample"
+
+[deps]
+
+source_file="res://resources/Thud-SoundBible.com-395560493.wav"
+dest_files=[ "res://.import/Thud-SoundBible.com-395560493.wav-4af8e5006772cdf2be79caca9542aa91.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

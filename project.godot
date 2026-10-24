@@ -11,11 +11,14 @@ config_version=4
 [application]
 
 config/name="Spherifactory"
+config/description="A 2D space-factory puzzle game. Build extractors, inserters, and factories around a living star, transmute resources into complex compounds, and ship them across ten handcrafted missions."
 run/main_scene="res://Title.tscn"
 boot_splash/image="res://images/splash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://images/ico.png"
 config/windows_native_icon="res://images/ico.ico"
+config/version="1.0"
+config/copyright="2026 Tim Martin"
 
 [autoload]
 
@@ -27,7 +30,8 @@ Sfx="*res://scenes/Sfx.tscn"
 
 window/size/width=1280
 window/size/height=720
-window/stretch/mode="canvas_items"
+window/handheld/orientation=4
+window/stretch/mode="2d"
 window/stretch/aspect="keep_width"
 
 [editor_plugins]
@@ -51,8 +55,7 @@ ui_accept={
 }
 ui_select={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":3,"pressure":0.0,"pressed":false,"script":null)
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":3,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
 ui_left={
@@ -90,12 +93,12 @@ ui_click={
 }
 ui_zoom_in={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"canceled":false,"pressed":false,"doubleclick":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 ui_zoom_out={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"canceled":false,"pressed":false,"doubleclick":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 ui_pause={
@@ -126,7 +129,7 @@ pointing/emulate_touch_from_mouse=true
 
 [locale]
 
-translations=PoolStringArray( "res://language/spherifactory_language_matrix.de.translation", "res://language/spherifactory_language_matrix.en.translation", "res://language/spherifactory_language_matrix.es.translation", "res://language/spherifactory_language_matrix.fr.translation", "res://language/spherifactory_language_matrix.id.translation", "res://language/spherifactory_language_matrix.it.translation", "res://language/spherifactory_language_matrix.ja.translation", "res://language/spherifactory_language_matrix.ko.translation", "res://language/spherifactory_language_matrix.pl.translation", "res://language/spherifactory_language_matrix.pt_BR.translation", "res://language/spherifactory_language_matrix.ru.translation", "res://language/spherifactory_language_matrix.vi.translation", "res://language/spherifactory_language_matrix.zh.translation" )
+translations=PoolStringArray( "res://language/spherifactory_language_matrix.de.translation", "res://language/spherifactory_language_matrix.en.translation", "res://language/spherifactory_language_matrix.es.translation", "res://language/spherifactory_language_matrix.fr.translation", "res://language/spherifactory_language_matrix.id.translation", "res://language/spherifactory_language_matrix.it.translation", "res://language/spherifactory_language_matrix.ja.translation", "res://language/spherifactory_language_matrix.ko.translation", "res://language/spherifactory_language_matrix.pl.translation", "res://language/spherifactory_language_matrix.pt_BR.translation", "res://language/spherifactory_language_matrix.ru.translation", "res://language/spherifactory_language_matrix.vi.translation", "res://language/spherifactory_language_matrix.zh_Hans_CN.translation" )
 locale_filter=[ 0, [  ] ]
 
 [rendering]

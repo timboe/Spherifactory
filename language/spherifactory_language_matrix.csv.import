@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://language/spherifactory_language_matrix.en.translation", "res://language/spherifactory_language_matrix.de.translation", "res://language/spherifactory_language_matrix.es.translation", "res://language/spherifactory_language_matrix.fr.translation", "res://language/spherifactory_language_matrix.id.translation", "res://language/spherifactory_language_matrix.it.translation", "res://language/spherifactory_language_matrix.ja.translation", "res://language/spherifactory_language_matrix.ko.translation", "res://language/spherifactory_language_matrix.pl.translation", "res://language/spherifactory_language_matrix.pt_BR.translation", "res://language/spherifactory_language_matrix.ru.translation", "res://language/spherifactory_language_matrix.vi.translation", "res://language/spherifactory_language_matrix.zh_Hans_CN.translation" ]
+
+source_file="res://language/spherifactory_language_matrix.csv"
+dest_files=[ "res://language/spherifactory_language_matrix.en.translation", "res://language/spherifactory_language_matrix.de.translation", "res://language/spherifactory_language_matrix.es.translation", "res://language/spherifactory_language_matrix.fr.translation", "res://language/spherifactory_language_matrix.id.translation", "res://language/spherifactory_language_matrix.it.translation", "res://language/spherifactory_language_matrix.ja.translation", "res://language/spherifactory_language_matrix.ko.translation", "res://language/spherifactory_language_matrix.pl.translation", "res://language/spherifactory_language_matrix.pt_BR.translation", "res://language/spherifactory_language_matrix.ru.translation", "res://language/spherifactory_language_matrix.vi.translation", "res://language/spherifactory_language_matrix.zh_Hans_CN.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

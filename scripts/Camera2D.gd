@@ -1,6 +1,7 @@
 extends Camera2D
 
 const MOVE_SPEED = 300
+const KEY_ZOOM_RATE := 8.0
 
 
 ##############################
@@ -13,6 +14,7 @@ export var noise : OpenSimplexNoise
 onready var info_dialog : WindowDialog = get_tree().get_root().find_node("InfoDialog",true,false)
 onready var input_capture : Node2D = get_tree().get_root().find_node("InputCapture",true,false)
 onready var ui : Control = get_tree().get_root().find_node("UI",true,false)
+onready var spacefield : TextureRect = get_tree().get_root().find_node("spacefield",true,false)
 
 const RUMBLE_OFFSET : float = 0.75
 
@@ -27,8 +29,10 @@ var events = {}
 var last_drag_distance = 0
 var pan_zoom_sensitivity = 10
 var zoom_speed = 0.05
-var min_zoom := 0.05 # 0.5
-var max_zoom := 20.0 # 2
+export(float) var min_zoom := 0.1
+export(float) var max_zoom := 2.0
+var trailer_min_zoom := 1.0 / 15.0
+var trailer_max_zoom := 1.0
 var zoom_target : Vector2 = zoom
 
 
@@ -61,11 +65,11 @@ func _unhandled_input(event):
 
 	# Zoom mouse - via unhandled input so GUI-consumed wheel events (scroll boxes) don't zoom
 	if event is InputEventMouseButton and event.is_pressed():
-		if event.button_index == BUTTON_WHEEL_UP and zoom_target.x > min_zoom:
-			zoom_target /= 1.1
+		if event.button_index == BUTTON_WHEEL_UP:
+			_set_zoom_target(zoom_target.x / 1.1)
 			change = true
-		if event.button_index == BUTTON_WHEEL_DOWN and zoom_target.x < max_zoom:
-			zoom_target *= 1.1
+		if event.button_index == BUTTON_WHEEL_DOWN:
+			_set_zoom_target(zoom_target.x * 1.1)
 			change = true
 		down_point = event.position
 	# Pan mouse
@@ -94,8 +98,7 @@ func _unhandled_input(event):
 			var drag_distance = events[0].position.distance_to(events[1].position)
 			if abs(drag_distance - last_drag_distance) > pan_zoom_sensitivity:
 				var new_zoom = (1 + zoom_speed) if drag_distance < last_drag_distance else (1 - zoom_speed)
-				new_zoom = clamp(zoom_target.x * new_zoom, min_zoom, max_zoom)
-				zoom_target = Vector2.ONE * new_zoom
+				_set_zoom_target(zoom_target.x * new_zoom)
 				last_drag_distance = drag_distance
 				input_capture.is_pan = true
 				change = true
@@ -104,27 +107,61 @@ func _unhandled_input(event):
 		_clamp_position_to_zoom()
 
 func _clamp_position_to_zoom():
-	var zoom_mod = clamp(zoom_target.x, 1.0, 2.0) / 1.5
-	var w : float = ProjectSettings.get_setting("display/window/size/width") * zoom_mod
-	var h : float = ProjectSettings.get_setting("display/window/size/height") * 1.3 * zoom_mod
-	global_position.x = clamp(global_position.x, -w, w)
-	global_position.y = clamp(global_position.y, -h, h)
+	if spacefield == null:
+		return
+	var view_zoom : float = max(zoom.x, zoom_target.x)
+	var viewport_size := Vector2(
+		float(ProjectSettings.get_setting("display/window/size/width")),
+		float(ProjectSettings.get_setting("display/window/size/height"))
+	)
+	var half_view : Vector2 = viewport_size * 0.5 * view_zoom
+	var bounds : Rect2 = spacefield.get_global_rect()
+	var center_min : Vector2 = bounds.position + half_view
+	var center_max : Vector2 = bounds.end - half_view
+	if center_min.x > center_max.x:
+		center_min.x = bounds.position.x + bounds.size.x * 0.5
+		center_max.x = center_min.x
+	if center_min.y > center_max.y:
+		center_min.y = bounds.position.y + bounds.size.y * 0.5
+		center_max.y = center_min.y
+	var center : Vector2 = global_position + offset
+	center.x = clamp(center.x, center_min.x, center_max.x)
+	center.y = clamp(center.y, center_min.y, center_max.y)
+	global_position = center - offset
+
+func _set_zoom_target(var new_zoom : float):
+	zoom_target = Vector2.ONE * clamp(new_zoom, min_zoom, max_zoom)
+	_clamp_position_to_zoom()
 
 func _process(delta):
 	apply_shake(delta)
 	decay_trauma(delta)
-	
+
+	var zoom_direction := 0.0
+	if Input.is_action_pressed("ui_zoom_in"):
+		zoom_direction -= 1.0
+	if Input.is_action_pressed("ui_zoom_out"):
+		zoom_direction += 1.0
+	if zoom_direction != 0.0:
+		_set_zoom_target(zoom_target.x * pow(1.1, zoom_direction * delta * KEY_ZOOM_RATE))
+
 	zoom = zoom + (zoom_target - zoom) * delta * 5.0
 	
+	var panning := false
 	if Input.is_action_pressed("ui_left"):
 		global_position += Vector2.LEFT * delta * MOVE_SPEED * zoom.x
+		panning = true
 	elif Input.is_action_pressed("ui_right"):
 		global_position += Vector2.RIGHT * delta * MOVE_SPEED * zoom.x
+		panning = true
 	if Input.is_action_pressed("ui_up"):
 		global_position += Vector2.UP * delta * MOVE_SPEED * zoom.x
+		panning = true
 	elif Input.is_action_pressed("ui_down"):
 		global_position += Vector2.DOWN * delta * MOVE_SPEED * zoom.x
-		
+		panning = true
+	if panning:
+		_clamp_position_to_zoom()
 	if Input.is_action_just_pressed("toggle_ui"):
 		ui.visible = !ui.visible
 				

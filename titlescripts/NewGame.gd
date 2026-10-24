@@ -1,6 +1,5 @@
 extends Button
 
-const test_save := "res://test_save.json"
 var dict : Dictionary
 
 func new_game_common():

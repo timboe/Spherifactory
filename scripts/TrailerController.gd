@@ -18,7 +18,7 @@ export(float) var finale_delay := 1.5        # Hold on the launching factory bef
 export(float) var finale_zoom := 1/1.1       # Final reveal (apparent ~1.1x: whole spheri-factory in frame; build renders zoom inverted)
 export(float) var finale_duration := 8.0     # Seconds for the zoom-out / centre on the sun
 export(float) var max_duration := 0.0        # Optional safety timeout (0 = unlimited)
-export(bool) var show_debug := true          # Show the on-screen status readout (F10 toggles)
+export(bool) var show_debug := false         # Show the on-screen status readout (developer use only)
 
 ##############
 # State
@@ -75,13 +75,10 @@ func _ready():
 
 func _input(event):
 	if event is InputEventKey and event.pressed and not event.echo and event.scancode == KEY_F10:
-		debug_label.visible = not debug_label.visible
+		toggle()
 
 func _process(delta):
 	update_debug()
-	if Input.is_action_just_pressed("trail_start"):
-		toggle()
-		return
 	time += delta
 	if overlay != null and overlay_t >= 0.0 and overlay_t < 2.0 * finale_duration + overlay_fade_out_time:
 		overlay_t += delta
@@ -109,6 +106,8 @@ func _process(delta):
 			update_finale(delta)
 
 func update_debug():
+	if not debug_label.visible and not Global.DEBUG:
+		return
 	var follow_name : String = "none"
 	var z : float = 0.0
 	var zt : float = 0.0
@@ -193,7 +192,7 @@ func update_follow_zoom():
 	var z : float = follow_zoom
 	if zoom_variation > 0.0 and zoom_variation_period > 0.0:
 		z *= 1.0 + zoom_variation * sin(time * TAU / zoom_variation_period)
-	camera.zoom_target = Vector2.ONE * clamp(z, camera.min_zoom, camera.max_zoom)
+	camera.zoom_target = Vector2.ONE * clamp(z, camera.trailer_min_zoom, camera.trailer_max_zoom)
 
 func timed_out() -> bool:
 	return max_duration > 0.0 and time > max_duration

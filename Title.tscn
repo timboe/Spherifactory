@@ -997,18 +997,28 @@ follow_focus = true
 
 [node name="VB" type="VBoxContainer" parent="Credits/MC/MC/VB/SC"]
 margin_right = 512.0
-margin_bottom = 21697.0
+margin_bottom = 22313.0
 size_flags_horizontal = 3
 
 [node name="Credits" type="Label" parent="Credits/MC/MC/VB/SC/VB"]
 margin_right = 504.0
 margin_bottom = 21697.0
-text = "Spherifactory by Tim Martin, 2021
-MIT licensed source code available at github.com/timboe
+text = "Spherifactory by Tim Martin, 2026
+MIT licensed source code available at github.com/timboe/Spherifactory
 
 Made with the Godot game engine [godotengine.org]
 
-Music by AdÃ©rito Silva: Rareness of Existence, Naval Proeminence, Phyllodia [pixabay.com, Pixabay License]
+Music by Adérito Silva: Rareness of Existence, Naval Proeminence, Phyllodia [pixabay.com, Pixabay License]
+
+Sound effects:
+ * Victory by SilverIllusionist [freesound.org/people/SilverIllusionist/sounds/462249, CC-BY 4.0]
+ * Firework by Quistard [freesound.org/people/Quistard/sounds/237753, CC-BY 3.0]
+ * Blips and coin by The-Sacha-Rush [freesound.org/people/The-Sacha-Rush/sounds/336928, CC0]
+ * Click by waveplaySFX [freesound.org/people/waveplaySFX/sounds/399934, CC0]
+ * Cancel by Raclure [freesound.org/people/raclure/sounds/405548, CC0]
+ * Thud by SoundBible.com [soundbible.com, CC-BY 3.0]
+ * CC-BY 3.0: creativecommons.org/licenses/by/3.0
+ * CC-BY 4.0: creativecommons.org/licenses/by/4.0
 
 Space backgrounds by fraang [opengameart.org, CC-BY-SA 3.0]
 
@@ -1016,13 +1026,11 @@ Advent Pro by Andreas Kalpakidis [fonts.google.com, OFL]
 
 Noto Sans by Google [fonts.google.com, OFL]
 
-Menu futuristic by Deakcor [itch.io]
-
-Images from the Kenny particle pack [kenney.nl, CC0 1.0 Universal]
+Images from the Kenney particle pack [kenney.nl, CC0 1.0 Universal]
 
 Domain Warping: Oil by zaiyugi [shadertoy.com]
 
-Icons made by [freepik.com] from [flaticon.com]
+Icons made by bqlqn, Pixel perfect, and Freepik [flaticon.com]
 
 Icons from the noun project [thenounproject.com]
  * satelite by Soremba from the Noun Project
@@ -1034,7 +1042,7 @@ Icons from the noun project [thenounproject.com]
  * back by The Icon Z from the Noun Project
  * Save by HASTA ICON from the Noun Project
  * paste by kreationspace from the Noun Project
- * copy by Rafael Farias LeÃ£o from the Noun Project
+ * copy by Rafael Farias Leão from the Noun Project
  * editing by Syawaluddin from the Noun Project
  * new by Alice Design from the Noun Project
  * recipe by Heztasia from the Noun Project
@@ -1050,6 +1058,9 @@ Icons from the noun project [thenounproject.com]
  * congratulations by IOHK Design Department from the Noun Project
  * Recipe Book by Royyan Wijaya from the Noun Project
  * hint by Adrien Coquet from the Noun Project
+ * Rocket by Maxim Kulikov from the Noun Project
+ * keyboard button by AB Designs from the Noun Project
+ * mouse scroll by Hoang Loi from the Noun Project
  * Language by The Icon Z from the Noun Project
  * Camera by Enjang Solehudin from the Noun Project
 
@@ -2064,10 +2075,10 @@ margin_bottom = 25.0
 text = "ui_colour"
 
 [node name="ColorPicker" type="ColorPicker" parent="CampaignEditor/CustomResourceDialog/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_left = 12.0
-margin_top = 41.0
-margin_right = 392.0
-margin_bottom = 483.0
+margin_left = 20.0
+margin_top = 49.0
+margin_right = 400.0
+margin_bottom = 491.0
 edit_alpha = false
 presets_enabled = false
 presets_visible = false
@@ -2610,8 +2621,8 @@ margin_top = 32.0
 margin_right = 1248.0
 margin_bottom = 688.0
 size_flags_vertical = 5
-text = "Spherifactory by Tim Martin, 2021
-Music by AdÃ©rito Silva: Rareness of Existence, Naval Proeminence, Phyllodia"
+text = "Spherifactory by Tim Martin, 2026
+Music by Adérito Silva: Rareness of Existence, Naval Proeminence, Phyllodia"
 align = 2
 valign = 2
 

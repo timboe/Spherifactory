@@ -25,6 +25,8 @@ func _ready():
 	var saved_settings = load_from_disk(Global.SETTINGS_SAVE_FILE)
 	for key in saved_settings:
 		Global.settings[key] = saved_settings[key]
+	if Global.settings["lang"] == "zh":
+		Global.settings["lang"] = "zh_Hans_CN"
 	if Global.settings["fullscreen"] != OS.window_fullscreen:
 		OS.window_fullscreen = Global.settings["fullscreen"]
 	# Fullscreen<->windowed transitions can leave the window at a stale

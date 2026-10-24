@@ -1,54 +1,53 @@
-RaCombo
+# Spherifactory
 
-Assets: 
- * <div>Icons made by <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">bqlqn</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
- * Kenny particle pack
- * https://opengameart.org/content/space-backdrop
- * <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
- * <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
- * satelite by Soremba from the Noun Project
- * fast forward by sureya from the Noun Project
- * pause by amantaka from the Noun Project
- * Circle by Chris Kerr from the Noun Project
- * hamburger menu by Robert Won from the Noun Project
- * Up Up by Najaya Design from the Noun Project
- * back by The Icon Z from the Noun Project
- * Save by HASTA ICON from the Noun Project
- * paste by kreationspace from the Noun Project
- * copy by Rafael Farias Leão from the Noun Project
- * editing by Syawaluddin from the Noun Project
- * new by Alice Design from the Noun Project
- * recipe by Heztasia from the Noun Project
- * elements by priyanka from the Noun Project
- * Spade by Adrien Coquet from the Noun Project
- * open by Gregor Cresnar from the Noun Project
- * Settings by Adriansyah from the Noun Project
- * Exit by Morten Halvorsen from the Noun Project
- * play by Adriansyah from the Noun Project
- * Infinity by Dmitry Mirolyubov from the Noun Project
- * replace by Sophia Bai from the Noun Project
- * Next by shashank singh from the Noun Project
- * congratulations by IOHK Design Department from the Noun Project
- * Recipe Book by Royyan Wijaya from the Noun Project
- * hint by Adrien Coquet from the Noun Project
- https://opengameart.org/content/space-backgrounds-0
+A 2D space-factory puzzle game. Build extractors, inserters, and factories around a living star, transmute resources into complex compounds, and ship them across ten handcrafted missions. Includes a sandbox mode and a campaign editor for building your own puzzles.
 
- Music by <a href="/users/aderitosilva-18974644/?tab=audio&amp;utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=audio&amp;utm_content=4314">AderitoSilva</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=4314">Pixabay</a>
+## Run
 
- https://www.shadertoy.com/view/WssSz8
- or
- https://www.shadertoy.com/view/4sBfDw
+Requires Godot 3.6.2.
 
-still to do
----
+- Open `project.godot` in Godot 3.6.2 and press F5.
+- Or run from PowerShell:
 
- https://freesound.org/people/SilverIllusionist/sounds/462249/
+```powershell
+godot --path .
+```
 
- Rocket by Maxim Kulikov from the Noun Project
- keyboard button by AB Designs from the Noun Project
- mouse scroll by Hoang Loi from the Noun Project
+## Controls
 
+- Pan the camera: W/A/S/D, arrow keys, or middle-mouse drag.
+- Zoom: mouse wheel, or Q (zoom out) / E (zoom in).
+- Select a ring or place a building: left click.
+- Cancel build or injection mode: right click.
+- Pause or unpause: Space.
+- Fast-forward, outlines, save/load, and menu: on-screen HUD buttons.
 
- https://freesound.org/people/Quistard/sounds/237753/
+## Build
 
- https://freesound.org/people/The-Sacha-Rush/sounds/336928/ (1-10)
+Install matching Godot 3.6.2 export templates, then use the **Windows Desktop** or **macOS** preset in `export_presets.cfg`.
+
+Windows example:
+
+```powershell
+godot --path . --export "Windows Desktop" "build\windows\Spherifactory.exe"
+```
+
+macOS builds use ad-hoc signing and are not notarized. If Gatekeeper blocks the first launch, use right-click > Open, or remove the quarantine flag from the app. See `PRE_RELEASE_CHECKLIST.md` for the release process.
+
+## Credits and licenses
+
+Source code is MIT licensed; see `LICENSE.md`. Source repository: <https://github.com/timboe/Spherifactory>.
+
+Third-party assets:
+
+- Music: Adérito Silva - Rareness of Existence, Naval Proeminence, Phyllodia (Pixabay License)
+- Sound effects: SilverIllusionist (CC-BY 4.0), Quistard (CC-BY 3.0), The-Sacha-Rush (CC0), waveplaySFX (CC0), Raclure (CC0), and SoundBible.com (CC-BY 3.0)
+- Space backgrounds: fraang (OpenGameArt, CC-BY-SA 3.0)
+- Advent Pro: Andreas Kalpakidis (OFL)
+- Noto Sans: Google (OFL)
+- Kenney particle pack: Kenney (CC0 1.0 Universal)
+- Domain Warping: Oil: zaiyugi (Shadertoy)
+- Icons: bqlqn, Pixel perfect, and Freepik via Flaticon; Noun Project contributors as listed in the in-game Credits screen
+- Godot Engine: Godot Engine contributors (MIT)
+
+Full attribution and license texts are available from the in-game Credits screen.
